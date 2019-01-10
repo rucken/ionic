@@ -1,0 +1,231 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "Select language"
+msgstr "Выберите язык"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Select"
+msgstr "Выбрать"
+
+msgid "Russian"
+msgstr "Русский"
+
+msgid "English"
+msgstr "Английский"
+
+msgid "Rucken Ionic"
+msgstr "Rucken Ionic"
+
+msgid "Core with Admin UI for web and native application maked on Angular7+"
+msgstr ""
+"Ядро с пользовательским интерфейсом администратора для веб и нативных "
+"приложений, сделанных на Angular7 +"
+
+msgid ""
+"<p>Demo users:</p><ul>\n"
+"<li>user with admin group: admin@admin.com, password: 12345678</li>\n"
+"<li>user with user group: user1@user1.com, password: 12345678</li>\n"
+"<li>user with user group: user2@user2.com, password: 12345678</li>\n"
+"</ul>"
+msgstr ""
+"<p>Демо пользователи:</p><ul>\n"
+"<li>пользователь с группой \"Администратор\": admin@admin.com, password: "
+"12345678</li>\n"
+"<li>пользователь с группой \"Пользователь\": user1@user1.com, password: "
+"12345678</li>\n"
+"<li>пользователь с группой \"Пользователь\": user2@user2.com, password: "
+"12345678</li>\n"
+"</ul>"
+
+msgid "Sign in with Facebook"
+msgstr "Вход через Facebook"
+
+msgid "Sign in with Google+"
+msgstr "Вход через Google+"
+
+msgid "Groups"
+msgstr "Группы"
+
+msgid "Groups page"
+msgstr "Группы"
+
+msgid "Home"
+msgstr "Домашняя"
+
+msgid "Home page"
+msgstr "Домашняя страница"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Profile page"
+msgstr "Профиль"
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "Users page"
+msgstr "Пользователи"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Sort field"
+msgstr "Поле сортировки"
+
+msgid "Sort type"
+msgstr "Тип сортировки"
+
+msgid "Id"
+msgstr "Ид."
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Administrator"
+msgstr "Администратор"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "First name"
+msgstr "Имя"
+
+msgid "Last name"
+msgstr "Фамилия"
+
+msgid "Email"
+msgstr "Эл. почта"
+
+msgid "Last login"
+msgstr "Дата последнего входа"
+
+msgid "Date joined"
+msgstr "Дата регистрации"
+
+msgid "Date of birth"
+msgstr "Дата рождения"
+
+msgid "Asc"
+msgstr "По возр"
+
+msgid "Desc"
+msgstr "По убыв"
+
+msgid "Users filters"
+msgstr "Фильтры пользователей"
+
+msgid "Sign out"
+msgstr "Выйти"
+
+msgid "Do you really want to leave?"
+msgstr "Вы действительно хотите выйти?"
+
+msgid "OK"
+msgstr "Ок"
+
+msgid "Error Log"
+msgstr "Ошибка"
+
+msgid "Sign in"
+msgstr "Войти"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Repeat password"
+msgstr "Пароль (повторно)"
+
+msgid "Full name"
+msgstr "Полное имя"
+
+msgid "User filters"
+msgstr "Фильтры пользователей"
+
+msgid "Info"
+msgstr "Информация"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Authorization"
+msgstr "Авторизация"
+
+msgid "Authorization page"
+msgstr "Авторизация"
+
+msgid "Split button!"
+msgstr "Разделитель"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+"Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
+
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+msgid "Registration"
+msgstr "Регистрация"
+
+msgid "Item #{{id}}"
+msgstr "Запись #{{id}}"
+
+msgid "Create new item"
+msgstr "Создать новую запись"
+
+msgid "Update item #{{id}}"
+msgstr "Изменить запись #{{id}}"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Delete item #{{id}}"
+msgstr "Удалить запись #{{id}}"
+
+msgid "Do you really want to delete item?"
+msgstr "Вы действительно хотите удалить эту запись?"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Confirm"
+msgstr "Запрос"
+
+msgid "Confirm password"
+msgstr "Пароль еще раз"
+
+msgid "Language"
+msgstr "Язык"

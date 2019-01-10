@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Sort field"
+msgstr ""
+
+msgid "Sort type"
+msgstr ""
+
+msgid "Id"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Asc"
+msgstr ""
+
+msgid "Desc"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Groups filters"
+msgstr ""
+
+msgid "Profile updated"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Staff"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Last login"
+msgstr ""
+
+msgid "Date joined"
+msgstr ""
+
+msgid "Date of birth"
+msgstr ""
+
+msgid "Users filters"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Error Log"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""

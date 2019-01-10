@@ -1,0 +1,16 @@
+<ng-container *ngIf="items$ | async as items">
+    <ion-select
+        class="full-width"
+        interface="alert"
+        [multiple]="multiple"
+        [disableControl]="disabled$ | async"
+        [(ngModel)]="selectedIds"
+        [cancelText]="noTitle | translate"
+        [okText]="yesTitle | translate">
+        <ion-select-option
+            *ngFor="let item of items; trackBy: trackByFn;"
+            [value]="item.id">
+            {{item[titleField]}}
+        </ion-select-option>
+    </ion-select>
+</ng-container>

@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@rucken/ionic": [
+        "dist/rucken/ionic"
+      ],
+      "@rucken/ionic/*": [
+        "dist/rucken/ionic/*"
+      ]
+    }
+  }
+}

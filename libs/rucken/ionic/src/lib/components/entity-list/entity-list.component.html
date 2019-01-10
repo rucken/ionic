@@ -1,0 +1,114 @@
+<ion-searchbar
+    *ngIf="showSearchField"
+    [formControl]="searchField"
+    animated></ion-searchbar>
+<ion-list>
+    <ng-container *ngFor="let item of items; trackBy: trackByFn;">
+        <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {item:item} }"></ng-container>
+    </ng-container>
+</ion-list>
+<ion-infinite-scroll
+    threshold="100px"
+    (ionInfinite)="onNextPage($event)">
+    <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        [loadingText]="'Loading...'|translate">
+    </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+<ng-content></ng-content>
+<ng-template
+    #defaultGridCellContent
+    let-ctx>
+    {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
+</ng-template>
+<ng-template
+    #defaultGridCellTranslatedContent
+    let-ctx>
+    {{(ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name])|customTranslate}}
+</ng-template>
+<ng-template
+    #defaultGridCellActionContent
+    let-ctx>
+    <ion-item-option
+        color="primary"
+        (click)="ctx.slidingItem.close();onUpdate(ctx.item)"
+        *ngIf="updateLink===undefined">
+        <ion-icon
+            slot="icon-only"
+            name="create">
+        </ion-icon>
+    </ion-item-option>
+    <ion-item-option
+        color="primary"
+        *ngIf="updateLink!==undefined"
+        (click)="ctx.slidingItem.close()"
+        [routerLink]="[updateLink+'/'+ctx.item.id]">
+        <ion-icon
+            slot="icon-only"
+            name="create">
+        </ion-icon>
+    </ion-item-option>
+    <ion-item-option
+        color="danger"
+        (click)="ctx.slidingItem.close();onDelete(ctx.item)"
+        *ngIf="deleteLink===undefined">
+        <ion-icon
+            slot="icon-only"
+            name="trash">
+        </ion-icon>
+    </ion-item-option>
+    <ion-item-option
+        color="danger"
+        *ngIf="deleteLink!==undefined"
+        (click)="ctx.slidingItem.close()"
+        [routerLink]="[deleteLink+'/'+ctx.item.id]">
+        <ion-icon
+            slot="icon-only"
+            name="trash">
+        </ion-icon>
+    </ion-item-option>
+</ng-template>
+<ng-template
+    let-ctx
+    #defaultGridCellTemplate>
+    <ion-item-sliding #slidingItem>
+        <ion-item
+            detail
+            (click)="slidingItem.close();onView(ctx.item)"
+            class="activated"
+            *ngIf="viewLink===undefined">
+            <ng-container *ngTemplateOutlet="itemLabelTemplate, context: {$implicit: ctx}"></ng-container>
+        </ion-item>
+        <ion-item
+            detail
+            class="activated"
+            *ngIf="viewLink!==undefined"
+            (click)="slidingItem.close()"
+            [routerLink]="[viewLink+'/'+ctx.item.id]">
+            <ng-container *ngTemplateOutlet="itemLabelTemplate, context: {$implicit: ctx}"></ng-container>
+        </ion-item>
+        <ion-item-options
+            side="start"
+            class="sliding-enabled"
+            *ngIf="columns.indexOf('action')!==-1">
+            <ng-container *ngTemplateOutlet="defaultGridCellActionContent, context: { $implicit: {item:ctx.item,slidingItem:slidingItem} }"></ng-container>
+        </ion-item-options>
+    </ion-item-sliding>
+</ng-template>
+<ng-template
+    let-ctx
+    #itemLabelTemplate>
+    <ion-label text-wrap>
+        <h2 *ngIf="ctx.item[columns[1]]">
+            <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[0],slidingItem:ctx.slidingItem}} }"></ng-container>
+        </h2>
+        <h3 *ngIf="ctx.item[columns[0]]">
+            <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[1],slidingItem:ctx.slidingItem}} }"></ng-container>
+        </h3>
+        <p
+            *ngIf="ctx.item[columns[2]]"
+            text-wrap>
+            <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[2],slidingItem:ctx.slidingItem}} }"></ng-container>
+        </p>
+    </ion-label>
+</ng-template>

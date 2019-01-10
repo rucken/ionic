@@ -1,0 +1,49 @@
+{
+  "name": "@rucken/ionic",
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6.4.0"
+  },
+  "private": true,
+  "license": "MIT",
+  "author": "EndyKaufman <admin@site15.ru>",
+  "description": "Admin UI for Ionic4 with Angular7+ mobile application",
+  "bugs": {
+    "url": "https://github.com/rucken/ionic/issues"
+  },
+  "homepage": "https://github.com/rucken/ionic",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rucken/ionic.git"
+  },
+  "keywords": [
+    "ngx",
+    "angular7",
+    "admin ui",
+    "mobile application",
+    "seed",
+    "i18n",
+    "ionic",
+    "mobile"
+  ],
+  "maintainers": [
+    {
+      "name": "EndyKaufman",
+      "email": "admin@site15.ru"
+    }
+  ],
+  "peerDependencies": {
+    "@angular/common": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@ionic/angular": "4.0.0-rc.1",
+    "@rucken/core": "^3.7.0"
+  },
+  "dependencies": {
+    "@ngx-translate/core": "^11.0.1",
+    "ngx-dynamic-form-builder": "^0.7.0",
+    "ngx-permissions": "^6.0.4",
+    "ngx-repository": "^0.6.2",
+    "bind-observable": "^1.0.2",
+    "@ionic/storage": "^2.2.0"
+  }
+}

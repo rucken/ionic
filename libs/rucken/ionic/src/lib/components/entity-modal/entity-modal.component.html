@@ -1,0 +1,34 @@
+<prompt-form-modal
+    [title]="title"
+    [message]="message"
+    [infoMessage]="infoMessage"
+    [errorMessage]="errorMessage"
+    [noTitle]="noTitle"
+    [yesTitle]="yesTitle"
+    [readonly]="readonly"
+    (no)="onNoClick()"
+    (yes)="onYesClick()"
+    [data]="data"
+    [processing]="processing$ | async"
+    [disabled]="disabled">
+    <form
+        [formGroup]="form"
+        *ngIf="form"
+        novalidate>
+        <ion-list lines="none">
+            <ng-container *ngFor="let key of keys; let i = index">
+                <form-group
+                    [checkIsDirty]="checkIsDirty"
+                    [form]="form"
+                    [name]="key"
+                    [title]="strings[key]">
+                    <ion-input
+                        [formControlName]="key"
+                        [readonly]="readonly"
+                        [autofocus]="i===0">
+                    </ion-input>
+                </form-group>
+            </ng-container>
+        </ion-list>
+    </form>
+</prompt-form-modal>

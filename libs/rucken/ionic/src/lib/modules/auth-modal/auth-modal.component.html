@@ -1,0 +1,64 @@
+<form
+    [formGroup]="form"
+    novalidate>
+    <prompt-form-modal
+        [title]="title"
+        [message]="message"
+        [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"
+        [errorMessage]="errorMessage"
+        [readonly]="readonly"
+        [noTitle]="noTitle"
+        [yesTitle]="yesTitle"
+        (no)="onNoClick()"
+        (yes)="onYesClick()"
+        [data]="data"
+        [processing]="processing$ | async"
+        [yesClass]="yesClass$ | async"
+        [noClass]="noClass$ | async"
+        [hideTopYes]="true"
+        #promptFormModal>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="username"
+            [title]="strings.username"
+            *ngIf="signUpType === type">
+            <ion-input
+                autocomplete="on"
+                formControlName="username"
+                focused>
+            </ion-input>
+        </form-group>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="email"
+            [title]="strings.email">
+            <ion-input
+                autocomplete="on"
+                formControlName="email">
+            </ion-input>
+        </form-group>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="password"
+            [title]="strings.password">
+            <ion-input
+                formControlName="password"
+                type="password">
+            </ion-input>
+        </form-group>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="rePassword"
+            [title]="strings.rePassword"
+            *ngIf="signUpType === type">
+            <ion-input
+                formControlName="rePassword"
+                type="password">
+            </ion-input>
+        </form-group>
+    </prompt-form-modal>
+</form>

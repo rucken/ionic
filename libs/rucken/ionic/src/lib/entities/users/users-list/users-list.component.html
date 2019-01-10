@@ -1,0 +1,37 @@
+<entity-list
+    [title]="title"
+    [items]="items$ | async"
+    (selected)="onSelected($event)"
+    [columns]="[ 'fullName', 'username', 'groups', 'action']"
+    [readonly]="readonly"
+    [strings]="strings"
+    [viewLink]="viewLink"
+    [updateLink]="updateLink"
+    [deleteLink]="deleteLink"
+    (create)="onCreateClick($event)"
+    (update)="onUpdateClick($event)"
+    (delete)="onDeleteClick($event)"
+    (view)="onViewClick($event)"
+    (search)="onSearch($event)"
+    (changeOrder)="onChangeOrder($event)"
+    (nextPage)="onNextPage()"
+    [paginationMeta]="paginationMeta$ | async"
+    [enableCreate]="'add_user' | perm:false | async"
+    [enableUpdate]="'change_user' | perm:false | async"
+    [enableDelete]="'delete_user' | perm:false | async"
+    (changePage)="onChangePage($event)"
+    [processing]="processing$ | async"
+    [gridCellContent]="gridCellContent"
+    #list>
+    <ng-content></ng-content>
+</entity-list>
+<ng-template
+    #gridCellContent
+    let-ctx>
+    <ng-container *ngIf="ctx.field.name!=='groups'">
+        {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
+    </ng-container>
+    <ng-container *ngIf="ctx.field.name==='groups' && ctx.item[ctx.field.name].length">
+        {{'Groups'|customTranslate}}: {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
+    </ng-container>
+</ng-template>

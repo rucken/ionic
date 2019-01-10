@@ -1,0 +1,47 @@
+<ion-list>
+    <ion-menu-toggle
+        auto-hide="false"
+        *ngFor="let item of leftRoutes$ | async">
+        <ng-container *ngTemplateOutlet="menuItemRef;context:{item:item}"></ng-container>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="false">
+        <ion-item
+            [button]="true"
+            (click)="onSignOutClick($event)"
+            *ngIf="showSignOut">
+            <ion-icon
+                slot="start"
+                name="log-out">
+            </ion-icon>
+            <ion-label>{{'Sign out' | translate}}</ion-label>
+        </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="false">
+        <ion-item
+            [button]="true"
+            (click)="onSignInClick($event)"
+            *ngIf="showSignIn">
+            <ion-icon
+                slot="start"
+                name="contact">
+            </ion-icon>
+            <ion-label>{{'Sign in' | translate}}</ion-label>
+        </ion-item>
+    </ion-menu-toggle>
+</ion-list>
+<ng-template
+    let-item="item"
+    #menuItemRef>
+    <ion-item
+        *ngIf="item && (!item?.permissions?.only || (item?.permissions?.only | perm:false | async))"
+        [ngClass]="{'active': router.isActive(item.url, false)}"
+        [routerDirection]="'root'"
+        [routerLink]="[item.url]">
+        <ion-icon
+            slot="start"
+            [name]="item.icon"
+            *ngIf="item.icon">
+        </ion-icon>
+        <ion-label>{{item.title | translate}}</ion-label>
+    </ion-item>
+</ng-template>

@@ -1,0 +1,18 @@
+<div
+    class="form-group"
+    [ngClass]="{'has-error': (errors | async)[0],'has-default': !((errors | async)[0])}">
+    <ion-item
+        (click)="input?.focus()"
+        lines="none">
+        <ion-label
+            *ngIf="title"
+            position="floating">
+            {{title | translate}}
+        </ion-label>
+        <ng-container *ngTemplateOutlet="contentWrapper"></ng-container>
+        <p *ngIf="(errors | async)[0]">{{(errors | async)[0] | translate}}</p>
+    </ion-item>
+</div>
+<ng-template #contentWrapper>
+    <ng-content></ng-content>
+</ng-template>

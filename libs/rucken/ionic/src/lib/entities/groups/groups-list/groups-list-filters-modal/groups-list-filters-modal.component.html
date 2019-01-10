@@ -1,0 +1,44 @@
+<form
+    [formGroup]="form"
+    novalidate>
+    <prompt-form-modal
+        [class]="class"
+        [title]="title"
+        [message]="message"
+        [infoMessage]="infoMessage"
+        [errorMessage]="errorMessage"
+        [noTitle]="noTitle"
+        [yesTitle]="yesTitle"
+        [readonly]="readonly"
+        (no)="onNoClick()"
+        (yes)="onYesClick()"
+        [data]="data"
+        [processing]="processing$ | async"
+        [disabled]="disabled"
+        iconTopYes="checkmark"
+        iconTopNo="close"
+        [hideYes]="true">
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="sortField"
+            [title]="strings.sortField">
+            <select-input
+                [items]="sortFields"
+                formControlName="sortField"
+                [disableControl]="readonly">
+            </select-input>
+        </form-group>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="sortType"
+            [title]="strings.sortType">
+            <select-input
+                [items]="sortTypes"
+                formControlName="sortType"
+                [disableControl]="readonly">
+            </select-input>
+        </form-group>
+    </prompt-form-modal>
+</form>

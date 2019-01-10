@@ -1,0 +1,6 @@
+{
+  "appId": "ru.site15.ionic.rucken",
+  "appName": "rucken-ionic",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

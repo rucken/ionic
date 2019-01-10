@@ -1,0 +1,86 @@
+<ng-container *ngTemplateOutlet="hideHeader && hideFooter ? contentTemplateWithoutHeaderAndFooter : defaultContentTemplate"></ng-container>
+<ng-template #contentTemplateWithoutHeaderAndFooter>
+    <ng-content></ng-content>
+    <ion-item lines="none">
+        <ion-label></ion-label>
+    </ion-item>
+</ng-template>
+<ng-template #defaultContentTemplate>
+    <ng-container *ngIf="!hideHeader">
+        <ng-container *ngTemplateOutlet="headerTemplate?headerTemplate:defaultHeaderTemplate"></ng-container>
+    </ng-container>
+    <ion-content
+        padding-top
+        [class.readonly_content]="readonly">
+        <ng-content></ng-content>
+        <ng-container *ngIf="!hideFooter">
+            <ng-container *ngTemplateOutlet="!readonly ? (footerButtonsTemplate?footerButtonsTemplate:defaultFooterButtonsTemplate) : (readonlyFooterButtonsTemplate?readonlyFooterButtonsTemplate:defaultReadonlyFooterButtonsTemplate)"></ng-container>
+        </ng-container>
+        <ion-item lines="none">
+            <ion-label></ion-label>
+        </ion-item>
+    </ion-content>
+</ng-template>
+<ng-template #defaultHeaderTemplate>
+    <ion-header>
+        <ion-toolbar [color]="class">
+            <ion-buttons slot="start">
+                <ion-button
+                    (click)="onNoClick()"
+                    *ngIf="!hideTopNo">
+                    <ion-icon
+                        slot="icon-only"
+                        [name]="iconTopNo"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>
+                <ng-container *ngIf="title">{{ title | customTranslate:data }}</ng-container>
+            </ion-title>
+            <ion-buttons slot="end">
+                <ion-button
+                    type="submit"
+                    (click)="onInfoClick()"
+                    *ngIf="infoMessage">
+                    <ion-icon
+                        slot="icon-only"
+                        [name]="iconTopInfo"></ion-icon>
+                </ion-button>
+                <ion-button
+                    type="submit"
+                    (click)="onYesClick()"
+                    *ngIf="!readonly && !hideTopYes">
+                    <ion-icon
+                        slot="icon-only"
+                        [name]="iconTopYes"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+</ng-template>
+<ng-template #defaultFooterButtonsTemplate>
+    <div
+        padding
+        *ngIf="!hideYes">
+        <ion-button
+            type="submit"
+            expand="block"
+            [color]="yesClass"
+            [disabled]="(processing$ | async) || disabled"
+            (click)="onYesClick()">
+            {{yesTitle|customTranslate:data}}
+        </ion-button>
+    </div>
+</ng-template>
+<ng-template #defaultReadonlyFooterButtonsTemplate>
+    <div
+        padding
+        *ngIf="!hideNo">
+        <ion-button
+            type="submit"
+            expand="block"
+            [color]="noClass"
+            (click)="onNoClick()">
+            {{noTitle|customTranslate:data}}
+        </ion-button>
+    </div>
+</ng-template>
