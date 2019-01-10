@@ -1,0 +1,986 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rucken:ionic</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rucken:ionic</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../">rucken:ionic</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/EntityListModule.html" >EntityListModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/EntityModalModule.html" >EntityModalModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/FormGroupModule.html" >FormGroupModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/GroupModalModule.html" >GroupModalModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/GroupsListFiltersModalModule.html" >GroupsListFiltersModalModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/GroupsListModule.html" >GroupsListModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/IonicAuthModalModule.html" >IonicAuthModalModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/IonicModalsModule.html" >IonicModalsModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/NavbarModule.html" >NavbarModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/ProfilePanelModule.html" >ProfilePanelModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/PromptFormModalModule.html" >PromptFormModalModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/SelectInputModule.html" >SelectInputModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/UserModalModule.html" >UserModalModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/UsersListFiltersModalModule.html" >UsersListFiltersModalModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/UsersListModule.html" >UsersListModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/EntityListComponent.html" >EntityListComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/EntityModalComponent.html" >EntityModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/FormGroupComponent.html" >FormGroupComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/GroupModalComponent.html" >GroupModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/GroupsListComponent.html" >GroupsListComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/GroupsListFiltersModalComponent.html" >GroupsListFiltersModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/IonicAuthModalComponent.html" >IonicAuthModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/NavbarComponent.html" >NavbarComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/ProfilePanelComponent.html" >ProfilePanelComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/PromptFormModalComponent.html" >PromptFormModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SelectInputComponent.html" >SelectInputComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/UserModalComponent.html" >UserModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/UsersListComponent.html"  class="active" >UsersListComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/UsersListFiltersModalComponent.html" >UsersListFiltersModalComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/CustomUser.html" >CustomUser</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/GroupsListFiltersModal.html" >GroupsListFiltersModal</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/SelectInput.html" >SelectInput</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/UsersListFiltersModal.html" >UsersListFiltersModal</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="../injectables/GroupsListFiltersModalService.html" >GroupsListFiltersModalService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/GroupsService.html" >GroupsService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/IonicAuthModalService.html" >IonicAuthModalService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/IonicModalsService.html" >IonicModalsService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/PermissionsService.html" >PermissionsService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SqliteStorage.html" >SqliteStorage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/UsersListFiltersModalService.html" >UsersListFiltersModalService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../">rucken:ionic</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/EntityListModule.html" >EntityListModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/EntityModalModule.html" >EntityModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/FormGroupModule.html" >FormGroupModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/GroupModalModule.html" >GroupModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/GroupsListFiltersModalModule.html" >GroupsListFiltersModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/GroupsListModule.html" >GroupsListModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/IonicAuthModalModule.html" >IonicAuthModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/IonicModalsModule.html" >IonicModalsModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/NavbarModule.html" >NavbarModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/ProfilePanelModule.html" >ProfilePanelModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/PromptFormModalModule.html" >PromptFormModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/SelectInputModule.html" >SelectInputModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/UserModalModule.html" >UserModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/UsersListFiltersModalModule.html" >UsersListFiltersModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/UsersListModule.html" >UsersListModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/EntityListComponent.html" >EntityListComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/EntityModalComponent.html" >EntityModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/FormGroupComponent.html" >FormGroupComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/GroupModalComponent.html" >GroupModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/GroupsListComponent.html" >GroupsListComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/GroupsListFiltersModalComponent.html" >GroupsListFiltersModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/IonicAuthModalComponent.html" >IonicAuthModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/NavbarComponent.html" >NavbarComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/ProfilePanelComponent.html" >ProfilePanelComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/PromptFormModalComponent.html" >PromptFormModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SelectInputComponent.html" >SelectInputComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/UserModalComponent.html" >UserModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/UsersListComponent.html"  class="active" >UsersListComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/UsersListFiltersModalComponent.html" >UsersListFiltersModalComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/CustomUser.html" >CustomUser</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/GroupsListFiltersModal.html" >GroupsListFiltersModal</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/SelectInput.html" >SelectInput</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/UsersListFiltersModal.html" >UsersListFiltersModal</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="../injectables/GroupsListFiltersModalService.html" >GroupsListFiltersModalService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/GroupsService.html" >GroupsService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/IonicAuthModalService.html" >IonicAuthModalService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/IonicModalsService.html" >IonicModalsService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/PermissionsService.html" >PermissionsService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SqliteStorage.html" >SqliteStorage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/UsersListFiltersModalService.html" >UsersListFiltersModalService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src="..//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>UsersListComponent</li>
+</ol>
+
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>libs/rucken/ionic/src/lib/entities/users/users-list/users-list.component.ts</code>
+</p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>users-list</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>users-list.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="inputs">Inputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>modalItem</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>IBaseEntityModalOptions</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>modalView</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>IBaseEntityModalOptions</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>title</code>
+                        </td>
+                        <td class="col-md-10">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(modalsService: ModalsService, errorsExtractor: ErrorsExtractor, translateService: TranslateService, dynamicRepository: DynamicRepository, usersConfig: <a href="../classes/CustomUser.html" >IRestProviderOptions<CustomUser></a>, _usersListFiltersModalService: <a href="../injectables/UsersListFiltersModalService.html" >UsersListFiltersModalService</a>)</code>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> setSearchText</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>setSearchText(event: { detail: { value: string; }; })</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier"></span> onDeleteClickAsync</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play ">
+                                    <span class="fa fa-"></span>
+                                </span>
+                            <code>onDeleteClickAsync(item: <a href="../classes/CustomUser.html" >CustomUser</a>)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier"></span> createFiltersModal</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play ">
+                                    <span class="fa fa-"></span>
+                                </span>
+                            <code>createFiltersModal(item: <a href="../classes/UsersListFiltersModal.html" >UsersListFiltersModal</a>)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier"></span> onFilterClickAsync</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play ">
+                                    <span class="fa fa-"></span>
+                                </span>
+                            <code>onFilterClickAsync(data: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> onFilterClick</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>onFilterClick(data: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> onChangeFilter</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>onChangeFilter(filter: IBaseEntityGridFilter)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> list</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>list:     <code><a href="../classes/CustomUser.html" target="_self" >EntityListComponent&lt;CustomUser&gt;</a></code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+</div>
+        <div class="tab-pane fade tab-source-code" id="source">
+            <pre><code class="hljs javascript">import { ChangeDetectionStrategy, Component, Inject, Input, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import { BaseEntityListComponent, ErrorsExtractor, IBaseEntityGridFilter, IBaseEntityModalOptions, interpolate, ModalsService, translate, USERS_CONFIG_TOKEN } from &#x27;@rucken/core&#x27;;
+import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x27;;
+import { EntityListComponent } from &#x27;../../../components/entity-list/entity-list.component&#x27;;
+import { CustomUser } from &#x27;../../../models/custom-user&#x27;;
+import { IonicModalsService } from &#x27;../../../modules/modals/modals.service&#x27;;
+import { UserModalComponent } from &#x27;../user-modal/user-modal.component&#x27;;
+import { UsersListFiltersModal } from &#x27;./users-list-filters-modal/users-list-filters-modal&#x27;;
+import { UsersListFiltersModalComponent } from &#x27;./users-list-filters-modal/users-list-filters-modal.component&#x27;;
+import { UsersListFiltersModalService } from &#x27;./users-list-filters-modal/users-list-filters-modal.service&#x27;;
+
+@Component({
+  selector: &#x27;users-list&#x27;,
+  templateUrl: &#x27;./users-list.component.html&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class UsersListComponent extends BaseEntityListComponent&lt;CustomUser&gt; implements OnInit {
+
+  @ViewChild(&#x27;list&#x27;)
+  list: EntityListComponent&lt;CustomUser&gt;;
+  @Input()
+  modalItem: IBaseEntityModalOptions &#x3D; {
+    class: &#x27;primary&#x27;,
+    component: UserModalComponent,
+    initialState: {
+      hideYes: true,
+      hideNo: true
+    }
+  };
+  @Input()
+  modalView: IBaseEntityModalOptions &#x3D; {
+    class: &#x27;medium&#x27;,
+    component: UserModalComponent,
+    initialState: {
+      noClass: &#x27;medium&#x27;,
+      hideYes: true,
+      hideNo: true
+    }
+  };
+  @Input()
+  title &#x3D; translate(&#x27;Users&#x27;);
+  constructor(
+    modalsService: ModalsService,
+    protected errorsExtractor: ErrorsExtractor,
+    protected translateService: TranslateService,
+    protected dynamicRepository: DynamicRepository,
+    @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions&lt;CustomUser&gt;,
+    private _usersListFiltersModalService: UsersListFiltersModalService
+  ) {
+    super(dynamicRepository.fork&lt;CustomUser&gt;(CustomUser), modalsService, CustomUser);
+  }
+  ngOnInit() {
+    console.log(
+      this.usersConfig
+    );
+    if (!this.mockedItems) {
+      this.useRest({
+        infinity: true,
+        ...this.usersConfig,
+        autoload: false
+      });
+    }
+    if (this.mockedItems) {
+      this.useMock({
+        items: this.mockedItems,
+        infinity: true,
+        ...this.usersConfig,
+        autoload: false
+      });
+    }
+    this.onChangeFilter();
+  }
+  setSearchText(event: { detail: { value: string } }) {
+    this.list.searchField.setValue(
+      event.detail.value
+    );
+  }
+  async onDeleteClickAsync(item: CustomUser) {
+    const title &#x3D; interpolate(this.translateService.instant(this.strings.deleteTitle), item);
+    const message &#x3D; interpolate(this.translateService.instant(this.strings.deleteMessage), item);
+    try {
+      const result &#x3D; await (this.modalsService as IonicModalsService).confirmAsync({
+        title,
+        message
+      });
+      if (result) {
+        this.repository.delete(item.id).subscribe(
+          deletedItem &#x3D;&gt; {
+            if (this.mockedItems) {
+              this.mockedItems &#x3D; this.repository.items;
+              this.mockedItemsChange.emit(this.mockedItems);
+            }
+          },
+          error &#x3D;&gt; this.onDeleteError(undefined, error)
+        );
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+  async createFiltersModal(item?: UsersListFiltersModal) {
+    item &#x3D; item || new UsersListFiltersModal();
+    const modalRef &#x3D; await this.modalsService.createAsync&lt;UsersListFiltersModalComponent&gt;(
+      UsersListFiltersModalComponent,
+      {
+        class: &#x27;secondary&#x27;,
+        initialState: {
+          title: translate(&#x27;Users filters&#x27;),
+          data: item
+        }
+      }
+    );
+    modalRef.instance.group(UsersListFiltersModal);
+    modalRef.instance.data &#x3D; item;
+    return modalRef;
+  }
+  async onFilterClickAsync(data?: any) {
+    const modalRef &#x3D; await this.createFiltersModal(data);
+    modalRef.instance.yes.subscribe((modal: UsersListFiltersModalComponent) &#x3D;&gt; {
+      modal.hide();
+      this.onChangeFilter();
+    });
+  }
+  onFilterClick(data?: any): void {
+    this.onFilterClickAsync(data).then();
+  }
+  onChangeFilter(filter?: IBaseEntityGridFilter) {
+    if (!filter) {
+      filter &#x3D; {};
+    }
+    const usersListFiltersModal &#x3D; this._usersListFiltersModalService.getCurrent();
+    if (usersListFiltersModal.group) {
+      filter[&#x27;group&#x27;] &#x3D; usersListFiltersModal.group.id;
+    }
+    if (usersListFiltersModal.sortField) {
+      filter[&#x27;sort&#x27;] &#x3D; usersListFiltersModal.sortField.id;
+    }
+    if (usersListFiltersModal.sortType) {
+      filter[&#x27;sort&#x27;] &#x3D; (usersListFiltersModal.sortType.id &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? &#x27;&#x27; : &#x27;-&#x27;) + filter[&#x27;sort&#x27;];
+    }
+    super.onChangeFilter(filter);
+  }
+}
+</code></pre>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/highlight.pack.js"></script>
+       <script src="../js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="../js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
+
+    </body>
+</html>
