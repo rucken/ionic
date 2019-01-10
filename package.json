@@ -1,6 +1,6 @@
 {
   "name": "rucken-ionic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -61,8 +61,8 @@
     "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo/index.html ./dist/demo/404.html",
     "github:build": "run-s lib:build config:prod github:prebuild github:postbuild doc",
     "github:deploy": "gh-pages -d dist/demo",
-    "doc:lib:ionic": "./node_modules/.bin/compodoc -p libs/rucken/ionic/tsconfig.lib.json -n \"rucken:ionic\" -d dist/demo/doc/ionic",
-    "doc:app:demo": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -n \"rucken:ionic-demo\" -d dist/demo/doc/demo",
+    "doc:lib:ionic": "./node_modules/.bin/compodoc -p libs/rucken/ionic/tsconfig.lib.json -n \"rucken:ionic\" -d dist/demo/doc/ionic/",
+    "doc:app:demo": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -n \"rucken:ionic-demo\" -d dist/demo/doc/demo/",
     "doc": "run-s doc:lib:ionic doc:app:demo"
   },
   "dependencies": {
