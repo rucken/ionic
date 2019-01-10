@@ -1,5 +1,6 @@
 {
   "name": "rucken-ionic",
+  "version": "0.0.1",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -119,6 +120,9 @@
     "@types/node": "~10.12.18",
     "codelyzer": "~4.5.0",
     "compodoc": "0.0.41",
+    "conventional-changelog-cli": "^2.0.11",
+    "conventional-commits-detector": "^1.0.2",
+    "conventional-recommended-bump": "^4.0.4",
     "cp-cli": "^1.1.2",
     "del-cli": "^1.1.0",
     "gh-pages": "^2.0.1",
