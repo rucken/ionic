@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { AuthModalComponent, AUTH_MODAL_CONFIG_TOKEN, IAuthModalConfig } from '@rucken/core';
 
 @Component({
@@ -8,6 +8,8 @@ import { AuthModalComponent, AUTH_MODAL_CONFIG_TOKEN, IAuthModalConfig } from '@
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IonicAuthModalComponent extends AuthModalComponent {
+  @Input()
+  class: string;
   constructor(@Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig) {
     super(_authModalConfig);
   }

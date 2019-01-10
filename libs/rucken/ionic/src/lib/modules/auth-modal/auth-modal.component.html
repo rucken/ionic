@@ -2,6 +2,7 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
+        [class]="class"
         [title]="title"
         [message]="message"
         [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"
