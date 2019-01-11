@@ -795,9 +795,9 @@ import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x2
 import { EntityListComponent } from &#x27;../../../components/entity-list/entity-list.component&#x27;;
 import { IonicModalsService } from &#x27;../../../modules/modals/modals.service&#x27;;
 import { GroupModalComponent } from &#x27;../group-modal/group-modal.component&#x27;;
-import { GroupsListFiltersModalService } from &#x27;./groups-list-filters-modal/groups-list-filters-modal.service&#x27;;
 import { GroupsListFiltersModal } from &#x27;./groups-list-filters-modal/groups-list-filters-modal&#x27;;
 import { GroupsListFiltersModalComponent } from &#x27;./groups-list-filters-modal/groups-list-filters-modal.component&#x27;;
+import { GroupsListFiltersModalService } from &#x27;./groups-list-filters-modal/groups-list-filters-modal.service&#x27;;
 
 @Component({
   selector: &#x27;groups-list&#x27;,
@@ -878,7 +878,7 @@ export class GroupsListComponent extends BaseEntityListComponent&lt;Group&gt; im
               this.mockedItemsChange.emit(this.mockedItems);
             }
           },
-          error &#x3D;&gt; this.onDeleteError(undefined, error)
+          error &#x3D;&gt; this.onError(error)
         );
       }
     } catch (error) {

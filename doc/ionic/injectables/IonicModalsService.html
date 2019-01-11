@@ -757,22 +757,18 @@ export class IonicModalsService extends ModalsService {
     let bsModalRef: TComponent | HTMLIonModalElement | any;
     const instance &#x3D; { ...options, yes: new EventEmitter(), no: new EventEmitter() };
     instance.yes.subscribe((modal: TComponent) &#x3D;&gt; {
-      console.log(modal);
       this._onTopIsActive &#x3D; false;
     });
     instance.no.subscribe((modal: TComponent) &#x3D;&gt; {
-      console.log(modal);
       this._onTopIsActive &#x3D; false;
     });
     instance.group &#x3D; () &#x3D;&gt; { };
     const modalRef: IModalRef&lt;TComponent&gt; &#x3D; {
       instance: instance,
       hide: () &#x3D;&gt; {
-        console.log(this);
         this._modalController.dismiss();
       }
     };
-    console.log(modalRef);
     try {
       bsModalRef &#x3D; await this._modalController.create({
         component: component as any,
@@ -786,7 +782,6 @@ export class IonicModalsService extends ModalsService {
     } catch (error) {
       throw error;
     }
-    console.log(modalRef);
     return modalRef;
   }
   async infoAsync(options: { message: string | any; title?: string; class?: string; onTop?: boolean }) {

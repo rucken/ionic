@@ -841,9 +841,6 @@ export class UsersListComponent extends BaseEntityListComponent&lt;CustomUser&gt
     super(dynamicRepository.fork&lt;CustomUser&gt;(CustomUser), modalsService, CustomUser);
   }
   ngOnInit() {
-    console.log(
-      this.usersConfig
-    );
     if (!this.mockedItems) {
       this.useRest({
         infinity: true,
@@ -882,7 +879,7 @@ export class UsersListComponent extends BaseEntityListComponent&lt;CustomUser&gt
               this.mockedItemsChange.emit(this.mockedItems);
             }
           },
-          error &#x3D;&gt; this.onDeleteError(undefined, error)
+          error &#x3D;&gt; this.onError(error)
         );
       }
     } catch (error) {

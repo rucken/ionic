@@ -323,7 +323,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(_alertController: AlertController, _authModalService: AuthModalService, _authService: AuthService, _langService: LangService, _platform: Platform, _splashScreen: SplashScreen, _statusBar: StatusBar, _translateService: TranslateService, _metaService: MetaService, _tokenService: TokenService, _platformId: Object)</code>
+                            <code>constructor(_alertController: AlertController, _authModalService: AuthModalService, _authService: AuthService, _langService: LangService, _platform: Platform, _splashScreen: SplashScreen, _statusBar: StatusBar, _translateService: TranslateService, _metaService: MetaService, _tokenService: TokenService, _groupsService: any, _permissionsService: any, _platformId: Object)</code>
                         </td>
                     </tr>
     
@@ -687,6 +687,7 @@ import { AlertInput } from &#x27;@ionic/core&#x27;;
 import { MetaService } from &#x27;@ngx-meta/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { AuthModalComponent, AuthModalService, AuthService, ILanguagesItem, LangService, RedirectUrlDto, TokenService, User, UserTokenDto } from &#x27;@rucken/core&#x27;;
+import { GroupsService, PermissionsService } from &#x27;@rucken/ionic&#x27;;
 import { BehaviorSubject, Observable, Subject } from &#x27;rxjs&#x27;;
 import { takeUntil } from &#x27;rxjs/operators&#x27;;
 import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from &#x27;./app.config&#x27;;
@@ -719,6 +720,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private _translateService: TranslateService,
     private _metaService: MetaService,
     private _tokenService: TokenService,
+    private _groupsService: GroupsService,
+    private _permissionsService: PermissionsService,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     this._authModalService.signInInfoMessage &#x3D; AuthModalSignInInfoMessage;
@@ -738,6 +741,18 @@ export class AppComponent implements OnInit, OnDestroy {
           this.title &#x3D; this._translateService.instant(
             this._metaService.loader.settings.applicationName
           );
+        });
+      this.currentUser$
+        .pipe(takeUntil(this._destroyed$))
+        .subscribe(user &#x3D;&gt; {
+          if (user) {
+            if (user.permissionNames.includes(&#x27;read_group&#x27;)) {
+              this._groupsService.repository.reloadAll();
+            }
+            if (user.permissionNames.includes(&#x27;read_permission&#x27;)) {
+              this._permissionsService.repository.reloadAll();
+            }
+          }
         });
       if (isPlatformBrowser(this._platformId)) {
         this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result &#x3D;&gt; {
