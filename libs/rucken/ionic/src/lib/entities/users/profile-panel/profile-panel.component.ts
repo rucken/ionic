@@ -68,7 +68,6 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<CustomUser> 
   }
   onSave(user: CustomUser, saveData?: any) {
     this.processing = false;
-    console.log(this._translateService);
     this.form.clearExternalErrorsAsync().then(() =>
       this.showSaveToastAsync().then(() => {
         this.data = user;
