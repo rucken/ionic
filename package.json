@@ -1,6 +1,6 @@
 {
   "name": "rucken-ionic",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -40,8 +40,8 @@
     "prepare:prod": "rucken prepare -m prod",
     "lib:build-ionic": "ng build @rucken/ionic",
     "lib:build": "run-s prepare:prod lib:build-ionic",
-    "app:prebuild": "ng build demo --prod -c=production",
-    "app:prebuild:dev": "ng build demo --prod -c=dev",
+    "app:prebuild": "ng build app --prod -c=production",
+    "app:prebuild:dev": "ng build app --prod -c=dev",
     "app:build": "run-s prepare:mono app:prebuild",
     "app:build:dev": "run-s prepare:mono app:prebuild:dev",
     "ng": "ng",
@@ -51,13 +51,13 @@
     "start:dev": "run-s prepare:mono serve:dev",
     "build": "run-s clean config:mono app:build",
     "build:dev": "run-s clean config:mono app:build:dev",
-    "test": "ng test",
+    "test": "run-s build",
     "lint": "ng lint",
     "clean": "./node_modules/.bin/del-cli dist",
     "e2e": "ng e2e",
     "android:build": "ionic cordova build android --prod",
     "postinstall": "node ./scripts/patch.js",
-    "github:prebuild": "ng build demo --base-href /ionic/ --prod",
+    "github:prebuild": "ng build app --base-href /ionic/ --prod",
     "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo/index.html ./dist/demo/404.html",
     "github:build": "run-s lib:build config:prod github:prebuild github:postbuild doc",
     "github:deploy": "gh-pages -d dist/demo",
@@ -153,7 +153,7 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "21.+"
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {}

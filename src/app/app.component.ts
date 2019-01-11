@@ -7,6 +7,7 @@ import { AlertInput } from '@ionic/core';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthModalComponent, AuthModalService, AuthService, ILanguagesItem, LangService, RedirectUrlDto, TokenService, User, UserTokenDto } from '@rucken/core';
+import { GroupsService, PermissionsService } from '@rucken/ionic';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from './app.config';
@@ -39,6 +40,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private _translateService: TranslateService,
     private _metaService: MetaService,
     private _tokenService: TokenService,
+    private _groupsService: GroupsService,
+    private _permissionsService: PermissionsService,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     this._authModalService.signInInfoMessage = AuthModalSignInInfoMessage;
@@ -58,6 +61,18 @@ export class AppComponent implements OnInit, OnDestroy {
           this.title = this._translateService.instant(
             this._metaService.loader.settings.applicationName
           );
+        });
+      this.currentUser$
+        .pipe(takeUntil(this._destroyed$))
+        .subscribe(user => {
+          if (user) {
+            if (user.permissionNames.includes('read_group')) {
+              this._groupsService.repository.reloadAll();
+            }
+            if (user.permissionNames.includes('read_permission')) {
+              this._permissionsService.repository.reloadAll();
+            }
+          }
         });
       if (isPlatformBrowser(this._platformId)) {
         this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {

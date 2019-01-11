@@ -20,7 +20,6 @@ export class UserModalComponent extends BasePromptFormModalComponent<CustomUser>
   ) {
     super();
     this.group(CustomUser);
-    console.log(this);
     this.groups$ = this._groupsService.items$;
   }
 }

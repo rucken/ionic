@@ -17,6 +17,7 @@ export class GroupsService {
     this.repository.useRest({
       infinity: true,
       ...this.groupsConfig,
+      autoload: false,
       paginationMeta: {
         perPage: 10000
       }
