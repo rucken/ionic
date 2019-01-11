@@ -5,9 +5,9 @@ import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { EntityListComponent } from '../../../components/entity-list/entity-list.component';
 import { IonicModalsService } from '../../../modules/modals/modals.service';
 import { GroupModalComponent } from '../group-modal/group-modal.component';
-import { GroupsListFiltersModalService } from './groups-list-filters-modal/groups-list-filters-modal.service';
 import { GroupsListFiltersModal } from './groups-list-filters-modal/groups-list-filters-modal';
 import { GroupsListFiltersModalComponent } from './groups-list-filters-modal/groups-list-filters-modal.component';
+import { GroupsListFiltersModalService } from './groups-list-filters-modal/groups-list-filters-modal.service';
 
 @Component({
   selector: 'groups-list',
@@ -88,7 +88,7 @@ export class GroupsListComponent extends BaseEntityListComponent<Group> implemen
               this.mockedItemsChange.emit(this.mockedItems);
             }
           },
-          error => this.onDeleteError(undefined, error)
+          error => this.onError(error)
         );
       }
     } catch (error) {
