@@ -1,5 +1,5 @@
 {
-  "appId": "ru.site15.ionic.rucken",
+  "appId": "io.rucken.android.ionic",
   "appName": "rucken-ionic",
   "bundledWebRuntime": false,
   "webDir": "dist/demo"
