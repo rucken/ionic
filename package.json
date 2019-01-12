@@ -1,9 +1,9 @@
 {
   "name": "rucken-ionic",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
-    "node": ">=10",
-    "npm": ">=6.4.0"
+    "node": ">=11",
+    "npm": ">=6.5.0"
   },
   "private": true,
   "license": "MIT",
@@ -58,6 +58,8 @@
     "clean": "./node_modules/.bin/del-cli dist",
     "e2e": "ng e2e",
     "android:build": "ionic cordova build android --prod",
+    "android:postbuild": "./node_modules/.bin/cp-cli ./platforms/android/app/build/outputs/apk/debug/app-debug.apk ./dist/demo/assets/apk/rucken-ionic.apk",
+    "android": "run-s android:build android:postbuild",
     "postinstall": "node ./scripts/patch.js",
     "github:prebuild": "ng build app --base-href /ionic/ --prod",
     "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo/index.html ./dist/demo/404.html",
