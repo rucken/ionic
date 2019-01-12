@@ -27,6 +27,8 @@ npm run start:prod
 
 [https://rucken.github.io/ionic/](https://rucken.github.io/ionic/) - Static site on [GitHub Pages](https://pages.github.com/)
 
+[rucken-ionic.apk](https://rucken.github.io/ionic/assets/apk/rucken-ionic.apk) - Mobile application for android
+
 ## Compodoc documentations
 
 [http://rucken.github.io/ionic/doc/demo](http://rucken.github.io/ionic/doc/demo/index.html) - Demo application documentation
