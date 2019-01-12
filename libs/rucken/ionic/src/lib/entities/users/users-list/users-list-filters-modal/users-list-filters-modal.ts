@@ -1,9 +1,8 @@
-import { Group, serializeModel, translate } from '@rucken/core';
+import { Group, serializeIdToObject, serializeModel, serializeObjectToId, translate } from '@rucken/core';
 import { plainToClass, Transform, Type } from 'class-transformer';
 import { IModel } from 'ngx-repository';
 import { SelectInput } from '../../../../components/select-input/select-input';
 import { keyToSelectInput, selectInputToKey } from '../../../../components/select-input/select-input.transformers';
-import { serializeIdToObject, serializeObjectToId } from '../../../../utils/transforms';
 
 export class UsersListFiltersModal implements IModel {
     static strings = {
