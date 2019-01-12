@@ -8,7 +8,7 @@
   "private": true,
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
-  "description": "Admin UI for Ionic4 with Angular7+ mobile application",
+  "description": "Admin UI for Ionic4 with Angular7+ mobile application based on Rucken template",
   "bugs": {
     "url": "https://github.com/rucken/ionic/issues"
   },
@@ -19,12 +19,14 @@
   },
   "keywords": [
     "ngx",
+    "angular",
     "angular7",
     "admin ui",
     "mobile application",
     "seed",
     "i18n",
     "ionic",
+    "ionic4",
     "mobile"
   ],
   "maintainers": [
