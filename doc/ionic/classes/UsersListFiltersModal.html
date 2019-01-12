@@ -679,12 +679,11 @@
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import { Group, serializeModel, translate } from &#x27;@rucken/core&#x27;;
+        <pre><code class="hljs javascript">import { Group, serializeIdToObject, serializeModel, serializeObjectToId, translate } from &#x27;@rucken/core&#x27;;
 import { plainToClass, Transform, Type } from &#x27;class-transformer&#x27;;
 import { IModel } from &#x27;ngx-repository&#x27;;
 import { SelectInput } from &#x27;../../../../components/select-input/select-input&#x27;;
 import { keyToSelectInput, selectInputToKey } from &#x27;../../../../components/select-input/select-input.transformers&#x27;;
-import { serializeIdToObject, serializeObjectToId } from &#x27;../../../../utils/transforms&#x27;;
 
 export class UsersListFiltersModal implements IModel {
     static strings &#x3D; {
