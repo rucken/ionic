@@ -40,4 +40,3 @@ export * from './lib/modules/modals/modals.service';
 export * from './lib/modules/storage/sqlite.storage';
 export * from './lib/services/groups.service';
 export * from './lib/services/permissions.service';
-export * from './lib/utils/transforms';

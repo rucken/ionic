@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/rucken/ionic/compare/0.0.3...0.0.4) (2019-01-12)
+
+
+### Bug Fixes
+
+* Remove duplicate fuctions (moved to [@rucken](https://github.com/rucken)/core) ([639c492](https://github.com/rucken/ionic/commit/639c492))
+
+
+
 ## [0.0.3](https://github.com/rucken/ionic/compare/0.0.2...0.0.3) (2019-01-11)
 
 
