@@ -1,12 +1,11 @@
 {
   "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
   "version": 1,
-  "defaultProject": "app",
   "newProjectRoot": "libs",
   "projects": {
     "app": {
-      "root": "",
-      "sourceRoot": "src",
+      "root": "apps/demo/",
+      "sourceRoot": "apps/demo/src",
       "projectType": "application",
       "prefix": "",
       "schematics": {
@@ -20,14 +19,14 @@
           "options": {
             "progress": false,
             "outputPath": "dist/demo",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "apps/demo/src/index.html",
+            "main": "apps/demo/src/main.ts",
+            "polyfills": "apps/demo/src/polyfills.ts",
+            "tsConfig": "apps/demo/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "apps/demo/src/assets",
                 "output": "assets"
               },
               {
@@ -38,10 +37,10 @@
             ],
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "input": "apps/demo/src/theme/variables.scss"
               },
               {
-                "input": "src/global.scss"
+                "input": "apps/demo/src/global.scss"
               }
             ],
             "scripts": []
@@ -50,8 +49,8 @@
             "dev": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.ts"
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment.ts"
                 }
               ],
               "optimization": true,
@@ -67,8 +66,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -106,20 +105,20 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "apps/demo/src/test.ts",
+            "polyfills": "apps/demo/src/polyfills.ts",
+            "tsConfig": "apps/demo/tsconfig.spec.json",
+            "karmaConfig": "apps/demo/src/karma.conf.js",
             "scripts": [],
             "assets": [
               {
                 "glob": "favicon.ico",
-                "input": "src/",
+                "input": "apps/demo/src/",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "apps/demo/src/assets",
                 "output": "/assets"
               }
             ]
@@ -129,8 +128,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "apps/demo/tsconfig.app.json",
+              "apps/demo/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -164,13 +163,13 @@
       }
     },
     "app-e2e": {
-      "root": "e2e/",
+      "root": "apps/demo-e2e/",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "protractorConfig": "apps/demo-e2e/protractor.conf.js",
             "devServerTarget": "app:serve"
           },
           "configurations": {
@@ -185,7 +184,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
+            "tsConfig": "apps/demo-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]

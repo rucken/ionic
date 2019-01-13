@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
     "module": "commonjs",
@@ -9,10 +9,10 @@
     ]
   },
   "files": [
-    "test.ts"
+    "src/test.ts"
   ],
   "include": [
-    "polyfills.ts",
+    "src/polyfills.ts",
     "**/*.spec.ts",
     "**/*.d.ts"
   ]
