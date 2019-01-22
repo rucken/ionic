@@ -100,7 +100,7 @@
     "cordova-sqlite-storage": "^2.6.0",
     "core-js": "^2.6.2",
     "ngx-cookie-service": "^2.1.0",
-    "ngx-dynamic-form-builder": "^0.8.1",
+    "ngx-dynamic-form-builder": "^0.9.0",
     "ngx-repository": "^0.6.3",
     "object-path": "^0.11.4",
     "rxjs": "6.3.3",
