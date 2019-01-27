@@ -327,6 +327,7 @@ import { MetaLoader, MetaModule } from &#x27;@ngx-meta/core&#x27;;
 import { TranslateModule, TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, defaultContentTypesConfig, defaultGroupsConfig, defaultPermissionsConfig, defaultUsersConfig, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN } from &#x27;@rucken/core&#x27;;
 import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from &#x27;@rucken/ionic&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { NgxRepositoryModule } from &#x27;ngx-repository&#x27;;
@@ -378,7 +379,8 @@ import { initializeApp } from &#x27;./utils/initialize-app&#x27;;
     NavbarModule,
     IonicModalsModule,
     UsersListFiltersModalModule.forRoot(),
-    GroupsListFiltersModalModule.forRoot()
+    GroupsListFiltersModalModule.forRoot(),
+    NgxBindIOModule.forRoot()
   ],
   providers: [
     {

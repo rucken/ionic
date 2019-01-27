@@ -568,6 +568,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -583,6 +586,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -811,9 +817,9 @@ import { GroupsService } from &#x27;../../../services/groups.service&#x27;;
 })
 export class ProfilePanelComponent extends BasePromptPanelComponent&lt;CustomUser&gt; implements OnDestroy {
   @Input()
-  class: string;
+  class: string &#x3D; undefined;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string &#x3D; undefined;
   @Input()
   enableSave &#x3D; true;
   @Input()

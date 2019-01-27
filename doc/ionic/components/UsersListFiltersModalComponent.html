@@ -568,6 +568,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -686,7 +689,7 @@ import { UsersListFiltersModalService } from &#x27;./users-list-filters-modal.se
 export class UsersListFiltersModalComponent extends
   BasePromptFormModalComponent&lt;UsersListFiltersModal&gt; implements OnInit {
   @Input()
-  class: string;
+  class: string &#x3D; undefined;
   groups$: Observable&lt;Group[]&gt;;
   sortTypes &#x3D; UsersListFiltersModal.sortTypes;
   sortFields &#x3D; UsersListFiltersModal.sortFields;

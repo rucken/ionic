@@ -575,6 +575,9 @@
                                 <em>Type:</em>    <code>boolean</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -590,6 +593,9 @@
                                 <em>Type:</em>    <code>boolean</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -605,6 +611,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -783,11 +792,11 @@ import { BehaviorSubject } from &#x27;rxjs&#x27;;
 })
 export class NavbarComponent {
   @Input()
-  showSignIn: boolean;
+  showSignIn: boolean &#x3D; undefined;
   @Input()
-  showSignOut: boolean;
+  showSignOut: boolean &#x3D; undefined;
   @Input()
-  title: string;
+  title: string &#x3D; undefined;
   @Input()
   set routes(routes: any[]) {
     this.allowedRoutes$.next(

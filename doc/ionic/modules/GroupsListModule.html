@@ -567,6 +567,7 @@
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { EntityListModule } from &#x27;../../../components/entity-list/entity-list.module&#x27;;
 import { IonicModalsModule } from &#x27;../../../modules/modals/modals.module&#x27;;
 import { GroupModalModule } from &#x27;../group-modal/group-modal.module&#x27;;
@@ -581,7 +582,8 @@ import { GroupsListComponent } from &#x27;./groups-list.component&#x27;;
     TranslateModule.forChild(),
     EntityListModule,
     GroupModalModule,
-    GroupsListFiltersModalModule
+    GroupsListFiltersModalModule,
+    NgxBindIOModule
   ],
   declarations: [GroupsListComponent],
   exports: [GroupsListComponent]

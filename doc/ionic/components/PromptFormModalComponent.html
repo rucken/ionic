@@ -564,6 +564,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -579,6 +582,9 @@
                                 <em>Type:</em>    <code>TemplateRef&lt;any&gt;</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -594,6 +600,9 @@
                                 <em>Type:</em>    <code>TemplateRef&lt;any&gt;</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -707,6 +716,9 @@
                                 <em>Type:</em>    <code>TemplateRef&lt;any&gt;</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -774,7 +786,7 @@ export class PromptFormModalComponent extends BasePromptModalComponent {
   @Input()
   hideFooter &#x3D; false;
   @Input()
-  class: string;
+  class: string &#x3D; undefined;
   @Input()
   hideTopNo &#x3D; false;
   @Input()
@@ -786,11 +798,11 @@ export class PromptFormModalComponent extends BasePromptModalComponent {
   @Input()
   iconTopInfo &#x3D; &#x27;information-circle-outline&#x27;;
   @Input()
-  footerButtonsTemplate: TemplateRef&lt;any&gt;;
+  footerButtonsTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   @Input()
-  readonlyFooterButtonsTemplate: TemplateRef&lt;any&gt;;
+  readonlyFooterButtonsTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   @Input()
-  headerTemplate: TemplateRef&lt;any&gt;;
+  headerTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   constructor(
     protected modalController: ModalController,
     private _modalsService: ModalsService,

@@ -567,18 +567,20 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre><code class="hljs javascript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
+import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { AuthModalService } from &#x27;@rucken/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { PromptFormModalModule } from &#x27;../../components/prompt-form-modal/prompt-form-modal.module&#x27;;
 import { IonicAuthModalComponent } from &#x27;./auth-modal.component&#x27;;
 import { IonicAuthModalService } from &#x27;./auth-modal.service&#x27;;
-import { IonicModule } from &#x27;@ionic/angular&#x27;;
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
     PromptFormModalModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    NgxBindIOModule
   ],
   declarations: [IonicAuthModalComponent],
   entryComponents: [IonicAuthModalComponent],

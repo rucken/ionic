@@ -568,6 +568,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -623,7 +626,7 @@ import { PermissionsService } from &#x27;../../../services/permissions.service&#
 })
 export class GroupModalComponent extends BasePromptFormModalComponent&lt;Group&gt; {
   @Input()
-  class: string;
+  class: string &#x3D; undefined;
   permissions$: Observable&lt;Permission[]&gt;;
 
   constructor(

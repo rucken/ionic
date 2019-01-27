@@ -568,6 +568,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -667,7 +670,7 @@ import { GroupsListFiltersModalService } from &#x27;./groups-list-filters-modal.
 export class GroupsListFiltersModalComponent extends
   BasePromptFormModalComponent&lt;GroupsListFiltersModal&gt; implements OnInit {
   @Input()
-  class: string;
+  class: string &#x3D; undefined;
   sortTypes &#x3D; GroupsListFiltersModal.sortTypes;
   sortFields &#x3D; GroupsListFiltersModal.sortFields;
 

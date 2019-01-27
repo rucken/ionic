@@ -568,6 +568,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -624,7 +627,7 @@ import { CustomUser } from &#x27;../../../models/custom-user&#x27;;
 })
 export class UserModalComponent extends BasePromptFormModalComponent&lt;CustomUser&gt; {
   @Input()
-  class: string;
+  class: string &#x3D; undefined;
   groups$: Observable&lt;Group[]&gt;;
 
   constructor(

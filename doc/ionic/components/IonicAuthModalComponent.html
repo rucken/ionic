@@ -568,6 +568,9 @@
                                 <em>Type:</em>    <code>string</code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -603,7 +606,7 @@ import { AuthModalComponent, AUTH_MODAL_CONFIG_TOKEN, IAuthModalConfig } from &#
 })
 export class IonicAuthModalComponent extends AuthModalComponent {
   @Input()
-  class: string;
+  class: string &#x3D; undefined;
   constructor(@Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig) {
     super(_authModalConfig);
   }

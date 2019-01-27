@@ -576,6 +576,9 @@
                                 <em>Type:</em>    <code><a href="../classes/SelectInput.html" target="_self" >SelectInput[]</a></code>
 
                               </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -713,7 +716,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   titleField &#x3D; &#x27;title&#x27;;
   @Input()
   @BindObservable()
-  items: SelectInput[];
+  items: SelectInput[] &#x3D; undefined;
   items$!: Observable&lt;SelectInput[]&gt;;
   @BindObservable()
   selectedIds: (string | number)[];
@@ -733,8 +736,6 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
     this.selectedIds$.pipe(takeUntil(this._destroyed$)).subscribe(ids &#x3D;&gt; {
       if (ids !&#x3D;&#x3D; undefined &amp;&amp; !Array.isArray(ids)) {
         ids &#x3D; [ids];
-      } else {
-        ids &#x3D; [];
       }
       const selectedItems &#x3D; this.items.filter(item &#x3D;&gt; ids.filter(id &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; id).length &gt; 0);
       if (this.multiple) {
