@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { DirectivesModule, PipesModule } from '@rucken/core';
+import { NgxBindIOModule } from 'ngx-bind-io';
 import { FormGroupModule } from '../../../components/form-group/form-group.module';
 import { PromptFormModalModule } from '../../../components/prompt-form-modal/prompt-form-modal.module';
 import { SelectInputModule } from '../../../components/select-input/select-input.module';
@@ -19,7 +20,8 @@ import { GroupModalComponent } from './group-modal.component';
     DirectivesModule,
     PipesModule,
     PromptFormModalModule,
-    SelectInputModule
+    SelectInputModule,
+    NgxBindIOModule
   ],
   declarations: [GroupModalComponent],
   entryComponents: [GroupModalComponent],

@@ -13,7 +13,7 @@ import { GroupsListFiltersModalService } from './groups-list-filters-modal.servi
 export class GroupsListFiltersModalComponent extends
   BasePromptFormModalComponent<GroupsListFiltersModal> implements OnInit {
   @Input()
-  class: string;
+  class: string = undefined;
   sortTypes = GroupsListFiltersModal.sortTypes;
   sortFields = GroupsListFiltersModal.sortFields;
 

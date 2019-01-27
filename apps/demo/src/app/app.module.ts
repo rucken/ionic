@@ -11,6 +11,7 @@ import { MetaLoader, MetaModule } from '@ngx-meta/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, defaultContentTypesConfig, defaultGroupsConfig, defaultPermissionsConfig, defaultUsersConfig, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN } from '@rucken/core';
 import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from '@rucken/ionic';
+import { NgxBindIOModule } from 'ngx-bind-io';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { NgxRepositoryModule } from 'ngx-repository';
@@ -62,7 +63,8 @@ import { initializeApp } from './utils/initialize-app';
     NavbarModule,
     IonicModalsModule,
     UsersListFiltersModalModule.forRoot(),
-    GroupsListFiltersModalModule.forRoot()
+    GroupsListFiltersModalModule.forRoot(),
+    NgxBindIOModule.forRoot()
   ],
   providers: [
     {

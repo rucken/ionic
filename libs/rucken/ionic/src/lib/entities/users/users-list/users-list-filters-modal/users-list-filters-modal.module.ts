@@ -9,6 +9,7 @@ import { PromptFormModalModule } from '../../../../components/prompt-form-modal/
 import { SelectInputModule } from '../../../../components/select-input/select-input.module';
 import { UsersListFiltersModalComponent } from './users-list-filters-modal.component';
 import { UsersListFiltersModalService } from './users-list-filters-modal.service';
+import { NgxBindIOModule } from 'ngx-bind-io';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { UsersListFiltersModalService } from './users-list-filters-modal.service
     DirectivesModule,
     PipesModule,
     PromptFormModalModule,
-    SelectInputModule
+    SelectInputModule,
+    NgxBindIOModule
   ],
   declarations: [UsersListFiltersModalComponent],
   entryComponents: [UsersListFiltersModalComponent],

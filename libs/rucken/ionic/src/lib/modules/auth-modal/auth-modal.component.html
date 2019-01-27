@@ -2,20 +2,8 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        [class]="class"
-        [title]="title"
-        [message]="message"
+        bindIO
         [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"
-        [errorMessage]="errorMessage"
-        [readonly]="readonly"
-        [noTitle]="noTitle"
-        [yesTitle]="yesTitle"
-        (no)="onNoClick()"
-        (yes)="onYesClick()"
-        [data]="data"
-        [processing]="processing$ | async"
-        [yesClass]="yesClass$ | async"
-        [noClass]="noClass$ | async"
         [hideTopYes]="true"
         #promptFormModal>
         <form-group

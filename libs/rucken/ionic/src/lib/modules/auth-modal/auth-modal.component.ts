@@ -9,7 +9,7 @@ import { AuthModalComponent, AUTH_MODAL_CONFIG_TOKEN, IAuthModalConfig } from '@
 })
 export class IonicAuthModalComponent extends AuthModalComponent {
   @Input()
-  class: string;
+  class: string = undefined;
   constructor(@Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig) {
     super(_authModalConfig);
   }

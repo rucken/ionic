@@ -2,22 +2,8 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        [class]="class"
-        [title]="title"
-        [message]="message"
-        [infoMessage]="infoMessage"
-        [errorMessage]="errorMessage"
-        [noTitle]="noTitle"
-        [yesTitle]="yesTitle"
-        [readonly]="readonly"
-        (no)="onNoClick()"
-        (yes)="onYesClick()"
-        [data]="data"
-        [processing]="processing$ | async"
-        [disabled]="disabled"
-        [iconTopYes]="data.id?'checkmark':'add'"
-        [hideYes]="hideYes"
-        [hideNo]="hideNo">
+        bindIO
+        [iconTopYes]="data.id?'checkmark':'add'">
         <form-group
             [checkIsDirty]="checkIsDirty"
             [form]="form"
