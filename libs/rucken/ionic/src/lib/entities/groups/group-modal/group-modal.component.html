@@ -5,7 +5,8 @@
         bindIO
         [iconTopYes]="data.id?'checkmark':'add'">
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="name"
             [title]="strings.name">
             <ion-input
@@ -14,7 +15,8 @@
             </ion-input>
         </form-group>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="title"
             [title]="strings.title">
             <ion-input
@@ -24,7 +26,8 @@
             </ion-input>
         </form-group>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="permissions"
             [title]="strings.permissions">
             <select-input
