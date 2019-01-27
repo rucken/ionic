@@ -1,3 +1,17 @@
+# [0.1.0](https://github.com/rucken/ionic/compare/0.0.4...0.1.0) (2019-01-27)
+
+
+### Bug Fixes
+
+* Revert use form-group to without bindIO ([9697fc6](https://github.com/rucken/ionic/commit/9697fc6))
+
+
+### Features
+
+* Add ngx-bind-io and update all sources ([4ac5ab6](https://github.com/rucken/ionic/commit/4ac5ab6))
+
+
+
 ## [0.0.4](https://github.com/rucken/ionic/compare/0.0.3...0.0.4) (2019-01-12)
 
 
