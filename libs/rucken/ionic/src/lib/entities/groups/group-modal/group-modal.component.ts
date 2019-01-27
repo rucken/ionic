@@ -11,7 +11,7 @@ import { PermissionsService } from '../../../services/permissions.service';
 })
 export class GroupModalComponent extends BasePromptFormModalComponent<Group> {
   @Input()
-  class: string;
+  class: string = undefined;
   permissions$: Observable<Permission[]>;
 
   constructor(

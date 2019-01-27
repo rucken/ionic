@@ -30,66 +30,61 @@ export class EntityListComponent<TModel extends IModel> {
   defaultEntityListHeaderTemplate: TemplateRef<any>;
 
   @Input()
-  gridFieldTemplate: TemplateRef<any>;
+  gridFieldTemplate: TemplateRef<any> = undefined;
   @Input()
-  gridCellTemplate: TemplateRef<any>;
+  gridCellTemplate: TemplateRef<any> = undefined;
   @Input()
-  gridFieldContent: TemplateRef<any>;
+  gridFieldContent: TemplateRef<any> = undefined;
   @Input()
-  gridFieldActionContent: TemplateRef<any>;
+  gridFieldActionContent: TemplateRef<any> = undefined;
   @Input()
-  gridCellContent: TemplateRef<any>;
+  gridCellContent: TemplateRef<any> = undefined;
   @Input()
-  gridCellTranslatedContent: TemplateRef<any>;
+  gridCellTranslatedContent: TemplateRef<any> = undefined;
   @Input()
-  gridCellActionContent: TemplateRef<any>;
+  gridCellActionContent: TemplateRef<any> = undefined;
   @Input()
-  searchFieldTemplate: TemplateRef<any>;
+  searchFieldTemplate: TemplateRef<any> = undefined;
   @Input()
-  entityListFooterTemplate: TemplateRef<any>;
+  entityListFooterTemplate: TemplateRef<any> = undefined;
   @Input()
-  entityListHeaderTemplate: TemplateRef<any>;
+  entityListHeaderTemplate: TemplateRef<any> = undefined;
 
   @Input()
-  viewLink: string;
+  viewLink: string = undefined;
   @Input()
-  updateLink: string;
+  updateLink: string = undefined;
   @Input()
-  deleteLink: string;
+  deleteLink: string = undefined;
 
   @Input()
   showSearchField = false;
   @Input()
-  selectFirst?: boolean;
+  selectFirst?: boolean = undefined;
   @Input()
   set processing(value: boolean) {
-    this._processing = undefined;
-    if (value) {
-      this._loadingController.create({
-        message: this._translateService.instant('Loading...')
-      }).then(loading => {
-        this._processingModal = loading;
-        loading.present().then(modal => {
-          if (this._processing === undefined) {
-            this._processing = value;
-          } else {
-            if (this._processingModal && this._processing === false) {
-              this._processingModal.dismiss().then(() => {
-                this._processing = false;
-                this._processingModal = undefined;
-              });
-            }
-          }
-        });
-      });
-    } else {
-      if (this._processingModal) {
-        this._processingModal.dismiss().then(() => {
-          this._processing = false;
-          this._processingModal = undefined;
-        });
+    this._processing = value;
+    if (this._processingModal !== null) {
+      if (this._processingModal === undefined) {
+        this._processingModal = null;
+        if (value) {
+          this._loadingController.create({
+            message: this._translateService.instant('Loading...')
+          }).then(element => {
+            element.present().then(_ => {
+              this._processingModal = element;
+              if (this._processing === false) {
+                this.processing = false;
+              }
+            });
+          });
+        }
       } else {
-        this._processing = false;
+        if (!value) {
+          this._processingModal.dismiss().then(() => {
+            this._processingModal = undefined;
+          });
+        }
       }
     }
   }
@@ -99,7 +94,7 @@ export class EntityListComponent<TModel extends IModel> {
   @Input()
   searchField: FormControl = new FormControl();
   @Input()
-  title: string;
+  title: string = undefined;
   @Input()
   createTitle = translate('Create');
   @Input()
@@ -107,13 +102,13 @@ export class EntityListComponent<TModel extends IModel> {
   @Input()
   translatedCells: string[] = [];
   @Input()
-  orderColumns: string[];
+  orderColumns: string[] = undefined;
   @Input()
-  columnsClasses: { [key: string]: string };
+  columnsClasses: { [key: string]: string } = undefined;
   @Input()
-  orderBy: string;
+  orderBy: string = undefined;
   @Input()
-  multiSelectColumns: string[];
+  multiSelectColumns: string[] = undefined;
   @Input()
   set columns(columns: string[]) {
     this._columns = columns;
@@ -133,14 +128,11 @@ export class EntityListComponent<TModel extends IModel> {
     }
   }
   @Input()
-  classes: string[];
+  classes: string[] = undefined;
   @Input()
-  strings: any;
+  strings: any = undefined;
   @Input()
   set items(items: TModel[]) {
-    if (this._refresher && this._refresher.target) {
-      this._refresher.target.complete();
-    }
     this._items = items;
     if (
       this.selectFirst !== false &&
@@ -149,6 +141,9 @@ export class EntityListComponent<TModel extends IModel> {
       items.filter(item => this._selected && this._selected.length && this._selected[0].id === item.id).length === 0
     ) {
       this.onSelected([]);
+    }
+    if (this._refresher && this._refresher.target) {
+      this._refresher.target.complete();
     }
   }
   get items() {
@@ -182,7 +177,7 @@ export class EntityListComponent<TModel extends IModel> {
   nextPage: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input()
-  readonly: boolean;
+  readonly: boolean = undefined;
   @Input()
   enableCreate = true;
   @Input()
@@ -192,7 +187,7 @@ export class EntityListComponent<TModel extends IModel> {
   @Input()
   enableAppendFromGrid = true;
   @Input()
-  paginationMeta: PaginationMeta;
+  paginationMeta: PaginationMeta = undefined;
 
   get enableOnlyUpdateOrDelete() {
     return (this.isEnableDelete && !this.isEnableUpdate) || (!this.isEnableDelete && this.isEnableUpdate);
@@ -204,12 +199,12 @@ export class EntityListComponent<TModel extends IModel> {
     return this.appendFromGrid.observers.length > 0;
   }
 
-  private _refresher: any;
-  private _processingModal: any;
+  private _refresher: any = undefined;
+  private _processingModal: any = undefined;
   private _processing = false;
-  private _selected: TModel[];
-  private _items: TModel[];
-  private _columns: string[];
+  private _selected: TModel[] = undefined;
+  private _items: TModel[] = undefined;
+  private _columns: string[] = undefined;
 
   constructor(
     private _viewContainerRef: ViewContainerRef,

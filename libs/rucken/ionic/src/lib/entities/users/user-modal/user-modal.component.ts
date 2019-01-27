@@ -12,7 +12,7 @@ import { CustomUser } from '../../../models/custom-user';
 })
 export class UserModalComponent extends BasePromptFormModalComponent<CustomUser> {
   @Input()
-  class: string;
+  class: string = undefined;
   groups$: Observable<Group[]>;
 
   constructor(

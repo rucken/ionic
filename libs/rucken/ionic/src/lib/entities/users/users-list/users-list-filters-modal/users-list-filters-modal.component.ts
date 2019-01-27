@@ -17,7 +17,7 @@ import { UsersListFiltersModalService } from './users-list-filters-modal.service
 export class UsersListFiltersModalComponent extends
   BasePromptFormModalComponent<UsersListFiltersModal> implements OnInit {
   @Input()
-  class: string;
+  class: string = undefined;
   groups$: Observable<Group[]>;
   sortTypes = UsersListFiltersModal.sortTypes;
   sortFields = UsersListFiltersModal.sortFields;

@@ -9,11 +9,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NavbarComponent {
   @Input()
-  showSignIn: boolean;
+  showSignIn: boolean = undefined;
   @Input()
-  showSignOut: boolean;
+  showSignOut: boolean = undefined;
   @Input()
-  title: string;
+  title: string = undefined;
   @Input()
   set routes(routes: any[]) {
     this.allowedRoutes$.next(

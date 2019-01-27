@@ -14,7 +14,7 @@ export class PromptFormModalComponent extends BasePromptModalComponent {
   @Input()
   hideFooter = false;
   @Input()
-  class: string;
+  class: string = undefined;
   @Input()
   hideTopNo = false;
   @Input()
@@ -26,11 +26,11 @@ export class PromptFormModalComponent extends BasePromptModalComponent {
   @Input()
   iconTopInfo = 'information-circle-outline';
   @Input()
-  footerButtonsTemplate: TemplateRef<any>;
+  footerButtonsTemplate: TemplateRef<any> = undefined;
   @Input()
-  readonlyFooterButtonsTemplate: TemplateRef<any>;
+  readonlyFooterButtonsTemplate: TemplateRef<any> = undefined;
   @Input()
-  headerTemplate: TemplateRef<any>;
+  headerTemplate: TemplateRef<any> = undefined;
   constructor(
     protected modalController: ModalController,
     private _modalsService: ModalsService,

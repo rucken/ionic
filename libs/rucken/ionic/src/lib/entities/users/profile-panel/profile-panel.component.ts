@@ -15,9 +15,9 @@ import { GroupsService } from '../../../services/groups.service';
 })
 export class ProfilePanelComponent extends BasePromptPanelComponent<CustomUser> implements OnDestroy {
   @Input()
-  class: string;
+  class: string = undefined;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
   @Input()
   enableSave = true;
   @Input()

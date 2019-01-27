@@ -1,26 +1,11 @@
 <entity-list
-    [title]="title"
+    bindIO
     [items]="items$ | async"
-    (selected)="onSelected($event)"
     [columns]="[ 'title', 'name', 'permissions', 'action']"
-    [readonly]="readonly"
-    [strings]="strings"
-    [viewLink]="viewLink"
-    [updateLink]="updateLink"
-    [deleteLink]="deleteLink"
-    (create)="onCreateClick($event)"
-    (update)="onUpdateClick($event)"
-    (delete)="onDeleteClick($event)"
-    (view)="onViewClick($event)"
-    (search)="onSearch($event)"
-    (changeOrder)="onChangeOrder($event)"
-    (nextPage)="onNextPage()"
     [paginationMeta]="paginationMeta$ | async"
     [enableCreate]="'add_user' | perm:false | async"
     [enableUpdate]="'change_user' | perm:false | async"
     [enableDelete]="'delete_user' | perm:false | async"
-    (changePage)="onChangePage($event)"
-    [processing]="processing$ | async"
     [gridCellContent]="gridCellContent"
     #list>
     <ng-content></ng-content>

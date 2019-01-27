@@ -2,25 +2,12 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        [class]="class"
-        [title]="title"
-        [message]="message"
-        [infoMessage]="infoMessage"
-        [errorMessage]="errorMessage"
-        [noTitle]="noTitle"
-        [yesTitle]="yesTitle"
-        [readonly]="readonly"
-        (no)="onNoClick()"
-        (yes)="onYesClick()"
-        [data]="data"
-        [processing]="processing$ | async"
-        [disabled]="disabled"
+        bindIO
         iconTopYes="checkmark"
         iconTopNo="close"
         [hideYes]="true">
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            bindIO
             name="groups"
             [title]="strings.groups">
             <select-input
@@ -30,8 +17,7 @@
             </select-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            bindIO
             name="sortField"
             [title]="strings.sortField">
             <select-input
@@ -41,8 +27,7 @@
             </select-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            bindIO
             name="sortType"
             [title]="strings.sortType">
             <select-input

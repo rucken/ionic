@@ -29,7 +29,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   titleField = 'title';
   @Input()
   @BindObservable()
-  items: SelectInput[];
+  items: SelectInput[] = undefined;
   items$!: Observable<SelectInput[]>;
   @BindObservable()
   selectedIds: (string | number)[];
@@ -49,8 +49,6 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
     this.selectedIds$.pipe(takeUntil(this._destroyed$)).subscribe(ids => {
       if (ids !== undefined && !Array.isArray(ids)) {
         ids = [ids];
-      } else {
-        ids = [];
       }
       const selectedItems = this.items.filter(item => ids.filter(id => item.id === id).length > 0);
       if (this.multiple) {
