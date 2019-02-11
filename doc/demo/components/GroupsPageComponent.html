@@ -112,6 +112,25 @@
             
             
             
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/ICoreConfig.html" >ICoreConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IEnvironment.html" >IEnvironment</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -231,6 +250,25 @@
                    
                    
                    
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/ICoreConfig.html" >ICoreConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IEnvironment.html" >IEnvironment</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -375,7 +413,9 @@
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;groups-page&#x27;,
   templateUrl: &#x27;./groups-page.component.html&#x27;,

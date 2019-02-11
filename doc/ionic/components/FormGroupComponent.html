@@ -596,6 +596,13 @@
                             <code>name</code>
                         </td>
                         <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>string</code>
+
+                              </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -653,6 +660,33 @@
             </table>
     </section>
 
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> getValid</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>getValid()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
     <section>
         <h3 id="inputs">Properties</h3>
@@ -660,27 +694,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b><span class="modifier">Private</span> _name</b>
+                            <b> errors$</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-lock"></span><code>_name:     <code>string</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> errors</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>errors:     <code>Observable&lt;any&gt;</code>
+                            <code>errors$:     <code>Observable&lt;any&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -701,90 +720,56 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> name</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>name:     <code>string</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> valid</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>valid:     <code>boolean</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2 } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from &#x27;@angular/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 import { DynamicFormGroup } from &#x27;ngx-dynamic-form-builder&#x27;;
-import { Observable, of } from &#x27;rxjs&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;form-group&#x27;,
   templateUrl: &#x27;./form-group.component.html&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormGroupComponent implements AfterViewInit {
+export class FormGroupComponent implements AfterViewInit, OnChanges {
   @Input()
   checkIsDirty?: boolean &#x3D; undefined;
   @Input()
   tooltipPlacement?: string &#x3D; undefined;
 
-  get errors(): Observable&lt;any&gt; {
-    if (this.form &amp;&amp; (this.checkIsDirty !&#x3D;&#x3D; true || this.form.dirty)) {
-      return this.form.customValidateErrors.pipe(
-        map(
-          customValidateErrors &#x3D;&gt;
-            customValidateErrors[this.name]
-              ? (customValidateErrors[this.name] as string[])
-              : []
-        )
-      );
-    } else {
-      return of([]);
-    }
-  }
   @Input()
   form: DynamicFormGroup&lt;any&gt; &#x3D; undefined;
   @Input()
-  set name(name: string) {
-    this._name &#x3D; name;
-  }
-  get name() {
-    return this._name;
-  }
+  name: string &#x3D; undefined;
   @Input()
   title: string &#x3D; undefined;
 
-  get valid() {
-    return !this.form || this.form.get(this.name).valid;
-  }
   input: { focus: () &#x3D;&gt; void };
-  private _name: string;
+  errors$: Observable&lt;any&gt;;
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef) { }
   ngAfterViewInit() {
     this.input &#x3D; this._elementRef.nativeElement.querySelector(&#x27;ion-item&#x27;).querySelector(&#x27;ion-input&#x27;);
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.form &amp;&amp; changes.form.currentValue) {
+      this.errors$ &#x3D; changes.form.currentValue.customValidateErrors.pipe(
+        map(customValidateErrors &#x3D;&gt;
+          (
+            (this.checkIsDirty !&#x3D;&#x3D; true || changes.form.currentValue.dirty) &amp;&amp;
+            customValidateErrors[this.name]
+          ) ? (customValidateErrors[this.name] as string[]) : []
+        )
+      );
+    }
+  }
+
+  getValid() {
+    return !this.form || this.form.get(this.name).valid;
   }
 }
 </code></pre>

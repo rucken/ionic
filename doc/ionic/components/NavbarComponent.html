@@ -557,7 +557,29 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
-                            <code>routes</code>
+                            <code>allowedRoutes</code>
+                        </td>
+                        <td class="col-md-10">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>leftRoutes</code>
+                        </td>
+                        <td class="col-md-10">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>rightRoutes</code>
                         </td>
                         <td class="col-md-10">
                         </td>
@@ -670,6 +692,30 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> setRoutes</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>setRoutes(routes: any[])</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> onSignInClick</b>
                         </td>
                     </tr>
@@ -722,12 +768,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b><span class="modifier">Public</span> allowedRoutes$</b>
+                            <b> allowedRoutes$</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-circle"></span><code>allowedRoutes$:     <code>BehaviorSubject&lt;any[]&gt;</code>
+                            <code>allowedRoutes$:     <code>Observable&lt;any[]&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -737,12 +783,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b><span class="modifier">Public</span> leftRoutes$</b>
+                            <b> leftRoutes$</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-circle"></span><code>leftRoutes$:     <code>BehaviorSubject&lt;any[]&gt;</code>
+                            <code>leftRoutes$:     <code>Observable&lt;any[]&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -752,12 +798,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b><span class="modifier">Public</span> rightRoutes$</b>
+                            <b> rightRoutes$</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-circle"></span><code>rightRoutes$:     <code>BehaviorSubject&lt;any[]&gt;</code>
+                            <code>rightRoutes$:     <code>Observable&lt;any[]&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -783,8 +829,11 @@
         <div class="tab-pane fade tab-source-code" id="source">
             <pre><code class="hljs javascript">import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-import { BehaviorSubject } from &#x27;rxjs&#x27;;
+import { BindObservable } from &#x27;bind-observable&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;app-navbar&#x27;,
   templateUrl: &#x27;./navbar.component.html&#x27;,
@@ -797,14 +846,34 @@ export class NavbarComponent {
   showSignOut: boolean &#x3D; undefined;
   @Input()
   title: string &#x3D; undefined;
+
+  @Output()
+  signIn &#x3D; new EventEmitter();
+  @Output()
+  signOut &#x3D; new EventEmitter();
+
+  @BindObservable()
   @Input()
-  set routes(routes: any[]) {
-    this.allowedRoutes$.next(
+  allowedRoutes &#x3D; [];
+  allowedRoutes$: Observable&lt;any[]&gt;;
+
+  @BindObservable()
+  @Input()
+  rightRoutes &#x3D; [];
+  rightRoutes$: Observable&lt;any[]&gt;;
+
+  @BindObservable()
+  @Input()
+  leftRoutes &#x3D; [];
+  leftRoutes$: Observable&lt;any[]&gt;;
+
+  constructor(public router: Router) { }
+  setRoutes(routes: any[]) {
+    this.allowedRoutes &#x3D;
       routes
         ? routes.filter((item: any) &#x3D;&gt; item.data &amp;&amp; item.data.visible !&#x3D;&#x3D; false)
-        : []
-    );
-    const allowedRoutes &#x3D; this.allowedRoutes$.getValue().map((item: any) &#x3D;&gt; {
+        : [];
+    const allowedRoutes &#x3D; this.allowedRoutes.map((item: any) &#x3D;&gt; {
       let newItem &#x3D; item.data;
       if (newItem.meta) {
         newItem &#x3D; { ...newItem, ...newItem.meta };
@@ -816,23 +885,11 @@ export class NavbarComponent {
       newItem.redirectTo &#x3D; item.redirectTo;
       return newItem;
     });
-    this.rightRoutes$.next(
-      allowedRoutes.filter((item: any) &#x3D;&gt; item.align &#x3D;&#x3D;&#x3D; &#x27;right&#x27;)
-    );
-    this.leftRoutes$.next(
-      allowedRoutes.filter((item: any) &#x3D;&gt; item.align !&#x3D;&#x3D; &#x27;right&#x27;)
-    );
+    this.rightRoutes &#x3D;
+      allowedRoutes.filter((item: any) &#x3D;&gt; item.align &#x3D;&#x3D;&#x3D; &#x27;right&#x27;);
+    this.leftRoutes &#x3D;
+      allowedRoutes.filter((item: any) &#x3D;&gt; item.align !&#x3D;&#x3D; &#x27;right&#x27;);
   }
-  @Output()
-  signIn &#x3D; new EventEmitter();
-  @Output()
-  signOut &#x3D; new EventEmitter();
-
-  public allowedRoutes$ &#x3D; new BehaviorSubject([]);
-  public rightRoutes$ &#x3D; new BehaviorSubject([]);
-  public leftRoutes$ &#x3D; new BehaviorSubject([]);
-
-  constructor(public router: Router) { }
   onSignInClick(signInData?: any) {
     if (isDevMode() &amp;&amp; this.signIn.observers.length &#x3D;&#x3D;&#x3D; 0) {
       console.warn(&#x27;No subscribers found for &quot;signIn&quot;&#x27;, this);

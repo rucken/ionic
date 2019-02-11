@@ -112,6 +112,25 @@
             
             
             
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/ICoreConfig.html" >ICoreConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IEnvironment.html" >IEnvironment</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -231,6 +250,25 @@
                    
                    
                    
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/ICoreConfig.html" >ICoreConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IEnvironment.html" >IEnvironment</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -325,7 +363,7 @@ import { IonicModule, IonicRouteStrategy } from &#x27;@ionic/angular&#x27;;
 import { IonicStorageModule } from &#x27;@ionic/storage&#x27;;
 import { MetaLoader, MetaModule } from &#x27;@ngx-meta/core&#x27;;
 import { TranslateModule, TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, defaultContentTypesConfig, defaultGroupsConfig, defaultPermissionsConfig, defaultUsersConfig, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN } from &#x27;@rucken/core&#x27;;
+import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, DEFAULT_CONTENT_TYPES_CONFIG, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN, DEFAULT_PERMISSIONS_CONFIG, DEFAULT_USERS_CONFIG, DEFAULT_GROUPS_CONFIG } from &#x27;@rucken/core&#x27;;
 import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from &#x27;@rucken/ionic&#x27;;
 import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
@@ -333,8 +371,10 @@ import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { NgxRepositoryModule } from &#x27;ngx-repository&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
-import { AllRoutes, AppLangs, appMetaFactory, OauthModalProviders, OauthProviders } from &#x27;./app.config&#x27;;
+import { APP_ROUTES } from &#x27;./app.routes&#x27;;
+import { config } from &#x27;./config/config&#x27;;
 import { initializeApp } from &#x27;./utils/initialize-app&#x27;;
+import { metaFactory } from &#x27;./utils/meta-factory&#x27;;
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -352,27 +392,27 @@ import { initializeApp } from &#x27;./utils/initialize-app&#x27;;
     AuthModule.forRoot({
       apiUrl: environment.apiUrl,
       oauth: {
-        providers: OauthProviders
+        providers: config.oauth
       }
     }),
     AccountModule.forRoot({
       apiUrl: environment.apiUrl
     }),
     LangModule.forRoot({
-      languages: AppLangs
+      languages: config.app.languages
     }),
-    RouterModule.forRoot(AllRoutes, {
+    RouterModule.forRoot(APP_ROUTES, {
       preloadingStrategy: PreloadAllModules,
       initialNavigation: &#x27;enabled&#x27;
     }),
     MetaModule.forRoot({
       provide: MetaLoader,
-      useFactory: appMetaFactory,
+      useFactory: metaFactory,
       deps: [TranslateService]
     }),
     AuthModalModule.forRoot({
       oauth: {
-        providers: OauthModalProviders
+        providers: config.oauth
       }
     }),
     IonicAuthModalModule,
@@ -386,28 +426,28 @@ import { initializeApp } from &#x27;./utils/initialize-app&#x27;;
     {
       provide: CONTENT_TYPES_CONFIG_TOKEN,
       useValue: {
-        ...defaultContentTypesConfig,
+        ...DEFAULT_CONTENT_TYPES_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
     {
       provide: PERMISSIONS_CONFIG_TOKEN,
       useValue: {
-        ...defaultPermissionsConfig,
+        ...DEFAULT_PERMISSIONS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
     {
       provide: USERS_CONFIG_TOKEN,
       useValue: {
-        ...defaultUsersConfig,
+        ...DEFAULT_USERS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
     {
       provide: GROUPS_CONFIG_TOKEN,
       useValue: {
-        ...defaultGroupsConfig,
+        ...DEFAULT_GROUPS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },

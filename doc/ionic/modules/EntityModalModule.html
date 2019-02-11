@@ -565,10 +565,11 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+import { PipesModule } from &#x27;@rucken/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { FormGroupModule } from &#x27;../../components/form-group/form-group.module&#x27;;
 import { PromptFormModalModule } from &#x27;../prompt-form-modal/prompt-form-modal.module&#x27;;
 import { EntityModalComponent } from &#x27;./entity-modal.component&#x27;;
-import { PipesModule } from &#x27;@rucken/core&#x27;;
 
 @NgModule({
   imports: [
@@ -578,7 +579,8 @@ import { PipesModule } from &#x27;@rucken/core&#x27;;
     ReactiveFormsModule,
     TranslateModule.forChild(),
     PipesModule,
-    PromptFormModalModule
+    PromptFormModalModule,
+    NgxBindIOModule
   ],
   declarations: [EntityModalComponent],
   entryComponents: [EntityModalComponent],

@@ -755,7 +755,9 @@ export class IonicModalsService extends ModalsService {
     }
 
     let bsModalRef: TComponent | HTMLIonModalElement | any;
-    const instance &#x3D; { ...options, yes: new EventEmitter(), no: new EventEmitter() };
+    const instance &#x3D; {
+      ...options, yes: new EventEmitter(), no: new EventEmitter()
+    };
     instance.yes.subscribe((modal: TComponent) &#x3D;&gt; {
       this._onTopIsActive &#x3D; false;
     });

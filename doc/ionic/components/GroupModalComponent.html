@@ -617,7 +617,9 @@
 import { BasePromptFormModalComponent, Group, Permission } from &#x27;@rucken/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { PermissionsService } from &#x27;../../../services/permissions.service&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;group-modal&#x27;,
   templateUrl: &#x27;./group-modal.component.html&#x27;,

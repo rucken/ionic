@@ -636,7 +636,9 @@
             <pre><code class="hljs javascript">import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from &#x27;@angular/core&#x27;;
 import { DynamicFormGroup } from &#x27;ngx-dynamic-form-builder&#x27;;
 import { BasePromptFormModalComponent } from &#x27;@rucken/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;entity-modal&#x27;,
   templateUrl: &#x27;./entity-modal.component.html&#x27;,

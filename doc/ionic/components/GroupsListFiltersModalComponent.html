@@ -659,8 +659,9 @@
 import { BasePromptFormModalComponent } from &#x27;@rucken/core&#x27;;
 import { GroupsListFiltersModal } from &#x27;./groups-list-filters-modal&#x27;;
 import { GroupsListFiltersModalService } from &#x27;./groups-list-filters-modal.service&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
-
+@BindIoInner()
 @Component({
   selector: &#x27;groups-list-filters-modal&#x27;,
   templateUrl: &#x27;./groups-list-filters-modal.component.html&#x27;,

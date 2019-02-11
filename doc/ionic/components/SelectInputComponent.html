@@ -692,7 +692,9 @@ import { BindObservable } from &#x27;bind-observable&#x27;;
 import { Observable, Subject } from &#x27;rxjs&#x27;;
 import { takeUntil } from &#x27;rxjs/operators&#x27;;
 import { SelectInput } from &#x27;./select-input&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;select-input&#x27;,
   templateUrl: &#x27;./select-input.component.html&#x27;,

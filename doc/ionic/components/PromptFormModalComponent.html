@@ -774,7 +774,9 @@
 import { ModalController } from &#x27;@ionic/angular&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { BasePromptModalComponent, ModalsService } from &#x27;@rucken/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;prompt-form-modal&#x27;,
   templateUrl: &#x27;./prompt-form-modal.component.html&#x27;,

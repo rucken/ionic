@@ -112,6 +112,25 @@
             
             
             
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/ICoreConfig.html" >ICoreConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IEnvironment.html" >IEnvironment</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -231,6 +250,25 @@
                    
                    
                    
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/ICoreConfig.html" >ICoreConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IEnvironment.html" >IEnvironment</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -604,7 +642,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>currentLang$:     <code>BehaviorSubject&lt;string&gt;</code>
+                            <code>currentLang$:     <code>Observable&lt;string&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -634,7 +672,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>languages$:     <code>BehaviorSubject&lt;ILanguagesItem[]&gt;</code>
+                            <code>languages$:     <code>Observable&lt;ILanguagesItem[]&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -644,20 +682,15 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b><span class="modifier">Public</span> routes</b>
+                            <b> navbar</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-circle"></span><code>routes:     <code>Route[]</code>
+                            <code>navbar:     <code>any</code>
     </bcode>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>AppRoutes</code>
-                            </td>
-                        </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -679,7 +712,7 @@
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
             <pre><code class="hljs javascript">import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from &#x27;@angular/core&#x27;;
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from &#x27;@angular/core&#x27;;
 import { SplashScreen } from &#x27;@ionic-native/splash-screen/ngx&#x27;;
 import { StatusBar } from &#x27;@ionic-native/status-bar/ngx&#x27;;
 import { AlertController, Platform } from &#x27;@ionic/angular&#x27;;
@@ -687,24 +720,26 @@ import { AlertInput } from &#x27;@ionic/core&#x27;;
 import { MetaService } from &#x27;@ngx-meta/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { AuthModalComponent, AuthModalService, AuthService, ILanguagesItem, LangService, RedirectUrlDto, TokenService, User, UserTokenDto } from &#x27;@rucken/core&#x27;;
-import { GroupsService, PermissionsService } from &#x27;@rucken/ionic&#x27;;
-import { BehaviorSubject, Observable, Subject } from &#x27;rxjs&#x27;;
+import { GroupsService, NavbarComponent, PermissionsService } from &#x27;@rucken/ionic&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
+import { Observable, Subject } from &#x27;rxjs&#x27;;
 import { takeUntil } from &#x27;rxjs/operators&#x27;;
-import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from &#x27;./app.config&#x27;;
-import { AppRoutes } from &#x27;./app.routes&#x27;;
+import { APP_ROUTES } from &#x27;./app.routes&#x27;;
+import { config } from &#x27;./config/config&#x27;;
 
-
+@BindIoInner()
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;app.component.html&#x27;
 })
 export class AppComponent implements OnInit, OnDestroy {
+  @ViewChild(&#x27;navbar&#x27;)
+  navbar: NavbarComponent;
 
-  languages$: BehaviorSubject&lt;ILanguagesItem[]&gt;;
-  currentLang$: BehaviorSubject&lt;string&gt;;
+  languages$: Observable&lt;ILanguagesItem[]&gt;;
+  currentLang$: Observable&lt;string&gt;;
 
   public title: string;
-  public routes &#x3D; AppRoutes;
   public currentUser$: Observable&lt;User&gt;;
 
   private _destroyed$: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
@@ -724,8 +759,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private _permissionsService: PermissionsService,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
-    this._authModalService.signInInfoMessage &#x3D; AuthModalSignInInfoMessage;
-    this._authModalService.signUpInfoMessage &#x3D; AuthModalSignUpInfoMessage;
+    this._authModalService.signInInfoMessage &#x3D; config.authModal.signInInfoMessage;
+    this._authModalService.signUpInfoMessage &#x3D; config.authModal.signUpInfoMessage;
     this.languages$ &#x3D; this._langService.languages$;
     this.currentLang$ &#x3D; this._langService.current$;
     this.currentUser$ &#x3D; this._authService.current$;
@@ -769,6 +804,7 @@ export class AppComponent implements OnInit, OnDestroy {
     if (isPlatformBrowser(this._platformId)) {
       this.onInfo();
     }
+    this.navbar.setRoutes(APP_ROUTES);
   }
   ngOnDestroy() {
     this._destroyed$.next(true);
@@ -780,13 +816,13 @@ export class AppComponent implements OnInit, OnDestroy {
   async onSwitchLangAsync() {
     const alert &#x3D; await this._alertController.create({
       header: this._translateService.instant(&#x27;Select language&#x27;),
-      inputs: this.languages$.getValue().map(lang &#x3D;&gt; (
+      inputs: this._langService.languages.map(lang &#x3D;&gt; (
         {
           name: &#x27;lang&#x27;,
           type: &#x27;radio&#x27;,
           label: this._translateService.instant(lang.title),
           value: lang.code,
-          checked: this.currentLang$.getValue() &#x3D;&#x3D;&#x3D; lang.code
+          checked: this._langService.current &#x3D;&#x3D;&#x3D; lang.code
         } as AlertInput
       )),
       buttons: [
