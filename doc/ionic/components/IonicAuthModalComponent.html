@@ -635,6 +635,12 @@ export class IonicAuthModalComponent extends AuthModalComponent implements OnIni
   ) {
     super(_authModalConfig);
   }
+  ngOnInit() {
+    super.ngOnInit();
+    this.infoMessage &#x3D;
+      this.signInType &#x3D;&#x3D;&#x3D; this.type ?
+        this.signInInfoMessage : this.signUpInfoMessage;
+  }
 }
 </code></pre>
         </div>
