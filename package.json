@@ -1,6 +1,6 @@
 {
   "name": "rucken-ionic",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "engines": {
     "node": ">=11",
     "npm": ">=6.5.0"
