@@ -1,7 +1,10 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BindObservable } from 'bind-observable';
+import { BindIoInner } from 'ngx-bind-io';
+import { Observable } from 'rxjs';
 
+@BindIoInner()
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -14,14 +17,34 @@ export class NavbarComponent {
   showSignOut: boolean = undefined;
   @Input()
   title: string = undefined;
+
+  @Output()
+  signIn = new EventEmitter();
+  @Output()
+  signOut = new EventEmitter();
+
+  @BindObservable()
   @Input()
-  set routes(routes: any[]) {
-    this.allowedRoutes$.next(
+  allowedRoutes = [];
+  allowedRoutes$: Observable<any[]>;
+
+  @BindObservable()
+  @Input()
+  rightRoutes = [];
+  rightRoutes$: Observable<any[]>;
+
+  @BindObservable()
+  @Input()
+  leftRoutes = [];
+  leftRoutes$: Observable<any[]>;
+
+  constructor(public router: Router) { }
+  setRoutes(routes: any[]) {
+    this.allowedRoutes =
       routes
         ? routes.filter((item: any) => item.data && item.data.visible !== false)
-        : []
-    );
-    const allowedRoutes = this.allowedRoutes$.getValue().map((item: any) => {
+        : [];
+    const allowedRoutes = this.allowedRoutes.map((item: any) => {
       let newItem = item.data;
       if (newItem.meta) {
         newItem = { ...newItem, ...newItem.meta };
@@ -33,23 +56,11 @@ export class NavbarComponent {
       newItem.redirectTo = item.redirectTo;
       return newItem;
     });
-    this.rightRoutes$.next(
-      allowedRoutes.filter((item: any) => item.align === 'right')
-    );
-    this.leftRoutes$.next(
-      allowedRoutes.filter((item: any) => item.align !== 'right')
-    );
+    this.rightRoutes =
+      allowedRoutes.filter((item: any) => item.align === 'right');
+    this.leftRoutes =
+      allowedRoutes.filter((item: any) => item.align !== 'right');
   }
-  @Output()
-  signIn = new EventEmitter();
-  @Output()
-  signOut = new EventEmitter();
-
-  public allowedRoutes$ = new BehaviorSubject([]);
-  public rightRoutes$ = new BehaviorSubject([]);
-  public leftRoutes$ = new BehaviorSubject([]);
-
-  constructor(public router: Router) { }
   onSignInClick(signInData?: any) {
     if (isDevMode() && this.signIn.observers.length === 0) {
       console.warn('No subscribers found for "signIn"', this);

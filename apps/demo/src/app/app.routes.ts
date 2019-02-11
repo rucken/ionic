@@ -4,7 +4,7 @@ import { HomePageRoutes } from './pages/home-page/home-page.routes';
 import { ProfilePageRoutes } from './pages/profile-page/profile-page.routes';
 import { UsersPageRoutes } from './pages/users-page/users-page.routes';
 
-export const AppRoutes: Routes = [
+export const APP_ROUTES: Routes = [
     {
         path: '',
         redirectTo: 'home',

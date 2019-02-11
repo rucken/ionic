@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@angular/core';
 import { IStorage, STORAGE_CONFIG_TOKEN } from '@rucken/core';
+import { BindObservable } from 'bind-observable';
 import { classToPlain, plainToClass } from 'class-transformer';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { UsersListFiltersModal } from './users-list-filters-modal';
 
 export function usersListFiltersModalServiceInitializeApp(
@@ -12,16 +13,18 @@ export function usersListFiltersModalServiceInitializeApp(
 
 @Injectable()
 export class UsersListFiltersModalService {
+  @BindObservable()
+  current: UsersListFiltersModal = UsersListFiltersModal.default();
+  current$: Observable<UsersListFiltersModal>;
+
   storageKeyName = 'users-list-filters-modal';
-  current$ = new BehaviorSubject<UsersListFiltersModal>(
-    UsersListFiltersModal.default()
-  );
+
   constructor(
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
   ) {
   }
   getCurrent() {
-    return this.current$.getValue();
+    return this.current;
   }
   setCurrent(value: UsersListFiltersModal) {
     this._storage.setItem(
@@ -31,9 +34,9 @@ export class UsersListFiltersModalService {
           { groups: ['manual'] }
         )
       )
-    ).then(_ => {
-      this.current$.next(value);
-    });
+    ).then(_ =>
+      this.current = value
+    );
   }
   initCurrent() {
     return new Promise<UsersListFiltersModal>((resolve) => {

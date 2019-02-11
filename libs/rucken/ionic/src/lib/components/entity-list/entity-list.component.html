@@ -3,7 +3,7 @@
     [formControl]="searchField"
     animated></ion-searchbar>
 <ion-list>
-    <ng-container *ngFor="let item of items; trackBy: trackByFn;">
+    <ng-container *ngFor="let item of (filteredItems$ | async); trackBy: trackByFn;">
         <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {item:item} }"></ng-container>
     </ng-container>
 </ion-list>
@@ -90,7 +90,7 @@
         <ion-item-options
             side="start"
             class="sliding-enabled"
-            *ngIf="columns.indexOf('action')!==-1">
+            *ngIf="(filtredColumns$ | async)?.indexOf('action')!==-1">
             <ng-container *ngTemplateOutlet="defaultGridCellActionContent, context: { $implicit: {item:ctx.item,slidingItem:slidingItem} }"></ng-container>
         </ion-item-options>
     </ion-item-sliding>
@@ -99,16 +99,18 @@
     let-ctx
     #itemLabelTemplate>
     <ion-label text-wrap>
-        <h2 *ngIf="ctx.item[columns[1]]">
-            <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[0],slidingItem:ctx.slidingItem}} }"></ng-container>
-        </h2>
-        <h3 *ngIf="ctx.item[columns[0]]">
-            <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[1],slidingItem:ctx.slidingItem}} }"></ng-container>
-        </h3>
-        <p
-            *ngIf="ctx.item[columns[2]]"
-            text-wrap>
-            <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[2],slidingItem:ctx.slidingItem}} }"></ng-container>
-        </p>
+        <ng-container *ngIf="(filtredColumns$ | async) as columns">
+            <h2 *ngIf="ctx.item[columns[1]]">
+                <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[0],slidingItem:ctx.slidingItem}} }"></ng-container>
+            </h2>
+            <h3 *ngIf="ctx.item[columns[0]]">
+                <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[1],slidingItem:ctx.slidingItem}} }"></ng-container>
+            </h3>
+            <p
+                *ngIf="ctx.item[columns[2]]"
+                text-wrap>
+                <ng-container *ngTemplateOutlet="(gridCellContent?gridCellContent:defaultGridCellContent), context: { $implicit: {item:ctx.item, field:{name:columns[2],slidingItem:ctx.slidingItem}} }"></ng-container>
+            </p>
+        </ng-container>
     </ion-label>
 </ng-template>

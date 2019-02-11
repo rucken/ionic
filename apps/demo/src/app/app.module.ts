@@ -9,7 +9,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { MetaLoader, MetaModule } from '@ngx-meta/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, defaultContentTypesConfig, defaultGroupsConfig, defaultPermissionsConfig, defaultUsersConfig, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN } from '@rucken/core';
+import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, DEFAULT_CONTENT_TYPES_CONFIG, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN, DEFAULT_PERMISSIONS_CONFIG, DEFAULT_USERS_CONFIG, DEFAULT_GROUPS_CONFIG } from '@rucken/core';
 import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from '@rucken/ionic';
 import { NgxBindIOModule } from 'ngx-bind-io';
 import { CookieService } from 'ngx-cookie-service';
@@ -17,8 +17,10 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { NgxRepositoryModule } from 'ngx-repository';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { AllRoutes, AppLangs, appMetaFactory, OauthModalProviders, OauthProviders } from './app.config';
+import { APP_ROUTES } from './app.routes';
+import { config } from './config/config';
 import { initializeApp } from './utils/initialize-app';
+import { metaFactory } from './utils/meta-factory';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -36,27 +38,27 @@ import { initializeApp } from './utils/initialize-app';
     AuthModule.forRoot({
       apiUrl: environment.apiUrl,
       oauth: {
-        providers: OauthProviders
+        providers: config.oauth
       }
     }),
     AccountModule.forRoot({
       apiUrl: environment.apiUrl
     }),
     LangModule.forRoot({
-      languages: AppLangs
+      languages: config.app.languages
     }),
-    RouterModule.forRoot(AllRoutes, {
+    RouterModule.forRoot(APP_ROUTES, {
       preloadingStrategy: PreloadAllModules,
       initialNavigation: 'enabled'
     }),
     MetaModule.forRoot({
       provide: MetaLoader,
-      useFactory: appMetaFactory,
+      useFactory: metaFactory,
       deps: [TranslateService]
     }),
     AuthModalModule.forRoot({
       oauth: {
-        providers: OauthModalProviders
+        providers: config.oauth
       }
     }),
     IonicAuthModalModule,
@@ -70,28 +72,28 @@ import { initializeApp } from './utils/initialize-app';
     {
       provide: CONTENT_TYPES_CONFIG_TOKEN,
       useValue: {
-        ...defaultContentTypesConfig,
+        ...DEFAULT_CONTENT_TYPES_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
     {
       provide: PERMISSIONS_CONFIG_TOKEN,
       useValue: {
-        ...defaultPermissionsConfig,
+        ...DEFAULT_PERMISSIONS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
     {
       provide: USERS_CONFIG_TOKEN,
       useValue: {
-        ...defaultUsersConfig,
+        ...DEFAULT_USERS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
     {
       provide: GROUPS_CONFIG_TOKEN,
       useValue: {
-        ...defaultGroupsConfig,
+        ...DEFAULT_GROUPS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },

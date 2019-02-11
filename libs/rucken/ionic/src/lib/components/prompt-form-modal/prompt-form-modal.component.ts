@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular
 import { ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { BasePromptModalComponent, ModalsService } from '@rucken/core';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'prompt-form-modal',
   templateUrl: './prompt-form-modal.component.html',

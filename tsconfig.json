@@ -15,10 +15,10 @@
     ],
     "paths": {
       "@rucken/ionic": [
-        "dist/rucken/ionic"
+        "libs/rucken/ionic/src"
       ],
       "@rucken/ionic/*": [
-        "dist/rucken/ionic/*"
+        "libs/rucken/ionic/src/*"
       ]
     }
   }

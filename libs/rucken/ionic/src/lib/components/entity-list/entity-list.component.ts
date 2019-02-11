@@ -1,17 +1,21 @@
-import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, Output, TemplateRef, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, OnChanges, Output, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { translate } from '@rucken/core';
+import { BindObservable } from 'bind-observable';
+import { BindIoInner } from 'ngx-bind-io';
 import { IModel, PaginationMeta } from 'ngx-repository';
+import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
+@BindIoInner()
 @Component({
   selector: 'entity-list',
   templateUrl: './entity-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EntityListComponent<TModel extends IModel> {
+export class EntityListComponent<TModel extends IModel> implements OnChanges {
   @ContentChild('#defaultGridFieldContent')
   defaultGridFieldContent: TemplateRef<any>;
   @ContentChild('#defaultGridFieldActionContent')
@@ -62,35 +66,7 @@ export class EntityListComponent<TModel extends IModel> {
   @Input()
   selectFirst?: boolean = undefined;
   @Input()
-  set processing(value: boolean) {
-    this._processing = value;
-    if (this._processingModal !== null) {
-      if (this._processingModal === undefined) {
-        this._processingModal = null;
-        if (value) {
-          this._loadingController.create({
-            message: this._translateService.instant('Loading...')
-          }).then(element => {
-            element.present().then(_ => {
-              this._processingModal = element;
-              if (this._processing === false) {
-                this.processing = false;
-              }
-            });
-          });
-        }
-      } else {
-        if (!value) {
-          this._processingModal.dismiss().then(() => {
-            this._processingModal = undefined;
-          });
-        }
-      }
-    }
-  }
-  get processing() {
-    return this._processing;
-  }
+  processing: boolean = undefined;
   @Input()
   searchField: FormControl = new FormControl();
   @Input()
@@ -109,46 +85,15 @@ export class EntityListComponent<TModel extends IModel> {
   orderBy: string = undefined;
   @Input()
   multiSelectColumns: string[] = undefined;
+
   @Input()
-  set columns(columns: string[]) {
-    this._columns = columns;
-  }
-  get columns() {
-    if (this._columns) {
-      return this._columns.filter(
-        column =>
-          column === 'action'
-            ? this.readonly === true || (!this.isEnableDelete && !this.isEnableUpdate)
-              ? false
-              : true
-            : true
-      );
-    } else {
-      return this._columns;
-    }
-  }
+  columns: string[] = undefined;
   @Input()
   classes: string[] = undefined;
   @Input()
   strings: any = undefined;
   @Input()
-  set items(items: TModel[]) {
-    this._items = items;
-    if (
-      this.selectFirst !== false &&
-      items &&
-      items.length &&
-      items.filter(item => this._selected && this._selected.length && this._selected[0].id === item.id).length === 0
-    ) {
-      this.onSelected([]);
-    }
-    if (this._refresher && this._refresher.target) {
-      this._refresher.target.complete();
-    }
-  }
-  get items() {
-    return this._items;
-  }
+  items: TModel[] = undefined;
 
   @Output()
   delete: EventEmitter<TModel> = new EventEmitter<TModel>();
@@ -189,22 +134,34 @@ export class EntityListComponent<TModel extends IModel> {
   @Input()
   paginationMeta: PaginationMeta = undefined;
 
-  get enableOnlyUpdateOrDelete() {
-    return (this.isEnableDelete && !this.isEnableUpdate) || (!this.isEnableDelete && this.isEnableUpdate);
-  }
-  get enableUpdateAndDelete() {
-    return this.isEnableDelete && this.isEnableUpdate;
-  }
-  get isAppendFromGridMode() {
-    return this.appendFromGrid.observers.length > 0;
-  }
+  @BindObservable()
+  parent: any = undefined;
+  parent$: Observable<any>;
+  @BindObservable()
+  filteredItems: TModel[] = undefined;
+  filteredItems$: Observable<TModel[]>;
+  @BindObservable()
+  filtredColumns: string[] = undefined;
+  filtredColumns$: Observable<string[]>;
+  @BindObservable()
+  enableOnlyUpdateOrDelete: boolean = undefined;
+  enableOnlyUpdateOrDelete$: Observable<boolean>;
+  @BindObservable()
+  enableUpdateAndDelete: boolean = undefined;
+  enableUpdateAndDelete$: Observable<boolean>;
+  @BindObservable()
+  notReadonlyAndEnableCreate: boolean = undefined;
+  notReadonlyAndEnableCreate$: Observable<boolean>;
+  @BindObservable()
+  notReadonlyAndEnableDelete: boolean = undefined;
+  notReadonlyAndEnableDelete$: Observable<boolean>;
+  @BindObservable()
+  notReadonlyAndEnableUpdate: boolean = undefined;
+  notReadonlyAndEnableUpdate$: Observable<boolean>;
 
   private _refresher: any = undefined;
   private _processingModal: any = undefined;
-  private _processing = false;
   private _selected: TModel[] = undefined;
-  private _items: TModel[] = undefined;
-  private _columns: string[] = undefined;
 
   constructor(
     private _viewContainerRef: ViewContainerRef,
@@ -218,20 +175,111 @@ export class EntityListComponent<TModel extends IModel> {
       )
       .subscribe(value => this.onSearch(value));
   }
-  get isEnableAppendFromGrid() {
-    return !this.readonly && this.enableAppendFromGrid;
+  ngOnChanges(changes: SimpleChanges) {
+    this.calcParent();
+    this.calcEnableCreate();
+    this.calcEnableDelete();
+    this.calcEnableUpdate();
+    this.calcEnableOnlyUpdateOrDelete();
+    this.calcEnableUpdateAndDelete();
+    this.calcEnableAppendFromGrid();
+    if (changes.processing) {
+      this.calcProcessing();
+    }
+    if (changes.columns || changes.readonly || changes.enableDelete || changes.enableUpdate) {
+      this.setColumns(this.columns);
+    }
+    if (changes.items) {
+      this.setItems(this.items);
+    }
   }
-  get isEnableCreate() {
-    return !this.readonly && this.enableCreate;
+  calcProcessing() {
+    if (this._processingModal !== null) {
+      if (this._processingModal === undefined) {
+        this._processingModal = null;
+        if (this.processing) {
+          this._loadingController.create({
+            message: this._translateService.instant('Loading...')
+          }).then(element => {
+            element.present().then(_ => {
+              this._processingModal = element;
+              if (this.processing === false) {
+                this.processing = false;
+                this.calcProcessing();
+              }
+            });
+          });
+        }
+      } else {
+        if (!this.processing) {
+          this._processingModal.dismiss().then(() => {
+            this._processingModal = undefined;
+          });
+        }
+      }
+    }
   }
-  get isEnableDelete() {
-    return !this.readonly && this.enableDelete;
+  calcEnableOnlyUpdateOrDelete() {
+    this.enableOnlyUpdateOrDelete =
+      (
+        this.notReadonlyAndEnableDelete &&
+        !this.notReadonlyAndEnableUpdate
+      ) || (
+        !this.notReadonlyAndEnableDelete &&
+        this.notReadonlyAndEnableUpdate
+      );
   }
-  get isEnableUpdate() {
-    return !this.readonly && this.enableUpdate;
+  calcEnableUpdateAndDelete() {
+    this.enableUpdateAndDelete =
+      this.notReadonlyAndEnableDelete &&
+      this.notReadonlyAndEnableUpdate;
   }
-  get parent(): any {
-    return this._viewContainerRef['_view'].component;
+  calcEnableAppendFromGrid() {
+    this.enableAppendFromGrid = !this.readonly && this.enableAppendFromGrid;
+  }
+  calcEnableCreate() {
+    this.notReadonlyAndEnableCreate = !this.readonly && this.enableCreate;
+  }
+  calcEnableDelete() {
+    this.notReadonlyAndEnableDelete = !this.readonly && this.enableDelete;
+  }
+  calcEnableUpdate() {
+    this.notReadonlyAndEnableUpdate = !this.readonly && this.enableUpdate;
+  }
+  setColumns(columns: string[]) {
+    this.filtredColumns =
+      (columns || []).filter(column =>
+        column === 'action'
+          ? (
+            this.readonly === true || (
+              !this.readonly &&
+              !this.enableDelete &&
+              !this.enableUpdate
+            )
+              ? false
+              : true
+          )
+          : true
+      );
+  }
+  setItems(items: TModel[]) {
+    this.filteredItems = items;
+    if (
+      this.selectFirst !== false &&
+      items &&
+      items.length &&
+      items.filter(item => this._selected && this._selected.length && this._selected[0].id === item.id).length === 0
+    ) {
+      this.onSelected([]);
+    }
+    if (this._refresher && this._refresher.target) {
+      this._refresher.target.complete();
+    }
+  }
+  calcParent(): any {
+    if (this._viewContainerRef) {
+      this.parent = this._viewContainerRef['_view'].component;
+    }
   }
   onChangeOrder(column: string) {
     if (this.orderBy === `${column}`) {
@@ -271,7 +319,7 @@ export class EntityListComponent<TModel extends IModel> {
     this.search.emit(text);
   }
   onDelete(item: TModel, callback?: () => void) {
-    if (isDevMode() && !this.isEnableDelete) {
+    if (isDevMode() && !this.notReadonlyAndEnableDelete) {
       console.warn('Delete action is disabled', this.parent);
     }
     if (isDevMode() && this.delete.observers.length === 0) {
@@ -283,7 +331,7 @@ export class EntityListComponent<TModel extends IModel> {
     }
   }
   onUpdate(item: TModel, callback?: () => void) {
-    if (isDevMode() && !this.isEnableUpdate) {
+    if (isDevMode() && !this.notReadonlyAndEnableUpdate) {
       console.warn('Update action is disabled', this.parent);
     }
     if (isDevMode() && this.update.observers.length === 0) {
@@ -295,7 +343,7 @@ export class EntityListComponent<TModel extends IModel> {
     }
   }
   onCreate() {
-    if (isDevMode() && !this.isEnableCreate) {
+    if (isDevMode() && !this.notReadonlyAndEnableCreate) {
       console.warn('Create action is disabled', this.parent);
     }
     if (isDevMode() && this.create.observers.length === 0) {
@@ -319,7 +367,7 @@ export class EntityListComponent<TModel extends IModel> {
       if (isDevMode() && this.dblClick.observers.length === 0) {
         console.warn('No subscribers found for "dblClick"', this.parent);
       }
-      if (this.readonly === true || !this.isEnableUpdate) {
+      if (this.readonly === true || !this.notReadonlyAndEnableUpdate) {
         if (isDevMode() && this.dblClick.observers.length === 0) {
           console.warn('Try call "view" for "dblClick"', this.parent);
         }
@@ -333,7 +381,7 @@ export class EntityListComponent<TModel extends IModel> {
     }
   }
   onAppendFromGrid() {
-    if (isDevMode() && !this.isEnableAppendFromGrid) {
+    if (isDevMode() && !this.enableAppendFromGrid) {
       console.warn('Append from grid action is disabled', this.parent);
     }
     if (isDevMode() && this.appendFromGrid.observers.length === 0) {
@@ -345,11 +393,13 @@ export class EntityListComponent<TModel extends IModel> {
     this._selected = [];
   }
   onSelected(items: TModel[]) {
-    if (this.selectFirst !== false && items && items.length === 0 && this._items && this._items.length) {
-      items = [this._items[0]];
+    if (this.selectFirst !== false && items && items.length === 0 && this.items && this.items.length) {
+      items = [this.items[0]];
     }
     this._selected = items;
-    this.selected.emit(items);
+    if (this.selected) {
+      this.selected.emit(items);
+    }
   }
   trackByFn(index: any, item: { id: any; }) {
     return item.id;

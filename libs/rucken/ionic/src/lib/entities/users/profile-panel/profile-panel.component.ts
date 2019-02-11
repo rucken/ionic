@@ -6,7 +6,9 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CustomUser } from '../../../models/custom-user';
 import { GroupsService } from '../../../services/groups.service';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'profile-panel',
   templateUrl: './profile-panel.component.html',

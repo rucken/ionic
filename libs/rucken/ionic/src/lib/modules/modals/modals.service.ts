@@ -26,7 +26,9 @@ export class IonicModalsService extends ModalsService {
     }
 
     let bsModalRef: TComponent | HTMLIonModalElement | any;
-    const instance = { ...options, yes: new EventEmitter(), no: new EventEmitter() };
+    const instance = {
+      ...options, yes: new EventEmitter(), no: new EventEmitter()
+    };
     instance.yes.subscribe((modal: TComponent) => {
       this._onTopIsActive = false;
     });

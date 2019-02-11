@@ -1,5 +1,5 @@
 <entity-list
-    bindIO
+    [bindIO]
     [items]="items$ | async"
     [columns]="[ 'fullName', 'username', 'groups', 'action']"
     [enableCreate]="'add_user' | perm:false | async"

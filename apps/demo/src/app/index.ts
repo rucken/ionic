@@ -1,7 +1,8 @@
 export * from './app.component';
-export * from './app.config';
 export * from './app.module';
 export * from './app.routes';
+export * from './config/config.interface';
+export * from './config/config';
 export * from './i18n/ru.i18n';
 export * from './pages/groups-page/groups-page.component';
 export * from './pages/groups-page/groups-page.module';
@@ -16,3 +17,4 @@ export * from './pages/users-page/users-page.component';
 export * from './pages/users-page/users-page.module';
 export * from './pages/users-page/users-page.routes';
 export * from './utils/initialize-app';
+export * from './utils/meta-factory';

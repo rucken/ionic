@@ -2,13 +2,12 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        bindIO
+        [bindIO]
         iconTopYes="checkmark"
         iconTopNo="close"
         [hideYes]="true">
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="sortField"
             [title]="strings.sortField">
             <select-input
@@ -18,8 +17,7 @@
             </select-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="sortType"
             [title]="strings.sortType">
             <select-input

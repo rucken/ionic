@@ -8,7 +8,9 @@ import { GroupModalComponent } from '../group-modal/group-modal.component';
 import { GroupsListFiltersModal } from './groups-list-filters-modal/groups-list-filters-modal';
 import { GroupsListFiltersModalComponent } from './groups-list-filters-modal/groups-list-filters-modal.component';
 import { GroupsListFiltersModalService } from './groups-list-filters-modal/groups-list-filters-modal.service';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'groups-list',
   templateUrl: './groups-list.component.html',

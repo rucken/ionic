@@ -5,7 +5,9 @@ import { BindObservable } from 'bind-observable';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SelectInput } from './select-input';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'select-input',
   templateUrl: './select-input.component.html',

@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@angular/core';
 import { IStorage, STORAGE_CONFIG_TOKEN } from '@rucken/core';
+import { BindObservable } from 'bind-observable';
 import { classToPlain, plainToClass } from 'class-transformer';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { GroupsListFiltersModal } from './groups-list-filters-modal';
 
 export function groupsListFiltersModalServiceInitializeApp(
@@ -12,16 +13,18 @@ export function groupsListFiltersModalServiceInitializeApp(
 
 @Injectable()
 export class GroupsListFiltersModalService {
+  @BindObservable()
+  current: GroupsListFiltersModal = GroupsListFiltersModal.default();
+  current$: Observable<GroupsListFiltersModal>;
+
   storageKeyName = 'groups-list-filters-modal';
-  current$ = new BehaviorSubject<GroupsListFiltersModal>(
-    GroupsListFiltersModal.default()
-  );
+
   constructor(
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
   ) {
   }
   getCurrent() {
-    return this.current$.getValue();
+    return this.current;
   }
   setCurrent(value: GroupsListFiltersModal) {
     this._storage.setItem(
@@ -31,9 +34,9 @@ export class GroupsListFiltersModalService {
           { groups: ['manual'] }
         )
       )
-    ).then(_ => {
-      this.current$.next(value);
-    });
+    ).then(_ =>
+      this.current = value
+    );
   }
   initCurrent() {
     return new Promise<GroupsListFiltersModal>((resolve) => {
