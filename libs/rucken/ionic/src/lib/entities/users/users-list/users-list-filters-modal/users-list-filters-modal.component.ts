@@ -48,6 +48,7 @@ export class UsersListFiltersModalComponent extends
   }
   ngOnInit() {
     this.data = this._usersListFiltersModalService.getCurrent();
+    this.hideYes = true;
   }
   onYesClick(data?: any) {
     this._usersListFiltersModalService.setCurrent(
