@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/rucken/ionic/compare/0.2.0...0.2.1) (2019-02-11)
+
+
+### Bug Fixes
+
+* Move set values for inputs on modals template to component ([339477d](https://github.com/rucken/ionic/commit/339477d))
+
+
+
 # [0.2.0](https://github.com/rucken/ionic/compare/0.1.0...0.2.0) (2019-02-11)
 
 

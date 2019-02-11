@@ -26,6 +26,7 @@ export class GroupsListFiltersModalComponent extends
   }
   ngOnInit() {
     this.data = this._groupsListFiltersModalService.getCurrent();
+    this.hideYes = true;
   }
   onYesClick(data?: any) {
     this._groupsListFiltersModalService.setCurrent(
