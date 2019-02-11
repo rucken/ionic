@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BasePromptFormModalComponent, Group, Permission } from '@rucken/core';
 import { Observable } from 'rxjs';
 import { PermissionsService } from '../../../services/permissions.service';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'group-modal',
   templateUrl: './group-modal.component.html',

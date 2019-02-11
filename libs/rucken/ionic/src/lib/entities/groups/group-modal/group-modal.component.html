@@ -2,11 +2,10 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        bindIO
+        [bindIO]
         [iconTopYes]="data.id?'checkmark':'add'">
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="name"
             [title]="strings.name">
             <ion-input
@@ -15,8 +14,7 @@
             </ion-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="title"
             [title]="strings.title">
             <ion-input
@@ -26,8 +24,7 @@
             </ion-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="permissions"
             [title]="strings.permissions">
             <select-input

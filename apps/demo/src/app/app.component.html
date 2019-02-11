@@ -16,11 +16,11 @@
             <ion-content>
                 <app-navbar
                     [title]="title"
-                    [routes]="routes"
                     [showSignIn]="!(currentUser$ | async)"
                     [showSignOut]="currentUser$ | async"
                     (signIn)="onSignIn()"
-                    (signOut)="onSignOut()">
+                    (signOut)="onSignOut()"
+                    #navbar>
                 </app-navbar>
             </ion-content>
         </ion-menu>

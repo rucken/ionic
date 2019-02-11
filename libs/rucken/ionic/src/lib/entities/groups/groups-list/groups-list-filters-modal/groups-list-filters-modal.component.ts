@@ -2,8 +2,9 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { BasePromptFormModalComponent } from '@rucken/core';
 import { GroupsListFiltersModal } from './groups-list-filters-modal';
 import { GroupsListFiltersModalService } from './groups-list-filters-modal.service';
+import { BindIoInner } from 'ngx-bind-io';
 
-
+@BindIoInner()
 @Component({
   selector: 'groups-list-filters-modal',
   templateUrl: './groups-list-filters-modal.component.html',

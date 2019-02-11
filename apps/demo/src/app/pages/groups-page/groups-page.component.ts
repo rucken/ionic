@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'groups-page',
   templateUrl: './groups-page.component.html',

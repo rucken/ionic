@@ -1,3 +1,12 @@
+# [0.2.0](https://github.com/rucken/ionic/compare/0.1.0...0.2.0) (2019-02-11)
+
+
+### Features
+
+* Update dependencies, add bindIO and update sources ([4a2e46a](https://github.com/rucken/ionic/commit/4a2e46a))
+
+
+
 # [0.1.0](https://github.com/rucken/ionic/compare/0.0.4...0.1.0) (2019-01-27)
 
 

@@ -6,8 +6,9 @@ import { map } from 'rxjs/operators';
 import { GroupsService } from '../../../../services/groups.service';
 import { UsersListFiltersModal } from './users-list-filters-modal';
 import { UsersListFiltersModalService } from './users-list-filters-modal.service';
+import { BindIoInner } from 'ngx-bind-io';
 
-
+@BindIoInner()
 @Component({
   selector: 'users-list-filters-modal',
   templateUrl: './users-list-filters-modal.component.html',

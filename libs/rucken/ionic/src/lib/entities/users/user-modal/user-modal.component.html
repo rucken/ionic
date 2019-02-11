@@ -2,11 +2,10 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        bindIO
+        [bindIO]
         [iconTopYes]="data.id?'checkmark':'add'">
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="username"
             [title]="strings.username">
             <ion-input
@@ -16,8 +15,7 @@
             </ion-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="email"
             [title]="strings.email">
             <ion-input
@@ -27,8 +25,7 @@
             </ion-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="password"
             [title]="strings.password"
             *ngIf="!data.id">
@@ -39,8 +36,7 @@
             </ion-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="dateOfBirth"
             [title]="strings.dateOfBirth">
             <ion-datetime
@@ -51,8 +47,7 @@
                 [disableControl]="readonly"></ion-datetime>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="firstName"
             [title]="strings.firstName">
             <ion-input
@@ -61,8 +56,7 @@
             </ion-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="lastName"
             [title]="strings.lastName">
             <ion-input
@@ -71,8 +65,7 @@
             </ion-input>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="groups"
             [title]="strings.groups">
             <select-input
@@ -87,8 +80,7 @@
             <ion-label [color]="readonly?'medium':undefined">{{ strings.roles | translate }}</ion-label>
         </ion-list-header>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="isActive">
             <ion-label class="margin-left-0">{{strings.isActive | translate}}</ion-label>
             <ion-toggle
@@ -98,8 +90,7 @@
             </ion-toggle>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="isStaff">
             <ion-label class="margin-left-0">{{strings.isStaff | translate}}</ion-label>
             <ion-toggle
@@ -109,8 +100,7 @@
             </ion-toggle>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="isSuperuser">
             <ion-label class="margin-left-0">{{strings.isSuperuser | translate}}</ion-label>
             <ion-toggle

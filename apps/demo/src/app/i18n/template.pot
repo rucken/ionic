@@ -13,16 +13,16 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "Rucken: Ionic"
+msgstr ""
+
+msgid "Core with Admin UI for web and native application maked on Angular7+"
+msgstr ""
+
 msgid "Russian"
 msgstr ""
 
 msgid "English"
-msgstr ""
-
-msgid "Rucken Ionic"
-msgstr ""
-
-msgid "Core with Admin UI for web and native application maked on Angular7+"
 msgstr ""
 
 msgid ""
@@ -64,6 +64,9 @@ msgid "Users page"
 msgstr ""
 
 msgid "Search"
+msgstr ""
+
+msgid "Rucken Ionic"
 msgstr ""
 
 msgid ""

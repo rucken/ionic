@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { BasePromptFormModalComponent, Group, transformDateToString, transformStringToDate } from '@rucken/core';
+import { BasePromptFormModalComponent, Group } from '@rucken/core';
+import { BindIoInner } from 'ngx-bind-io';
 import { Observable } from 'rxjs';
-import { GroupsService } from '../../../services/groups.service';
 import { CustomUser } from '../../../models/custom-user';
+import { GroupsService } from '../../../services/groups.service';
 
+@BindIoInner()
 @Component({
   selector: 'user-modal',
   templateUrl: './user-modal.component.html',
