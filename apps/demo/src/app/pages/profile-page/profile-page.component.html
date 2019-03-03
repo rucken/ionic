@@ -4,8 +4,10 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>{{ title$ | async | translate }}</ion-title>
-        <ion-buttons slot="secondary">
-            <ion-button (click)="profilePanel.onSaveClick()" [disabled]="(profilePanel.processing$ | async) || profilePanel.disabled">
+        <ion-buttons slot="end">
+            <ion-button
+                (click)="profilePanel.onSaveClick()"
+                [disabled]="(profilePanel.processing$ | async) || profilePanel.disabled">
                 <ion-icon
                     slot="icon-only"
                     name="checkmark"></ion-icon>

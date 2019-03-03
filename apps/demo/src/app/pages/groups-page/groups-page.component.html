@@ -4,7 +4,7 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>{{ title$ | async | translate }}</ion-title>
-        <ion-buttons slot="secondary">
+        <ion-buttons slot="end">
             <ion-button (click)="groupList.onFilterClick()">
                 <ion-icon
                     slot="icon-only"
