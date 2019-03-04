@@ -2,17 +2,16 @@ import { ChangeDetectionStrategy, Component, Input, isDevMode, OnDestroy } from 
 import { ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService, AuthService, BasePromptPanelComponent, ErrorsExtractor, Group, ModalsService } from '@rucken/core';
+import { BindIoInner } from 'ngx-bind-io';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CustomUser } from '../../../models/custom-user';
 import { GroupsService } from '../../../services/groups.service';
-import { BindIoInner } from 'ngx-bind-io';
 
 @BindIoInner()
 @Component({
   selector: 'profile-panel',
   templateUrl: './profile-panel.component.html',
-  styles: [':host form {height: 100%;}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfilePanelComponent extends BasePromptPanelComponent<CustomUser> implements OnDestroy {

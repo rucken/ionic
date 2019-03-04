@@ -1,47 +1,54 @@
-<form
-    [formGroup]="form"
-    novalidate>
+<prompt-form-modal
+    [bindIO]
+    [hideTopYes]="true"
+    [hideFooter]="true">
+</prompt-form-modal>
+<ion-content padding-top>
     <prompt-form-modal
         [bindIO]
-        [hideTopYes]="true">
-        <form-group
-            [bindIO]
-            name="username"
-            [title]="strings.username"
-            *ngIf="signUpType === type">
-            <ion-input
-                autocomplete="on"
-                formControlName="username"
-                focused>
-            </ion-input>
-        </form-group>
-        <form-group
-            [bindIO]
-            name="email"
-            [title]="strings.email">
-            <ion-input
-                autocomplete="on"
-                formControlName="email">
-            </ion-input>
-        </form-group>
-        <form-group
-            [bindIO]
-            name="password"
-            [title]="strings.password">
-            <ion-input
-                formControlName="password"
-                type="password">
-            </ion-input>
-        </form-group>
-        <form-group
-            [bindIO]
-            name="rePassword"
-            [title]="strings.rePassword"
-            *ngIf="signUpType === type">
-            <ion-input
-                formControlName="rePassword"
-                type="password">
-            </ion-input>
-        </form-group>
+        [hideHeader]="true">
+        <form
+            [formGroup]="form"
+            novalidate>
+            <form-group
+                [bindIO]
+                name="username"
+                [title]="strings.username"
+                *ngIf="signUpType === type">
+                <ion-input
+                    autocomplete="on"
+                    formControlName="username"
+                    focused>
+                </ion-input>
+            </form-group>
+            <form-group
+                [bindIO]
+                name="email"
+                [title]="strings.email">
+                <ion-input
+                    autocomplete="on"
+                    formControlName="email">
+                </ion-input>
+            </form-group>
+            <form-group
+                [bindIO]
+                name="password"
+                [title]="strings.password">
+                <ion-input
+                    formControlName="password"
+                    type="password">
+                </ion-input>
+            </form-group>
+            <form-group
+                [bindIO]
+                name="rePassword"
+                [title]="strings.rePassword"
+                *ngIf="signUpType === type">
+                <ion-input
+                    formControlName="rePassword"
+                    type="password">
+                </ion-input>
+            </form-group>
+        </form>
     </prompt-form-modal>
-</form>
+</ion-content>

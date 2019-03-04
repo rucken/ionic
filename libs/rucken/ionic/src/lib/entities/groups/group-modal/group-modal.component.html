@@ -1,39 +1,48 @@
-<form
-    [formGroup]="form"
-    novalidate>
+<prompt-form-modal
+    [bindIO]
+    [iconTopYes]="data.id?'checkmark':'add'"
+    [hideFooter]="true">
+</prompt-form-modal>
+<ion-content
+    padding-top
+    [class.readonly_content]="readonly">
     <prompt-form-modal
         [bindIO]
-        [iconTopYes]="data.id?'checkmark':'add'">
-        <form-group
-            [bindIO]
-            name="name"
-            [title]="strings.name">
-            <ion-input
-                formControlName="name"
-                [disableControl]="readonly">
-            </ion-input>
-        </form-group>
-        <form-group
-            [bindIO]
-            name="title"
-            [title]="strings.title">
-            <ion-input
-                formControlName="title"
-                [disableControl]="readonly"
-                [autofocus]="true">
-            </ion-input>
-        </form-group>
-        <form-group
-            [bindIO]
-            name="permissions"
-            [title]="strings.permissions">
-            <select-input
-                [items]="permissions$ | async"
-                formControlName="permissions"
-                [yesTitle]="'OK'|translate"
-                [multiple]="true"
-                [disableControl]="readonly">
-            </select-input>
-        </form-group>
+        [hideHeader]="true">
+        <form
+            [formGroup]="form"
+            novalidate>
+            <form-group
+                [bindIO]
+                name="name"
+                [title]="strings.name">
+                <ion-input
+                    formControlName="name"
+                    [disableControl]="readonly">
+                </ion-input>
+            </form-group>
+            <form-group
+                [bindIO]
+                name="title"
+                [title]="strings.title">
+                <ion-input
+                    formControlName="title"
+                    [disableControl]="readonly"
+                    [autofocus]="true">
+                </ion-input>
+            </form-group>
+            <form-group
+                [bindIO]
+                name="permissions"
+                [title]="strings.permissions">
+                <select-input
+                    [items]="permissions$ | async"
+                    formControlName="permissions"
+                    [yesTitle]="'OK'|translate"
+                    [multiple]="true"
+                    [disableControl]="readonly">
+                </select-input>
+            </form-group>
+        </form>
     </prompt-form-modal>
-</form>
+</ion-content>

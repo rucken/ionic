@@ -12,7 +12,6 @@ import { BindIoInner } from 'ngx-bind-io';
 @Component({
   selector: 'users-list-filters-modal',
   templateUrl: './users-list-filters-modal.component.html',
-  styles: [':host form {height: 100%;}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersListFiltersModalComponent extends

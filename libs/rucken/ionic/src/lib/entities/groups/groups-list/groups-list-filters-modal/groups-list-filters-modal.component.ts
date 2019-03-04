@@ -8,7 +8,6 @@ import { BindIoInner } from 'ngx-bind-io';
 @Component({
   selector: 'groups-list-filters-modal',
   templateUrl: './groups-list-filters-modal.component.html',
-  styles: [':host form {height: 100%;}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupsListFiltersModalComponent extends

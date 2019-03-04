@@ -9,7 +9,6 @@ import { GroupsService } from '../../../services/groups.service';
 @Component({
   selector: 'user-modal',
   templateUrl: './user-modal.component.html',
-  styles: [':host form {height: 100%;}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserModalComponent extends BasePromptFormModalComponent<CustomUser> {

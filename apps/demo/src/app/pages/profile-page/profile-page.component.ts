@@ -1,14 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BindIoInner } from 'ngx-bind-io';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BindIoInner } from 'ngx-bind-io';
 
 @BindIoInner()
 @Component({
   selector: 'profile-page',
   templateUrl: './profile-page.component.html',
-  styles: [':host form {height: 100%;}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfilePageComponent {
