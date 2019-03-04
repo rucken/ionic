@@ -7,7 +7,6 @@ import { PromptFormModalComponent } from '../../components/prompt-form-modal/pro
 @Component({
   selector: 'auth-modal',
   templateUrl: './auth-modal.component.html',
-  styles: [':host form {height: 100%;}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IonicAuthModalComponent extends AuthModalComponent implements OnInit {

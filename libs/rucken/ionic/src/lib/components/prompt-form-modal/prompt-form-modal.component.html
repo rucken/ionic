@@ -1,25 +1,15 @@
-<ng-container *ngTemplateOutlet="hideHeader && hideFooter ? contentTemplateWithoutHeaderAndFooter : defaultContentTemplate"></ng-container>
+<ng-container *ngTemplateOutlet="(hideHeader && hideFooter) ? contentTemplateWithoutHeaderAndFooter : defaultContentTemplate"></ng-container>
 <ng-template #contentTemplateWithoutHeaderAndFooter>
     <ng-content></ng-content>
-    <ion-item lines="none">
-        <ion-label></ion-label>
-    </ion-item>
 </ng-template>
 <ng-template #defaultContentTemplate>
     <ng-container *ngIf="!hideHeader">
         <ng-container *ngTemplateOutlet="headerTemplate?headerTemplate:defaultHeaderTemplate"></ng-container>
     </ng-container>
-    <ion-content
-        padding-top
-        [class.readonly_content]="readonly">
-        <ng-content></ng-content>
-        <ng-container *ngIf="!hideFooter">
-            <ng-container *ngTemplateOutlet="!readonly ? (footerButtonsTemplate?footerButtonsTemplate:defaultFooterButtonsTemplate) : (readonlyFooterButtonsTemplate?readonlyFooterButtonsTemplate:defaultReadonlyFooterButtonsTemplate)"></ng-container>
-        </ng-container>
-        <ion-item lines="none">
-            <ion-label></ion-label>
-        </ion-item>
-    </ion-content>
+    <ng-content></ng-content>
+    <ng-container *ngIf="!hideFooter">
+        <ng-container *ngTemplateOutlet="!readonly ? (footerButtonsTemplate?footerButtonsTemplate:defaultFooterButtonsTemplate) : (readonlyFooterButtonsTemplate?readonlyFooterButtonsTemplate:defaultReadonlyFooterButtonsTemplate)"></ng-container>
+    </ng-container>
 </ng-template>
 <ng-template #defaultHeaderTemplate>
     <ion-header>
