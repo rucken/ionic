@@ -539,10 +539,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>:host form {height: 100%;}</code></td>
-            </tr>
 
 
             <tr>
@@ -804,17 +800,16 @@
 import { ToastController } from &#x27;@ionic/angular&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { AccountService, AuthService, BasePromptPanelComponent, ErrorsExtractor, Group, ModalsService } from &#x27;@rucken/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 import { Observable, Subject } from &#x27;rxjs&#x27;;
 import { takeUntil } from &#x27;rxjs/operators&#x27;;
 import { CustomUser } from &#x27;../../../models/custom-user&#x27;;
 import { GroupsService } from &#x27;../../../services/groups.service&#x27;;
-import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
 @BindIoInner()
 @Component({
   selector: &#x27;profile-panel&#x27;,
   templateUrl: &#x27;./profile-panel.component.html&#x27;,
-  styles: [&#x27;:host form {height: 100%;}&#x27;],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfilePanelComponent extends BasePromptPanelComponent&lt;CustomUser&gt; implements OnDestroy {

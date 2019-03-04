@@ -539,10 +539,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>:host form {height: 100%;}</code></td>
-            </tr>
 
 
             <tr>
@@ -624,7 +620,6 @@ import { GroupsService } from &#x27;../../../services/groups.service&#x27;;
 @Component({
   selector: &#x27;user-modal&#x27;,
   templateUrl: &#x27;./user-modal.component.html&#x27;,
-  styles: [&#x27;:host form {height: 100%;}&#x27;],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserModalComponent extends BasePromptFormModalComponent&lt;CustomUser&gt; {

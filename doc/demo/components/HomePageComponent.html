@@ -345,10 +345,6 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>:host form {height: 100%;}</code></td>
-            </tr>
 
 
             <tr>
@@ -430,16 +426,15 @@
         <div class="tab-pane fade tab-source-code" id="source">
             <pre><code class="hljs javascript">import { ChangeDetectionStrategy, Component } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
-import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
 declare var require: any;
 @BindIoInner()
 @Component({
   selector: &#x27;home-page&#x27;,
   templateUrl: &#x27;./home-page.component.html&#x27;,
-  styles: [&#x27;:host form {height: 100%;}&#x27;],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
