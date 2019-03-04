@@ -1,3 +1,14 @@
+## [0.2.3](https://github.com/rucken/ionic/compare/0.2.2...0.2.3) (2019-03-04)
+
+
+### Bug Fixes
+
+* Change slot for options buttons ([acdb61b](https://github.com/rucken/ionic/commit/acdb61b))
+* Remove workaroud with change css host height to 100% ([58ba835](https://github.com/rucken/ionic/commit/58ba835))
+* Update dependencies ([5b4148f](https://github.com/rucken/ionic/commit/5b4148f))
+
+
+
 ## [0.2.2](https://github.com/rucken/ionic/compare/0.2.1...0.2.2) (2019-02-11)
 
 
