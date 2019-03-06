@@ -13,7 +13,7 @@ declare var require: any;
 })
 export class HomePageComponent {
   public readme = require('html-loader!markdown-loader!./../../../../../../README.md').replace(
-    '<h1 id="rucken-ionic">rucken-ionic/h1>',
+    '<h1 id="rucken-ionic">rucken-ionic</h1>',
     ''
   );
   title$: Observable<string>;
