@@ -152,7 +152,7 @@
     "@angular/compiler": "~7.2.7",
     "@angular/compiler-cli": "~7.2.7",
     "@angular/language-service": "~7.2.7",
-    "@capacitor/cli": "1.0.0-beta.17",
+    "@capacitor/cli": "1.0.0-beta.18",
     "@ionic/ng-toolkit": "^1.1.0",
     "@ionic/schematics-angular": "^1.0.7",
     "@rucken/cli": "^3.3.3",
