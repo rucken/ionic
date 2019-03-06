@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { BasePromptModalComponent, ModalsService } from '@rucken/core';
+import { BasePromptModalComponent, CustomTranslatePipe, ModalsService } from '@rucken/core';
 import { BindIoInner } from 'ngx-bind-io';
 
 @BindIoInner()
@@ -36,11 +36,13 @@ export class PromptFormModalComponent extends BasePromptModalComponent {
   constructor(
     protected modalController: ModalController,
     private _modalsService: ModalsService,
-    private _tpranslateService: TranslateService
+    private _tpranslateService: TranslateService,
+    private _customTranslatePipe: CustomTranslatePipe
   ) {
     super();
   }
   onInfoClick(data?: any): void {
-    this._modalsService.info({ message: this._tpranslateService.instant(this.infoMessage) });
+    const message = this._customTranslatePipe.transform(this.infoMessage, this.data);
+    this._modalsService.info({ message });
   }
 }

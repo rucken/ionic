@@ -7,7 +7,7 @@ export const config: ICoreConfig = {
     app: {
         id: 'demo',
         title: translate('Rucken: Ionic'),
-        description: translate('Core with Admin UI for web and native application maked on Angular7+'),
+        description: translate('Admin UI for Ionic4 with Angular7+ mobile application based on Rucken template'),
         languages: [
             {
                 title: translate('Russian'),
@@ -22,11 +22,33 @@ export const config: ICoreConfig = {
         ]
     },
     authModal: {
-        signInInfoMessage: translate(`<p>Demo users:</p><ul>
-<li>user with admin group: admin@admin.com, password: 12345678</li>
-<li>user with user group: user1@user1.com, password: 12345678</li>
-<li>user with user group: user2@user2.com, password: 12345678</li>
-</ul>`),
+        signInInfoMessage: {
+            text: `
+<ion-list>
+  <ion-item>
+    <ion-label text-wrap>
+    <small>{{user1}}</small>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label text-wrap>
+    <small>{{user2}}</small>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label text-wrap>
+    <small>{{user3}}</small>
+    </ion-label>
+  </ion-item>
+</ion-list>
+`,
+            data: {
+                title: translate('Demo users:'),
+                user1: translate('Admin: admin@admin.com<br/>Password: 12345678'),
+                user2: translate('User 1: user1@user1.com<br/>Password: 12345678'),
+                user3: translate('User 2: user2@user2.com<br/>Password: 12345678')
+            }
+        },
         signUpInfoMessage: '',
     },
     oauth: [

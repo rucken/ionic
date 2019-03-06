@@ -16,7 +16,9 @@ msgstr ""
 msgid "Rucken: Ionic"
 msgstr ""
 
-msgid "Core with Admin UI for web and native application maked on Angular7+"
+msgid ""
+"Admin UI for Ionic4 with Angular7+ mobile application based on Rucken "
+"template"
 msgstr ""
 
 msgid "Russian"
@@ -25,12 +27,16 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-msgid ""
-"<p>Demo users:</p><ul>\n"
-"<li>user with admin group: admin@admin.com, password: 12345678</li>\n"
-"<li>user with user group: user1@user1.com, password: 12345678</li>\n"
-"<li>user with user group: user2@user2.com, password: 12345678</li>\n"
-"</ul>"
+msgid "Demo users:"
+msgstr ""
+
+msgid "Admin: admin@admin.com<br/>Password: 12345678"
+msgstr ""
+
+msgid "User 1: user1@user1.com<br/>Password: 12345678"
+msgstr ""
+
+msgid "User 2: user2@user2.com<br/>Password: 12345678"
 msgstr ""
 
 msgid "Sign in with Facebook"
@@ -66,7 +72,24 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Rucken Ionic"
+msgid "user with admin group: admin@admin.com, password: 12345678"
+msgstr ""
+
+msgid "user with user group: user1@user1.com, password: 12345678"
+msgstr ""
+
+msgid "user with user group: user2@user2.com, password: 12345678"
+msgstr ""
+
+msgid "Core with Admin UI for web and native application maked on Angular7+"
+msgstr ""
+
+msgid ""
+"<p>Demo users:</p><ul>\n"
+"<li>user with admin group: admin@admin.com, password: 12345678</li>\n"
+"<li>user with user group: user1@user1.com, password: 12345678</li>\n"
+"<li>user with user group: user2@user2.com, password: 12345678</li>\n"
+"</ul>"
 msgstr ""
 
 msgid ""

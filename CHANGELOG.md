@@ -1,3 +1,13 @@
+## [0.2.4](https://github.com/rucken/ionic/compare/0.2.3...0.2.4) (2019-03-06)
+
+
+### Bug Fixes
+
+* Update dependencies ([c9dcb31](https://github.com/rucken/ionic/commit/c9dcb31))
+* Update translates ([feb1911](https://github.com/rucken/ionic/commit/feb1911))
+
+
+
 ## [0.2.3](https://github.com/rucken/ionic/compare/0.2.2...0.2.3) (2019-03-04)
 
 
