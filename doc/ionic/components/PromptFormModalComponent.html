@@ -732,7 +732,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(modalController: ModalController, _modalsService: ModalsService, _tpranslateService: TranslateService)</code>
+                            <code>constructor(modalController: ModalController, _modalsService: ModalsService, _tpranslateService: TranslateService, _customTranslatePipe: CustomTranslatePipe)</code>
                         </td>
                     </tr>
     
@@ -773,7 +773,7 @@
             <pre><code class="hljs javascript">import { ChangeDetectionStrategy, Component, Input, TemplateRef } from &#x27;@angular/core&#x27;;
 import { ModalController } from &#x27;@ionic/angular&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { BasePromptModalComponent, ModalsService } from &#x27;@rucken/core&#x27;;
+import { BasePromptModalComponent, CustomTranslatePipe, ModalsService } from &#x27;@rucken/core&#x27;;
 import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
 @BindIoInner()
@@ -808,12 +808,14 @@ export class PromptFormModalComponent extends BasePromptModalComponent {
   constructor(
     protected modalController: ModalController,
     private _modalsService: ModalsService,
-    private _tpranslateService: TranslateService
+    private _tpranslateService: TranslateService,
+    private _customTranslatePipe: CustomTranslatePipe
   ) {
     super();
   }
   onInfoClick(data?: any): void {
-    this._modalsService.info({ message: this._tpranslateService.instant(this.infoMessage) });
+    const message &#x3D; this._customTranslatePipe.transform(this.infoMessage, this.data);
+    this._modalsService.info({ message });
   }
 }
 </code></pre>
