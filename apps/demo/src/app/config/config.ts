@@ -44,9 +44,9 @@ export const config: ICoreConfig = {
 `,
             data: {
                 title: translate('Demo users:'),
-                user1: translate('user with admin group: admin@admin.com, password: 12345678'),
-                user2: translate('user with user group: user1@user1.com, password: 12345678'),
-                user3: translate('user with user group: user2@user2.com, password: 12345678')
+                user1: translate('Admin: admin@admin.com<br/>Password: 12345678'),
+                user2: translate('User 1: user1@user1.com<br/>Password: 12345678'),
+                user3: translate('User 2: user2@user2.com<br/>Password: 12345678')
             }
         },
         signUpInfoMessage: '',

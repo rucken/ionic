@@ -36,13 +36,13 @@ msgstr "Английский"
 msgid "Demo users:"
 msgstr "Демо пользователи:"
 
-msgid "user with admin group: admin@admin.com, password: 12345678"
+msgid "Admin: admin@admin.com<br/>Password: 12345678"
 msgstr "Администратор: admin@admin.com<br/>Пароль: 12345678"
 
-msgid "user with user group: user1@user1.com, password: 12345678"
+msgid "User 1: user1@user1.com<br/>Password: 12345678"
 msgstr "Пользователь 1: user1@user1.com<br/>Пароль: 12345678"
 
-msgid "user with user group: user2@user2.com, password: 12345678"
+msgid "User 2: user2@user2.com<br/>Password: 12345678"
 msgstr "Пользователь 2: user2@user2.com<br/>Пароль: 12345678"
 
 msgid "Sign in with Facebook"
@@ -77,6 +77,15 @@ msgstr "Пользователи"
 
 msgid "Search"
 msgstr "Поиск"
+
+msgid "user with admin group: admin@admin.com, password: 12345678"
+msgstr "Администратор: admin@admin.com<br/>Пароль: 12345678"
+
+msgid "user with user group: user1@user1.com, password: 12345678"
+msgstr "Пользователь 1: user1@user1.com<br/>Пароль: 12345678"
+
+msgid "user with user group: user2@user2.com, password: 12345678"
+msgstr "Пользователь 2: user2@user2.com<br/>Пароль: 12345678"
 
 msgid "Core with Admin UI for web and native application maked on Angular7+"
 msgstr "Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +"
