@@ -30,13 +30,13 @@ msgstr ""
 msgid "Demo users:"
 msgstr ""
 
-msgid "user with admin group: admin@admin.com, password: 12345678"
+msgid "Admin: admin@admin.com<br/>Password: 12345678"
 msgstr ""
 
-msgid "user with user group: user1@user1.com, password: 12345678"
+msgid "User 1: user1@user1.com<br/>Password: 12345678"
 msgstr ""
 
-msgid "user with user group: user2@user2.com, password: 12345678"
+msgid "User 2: user2@user2.com<br/>Password: 12345678"
 msgstr ""
 
 msgid "Sign in with Facebook"
@@ -70,6 +70,15 @@ msgid "Users page"
 msgstr ""
 
 msgid "Search"
+msgstr ""
+
+msgid "user with admin group: admin@admin.com, password: 12345678"
+msgstr ""
+
+msgid "user with user group: user1@user1.com, password: 12345678"
+msgstr ""
+
+msgid "user with user group: user2@user2.com, password: 12345678"
 msgstr ""
 
 msgid "Core with Admin UI for web and native application maked on Angular7+"
