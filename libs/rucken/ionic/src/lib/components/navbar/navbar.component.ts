@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, Output, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { BindObservable } from 'bind-observable';
 import { BindIoInner } from 'ngx-bind-io';
@@ -11,6 +11,12 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
+
+  @ContentChild('#defaultMenuItemTemplate')
+  defaultMenuItemTemplate: TemplateRef<any>;
+  @Input()
+  menuItemTemplate: TemplateRef<any> = undefined;
+
   @Input()
   showSignIn: boolean = undefined;
   @Input()

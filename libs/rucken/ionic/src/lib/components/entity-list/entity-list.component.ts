@@ -16,43 +16,56 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntityListComponent<TModel extends IModel> implements OnChanges {
+
+  @ContentChild('#defaultItemLabelTemplate')
+  defaultItemLabelTemplate: TemplateRef<any>;
+  @Input()
+  itemLabelTemplate: TemplateRef<any> = undefined;
+
   @ContentChild('#defaultGridFieldContent')
   defaultGridFieldContent: TemplateRef<any>;
-  @ContentChild('#defaultGridFieldActionContent')
-  defaultGridFieldActionContent: TemplateRef<any>;
-  @ContentChild('#defaultGridCellContent')
-  defaultGridCellContent: TemplateRef<any>;
-  @ContentChild('#defaultGridCellTranslatedContent')
-  defaultGridCellTranslatedContent: TemplateRef<any>;
-  @ContentChild('#defaultGridCellActionContent')
-  defaultGridCellActionContent: TemplateRef<any>;
-  @ContentChild('#defaultSearchFieldTemplate')
-  defaultSearchFieldTemplate: TemplateRef<any>;
-  @ContentChild('#defaultEntityListFooterTemplate')
-  defaultEntityListFooterTemplate: TemplateRef<any>;
-  @ContentChild('#defaultEntityListHeaderTemplate')
-  defaultEntityListHeaderTemplate: TemplateRef<any>;
-
-  @Input()
-  gridFieldTemplate: TemplateRef<any> = undefined;
-  @Input()
-  gridCellTemplate: TemplateRef<any> = undefined;
   @Input()
   gridFieldContent: TemplateRef<any> = undefined;
-  @Input()
-  gridFieldActionContent: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultGridCellContent')
+  defaultGridCellContent: TemplateRef<any>;
   @Input()
   gridCellContent: TemplateRef<any> = undefined;
-  @Input()
-  gridCellTranslatedContent: TemplateRef<any> = undefined;
-  @Input()
-  gridCellActionContent: TemplateRef<any> = undefined;
-  @Input()
-  searchFieldTemplate: TemplateRef<any> = undefined;
-  @Input()
-  entityListFooterTemplate: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultEntityListHeaderTemplate')
+  defaultEntityListHeaderTemplate: TemplateRef<any>;
   @Input()
   entityListHeaderTemplate: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultEntityListFooterTemplate')
+  defaultEntityListFooterTemplate: TemplateRef<any>;
+  @Input()
+  entityListFooterTemplate: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultSearchFieldTemplate')
+  defaultSearchFieldTemplate: TemplateRef<any>;
+  @Input()
+  searchFieldTemplate: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultGridCellActionContent')
+  defaultGridCellActionContent: TemplateRef<any>;
+  @Input()
+  gridCellActionContent: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultGridCellTranslatedContent')
+  defaultGridCellTranslatedContent: TemplateRef<any>;
+  @Input()
+  gridCellTranslatedContent: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultGridFieldActionContent')
+  defaultGridFieldActionContent: TemplateRef<any>;
+  @Input()
+  gridFieldActionContent: TemplateRef<any> = undefined;
+
+  @ContentChild('#defaultGridCellTemplate')
+  defaultGridCellTemplate: TemplateRef<any>;
+  @Input()
+  gridCellTemplate: TemplateRef<any> = undefined;
 
   @Input()
   viewLink: string = undefined;

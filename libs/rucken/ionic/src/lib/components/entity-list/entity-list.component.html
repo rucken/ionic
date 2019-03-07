@@ -4,7 +4,7 @@
     animated></ion-searchbar>
 <ion-list>
     <ng-container *ngFor="let item of (filteredItems$ | async); trackBy: trackByFn;">
-        <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {item:item} }"></ng-container>
+        <ng-container *ngTemplateOutlet="(gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate), context: { $implicit: {item:item} }"></ng-container>
     </ng-container>
 </ion-list>
 <ion-infinite-scroll
@@ -77,7 +77,7 @@
             (click)="slidingItem.close();onView(ctx.item)"
             class="activated"
             *ngIf="viewLink===undefined">
-            <ng-container *ngTemplateOutlet="itemLabelTemplate, context: {$implicit: ctx}"></ng-container>
+            <ng-container *ngTemplateOutlet="(itemLabelTemplate?itemLabelTemplate:defaultItemLabelTemplate), context: {$implicit: ctx}"></ng-container>
         </ion-item>
         <ion-item
             detail
@@ -85,19 +85,19 @@
             *ngIf="viewLink!==undefined"
             (click)="slidingItem.close()"
             [routerLink]="[viewLink+'/'+ctx.item.id]">
-            <ng-container *ngTemplateOutlet="itemLabelTemplate, context: {$implicit: ctx}"></ng-container>
+            <ng-container *ngTemplateOutlet="(itemLabelTemplate?itemLabelTemplate:defaultItemLabelTemplate), context: {$implicit: ctx}"></ng-container>
         </ion-item>
         <ion-item-options
             side="start"
             class="sliding-enabled"
             *ngIf="(filtredColumns$ | async)?.indexOf('action')!==-1">
-            <ng-container *ngTemplateOutlet="defaultGridCellActionContent, context: { $implicit: {item:ctx.item,slidingItem:slidingItem} }"></ng-container>
+            <ng-container *ngTemplateOutlet="(gridCellActionContent?gridCellActionContent:defaultGridCellActionContent), context: { $implicit: {item:ctx.item,slidingItem:slidingItem} }"></ng-container>
         </ion-item-options>
     </ion-item-sliding>
 </ng-template>
 <ng-template
     let-ctx
-    #itemLabelTemplate>
+    #defaultItemLabelTemplate>
     <ion-label text-wrap>
         <ng-container *ngIf="(filtredColumns$ | async) as columns">
             <h2 *ngIf="ctx.item[columns[1]]">

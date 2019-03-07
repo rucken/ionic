@@ -2,7 +2,7 @@
     <ion-menu-toggle
         auto-hide="false"
         *ngFor="let item of leftRoutes$ | async">
-        <ng-container *ngTemplateOutlet="menuItemRef;context:{item:item}"></ng-container>
+        <ng-container *ngTemplateOutlet="(menuItemTemplate?menuItemTemplate:defaultMenuItemTemplate);context:{item:item}"></ng-container>
     </ion-menu-toggle>
     <ion-menu-toggle auto-hide="false">
         <ion-item
@@ -31,7 +31,7 @@
 </ion-list>
 <ng-template
     let-item="item"
-    #menuItemRef>
+    #defaultMenuItemTemplate>
     <ion-item
         *ngIf="item && (!item?.permissions?.only || (item?.permissions?.only | perm:false | async))"
         [ngClass]="{'active': router.isActive(item.url, false)}"
