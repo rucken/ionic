@@ -557,6 +557,20 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <code>aboutIcon</code>
+                        </td>
+                        <td class="col-md-10">
+                            <p>
+                              <em>Default value: </em><code>information-circle</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
                             <code>allowedRoutes</code>
                         </td>
                         <td class="col-md-10">
@@ -579,9 +593,45 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <code>menuItemTemplate</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                              </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
                             <code>rightRoutes</code>
                         </td>
                         <td class="col-md-10">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>showAbout</code>
+                        </td>
+                        <td class="col-md-10">
+                              <p>
+                                <em>Type:</em>    <code>boolean</code>
+
+                              </p>
+                            <p>
+                              <em>Default value: </em><code>undefined</code>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
@@ -626,6 +676,34 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <code>signInIcon</code>
+                        </td>
+                        <td class="col-md-10">
+                            <p>
+                              <em>Default value: </em><code>contact</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>signOutIcon</code>
+                        </td>
+                        <td class="col-md-10">
+                            <p>
+                              <em>Default value: </em><code>log-out</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
                             <code>title</code>
                         </td>
                         <td class="col-md-10">
@@ -644,6 +722,19 @@
 
     <section>
         <h3 id="outputs">Outputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>about</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html" target="_blank" >EventEmitter</a></code>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
@@ -760,6 +851,30 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> onAboutClick</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>onAboutClick(aboutData: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 
     <section>
@@ -774,6 +889,21 @@
                     <tr>
                         <td class="col-md-4">
                             <code>allowedRoutes$:     <code>Observable&lt;any[]&gt;</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> defaultMenuItemTemplate</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>defaultMenuItemTemplate:     <code>TemplateRef&lt;any&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -827,7 +957,7 @@
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, Output } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, Output, TemplateRef } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { BindObservable } from &#x27;bind-observable&#x27;;
 import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
@@ -840,10 +970,26 @@ import { Observable } from &#x27;rxjs&#x27;;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
+
+  @ContentChild(&#x27;#defaultMenuItemTemplate&#x27;)
+  defaultMenuItemTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  menuItemTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @Input()
+  signInIcon &#x3D; &#x27;contact&#x27;;
+  @Input()
+  signOutIcon &#x3D; &#x27;log-out&#x27;;
+  @Input()
+  aboutIcon &#x3D; &#x27;information-circle&#x27;;
+
   @Input()
   showSignIn: boolean &#x3D; undefined;
   @Input()
   showSignOut: boolean &#x3D; undefined;
+  @Input()
+  showAbout: boolean &#x3D; undefined;
+
   @Input()
   title: string &#x3D; undefined;
 
@@ -851,6 +997,8 @@ export class NavbarComponent {
   signIn &#x3D; new EventEmitter();
   @Output()
   signOut &#x3D; new EventEmitter();
+  @Output()
+  about &#x3D; new EventEmitter();
 
   @BindObservable()
   @Input()
@@ -901,6 +1049,12 @@ export class NavbarComponent {
       console.warn(&#x27;No subscribers found for &quot;signOut&quot;&#x27;, this);
     }
     this.signOut.emit(signOutData);
+  }
+  onAboutClick(aboutData?: any) {
+    if (isDevMode() &amp;&amp; this.about.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;about&quot;&#x27;, this);
+    }
+    this.about.emit(aboutData);
   }
 }
 </code></pre>

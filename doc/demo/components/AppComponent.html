@@ -361,7 +361,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(_alertController: AlertController, _authModalService: AuthModalService, _authService: AuthService, _langService: LangService, _platform: Platform, _splashScreen: SplashScreen, _statusBar: StatusBar, _translateService: TranslateService, _metaService: MetaService, _tokenService: TokenService, _groupsService: any, _permissionsService: any, _platformId: Object)</code>
+                            <code>constructor(_alertController: AlertController, _authModalService: AuthModalService, _authService: AuthService, _langService: LangService, _platform: Platform, _splashScreen: SplashScreen, _statusBar: StatusBar, _translateService: TranslateService, _metaService: MetaService, _tokenService: TokenService, _groupsService: any, _permissionsService: any, _modalsService: ModalsService, _platformId: Object)</code>
                         </td>
                     </tr>
     
@@ -614,6 +614,30 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> onAbout</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>onAbout(data: any)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 
     <section>
@@ -719,7 +743,7 @@ import { AlertController, Platform } from &#x27;@ionic/angular&#x27;;
 import { AlertInput } from &#x27;@ionic/core&#x27;;
 import { MetaService } from &#x27;@ngx-meta/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { AuthModalComponent, AuthModalService, AuthService, ILanguagesItem, LangService, RedirectUrlDto, TokenService, User, UserTokenDto } from &#x27;@rucken/core&#x27;;
+import { AuthModalComponent, AuthModalService, AuthService, ILanguagesItem, LangService, ModalsService, RedirectUrlDto, TokenService, User, UserTokenDto } from &#x27;@rucken/core&#x27;;
 import { GroupsService, NavbarComponent, PermissionsService } from &#x27;@rucken/ionic&#x27;;
 import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 import { Observable, Subject } from &#x27;rxjs&#x27;;
@@ -757,6 +781,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private _tokenService: TokenService,
     private _groupsService: GroupsService,
     private _permissionsService: PermissionsService,
+    private _modalsService: ModalsService,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     this._authModalService.signInInfoMessage &#x3D; config.authModal.signInInfoMessage;
@@ -863,6 +888,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   onSignInError(modal: AuthModalComponent, error: any) {
     this._authModalService.onSignInError(modal, error);
+  }
+  onAbout(data?: any): void {
+    this._modalsService.info({
+      title: config.app.title,
+      message: config.app.description
+    });
   }
 }
 </code></pre>

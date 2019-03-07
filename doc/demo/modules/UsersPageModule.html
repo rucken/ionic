@@ -351,7 +351,7 @@ import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { UsersListModule } from &#x27;@rucken/ionic&#x27;;
 import { UsersPageComponent } from &#x27;./users-page.component&#x27;;
-import { UsersPageRoutes } from &#x27;./users-page.routes&#x27;;
+import { USERS_PAGE_ROUTES } from &#x27;./users-page.routes&#x27;;
 
 @NgModule({
   imports: [
@@ -359,7 +359,7 @@ import { UsersPageRoutes } from &#x27;./users-page.routes&#x27;;
     IonicModule,
     UsersListModule,
     TranslateModule.forChild(),
-    RouterModule.forChild(UsersPageRoutes)
+    RouterModule.forChild(USERS_PAGE_ROUTES)
   ],
   declarations: [UsersPageComponent]
 })

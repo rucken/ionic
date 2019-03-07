@@ -854,7 +854,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
-                            <code>gridFieldTemplate</code>
+                            <code>itemLabelTemplate</code>
                         </td>
                         <td class="col-md-10">
                               <p>
@@ -2111,6 +2111,21 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> defaultGridCellTemplate</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>defaultGridCellTemplate:     <code>TemplateRef&lt;any&gt;</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> defaultGridCellTranslatedContent</b>
                         </td>
                     </tr>
@@ -2147,6 +2162,21 @@
                     <tr>
                         <td class="col-md-4">
                             <code>defaultGridFieldContent:     <code>TemplateRef&lt;any&gt;</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> defaultItemLabelTemplate</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>defaultItemLabelTemplate:     <code>TemplateRef&lt;any&gt;</code>
     </bcode>
                         </td>
                     </tr>
@@ -2468,43 +2498,56 @@ import { debounceTime, distinctUntilChanged } from &#x27;rxjs/operators&#x27;;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntityListComponent&lt;TModel extends IModel&gt; implements OnChanges {
+
+  @ContentChild(&#x27;#defaultItemLabelTemplate&#x27;)
+  defaultItemLabelTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  itemLabelTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
+
   @ContentChild(&#x27;#defaultGridFieldContent&#x27;)
   defaultGridFieldContent: TemplateRef&lt;any&gt;;
-  @ContentChild(&#x27;#defaultGridFieldActionContent&#x27;)
-  defaultGridFieldActionContent: TemplateRef&lt;any&gt;;
-  @ContentChild(&#x27;#defaultGridCellContent&#x27;)
-  defaultGridCellContent: TemplateRef&lt;any&gt;;
-  @ContentChild(&#x27;#defaultGridCellTranslatedContent&#x27;)
-  defaultGridCellTranslatedContent: TemplateRef&lt;any&gt;;
-  @ContentChild(&#x27;#defaultGridCellActionContent&#x27;)
-  defaultGridCellActionContent: TemplateRef&lt;any&gt;;
-  @ContentChild(&#x27;#defaultSearchFieldTemplate&#x27;)
-  defaultSearchFieldTemplate: TemplateRef&lt;any&gt;;
-  @ContentChild(&#x27;#defaultEntityListFooterTemplate&#x27;)
-  defaultEntityListFooterTemplate: TemplateRef&lt;any&gt;;
-  @ContentChild(&#x27;#defaultEntityListHeaderTemplate&#x27;)
-  defaultEntityListHeaderTemplate: TemplateRef&lt;any&gt;;
-
-  @Input()
-  gridFieldTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
-  @Input()
-  gridCellTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   @Input()
   gridFieldContent: TemplateRef&lt;any&gt; &#x3D; undefined;
-  @Input()
-  gridFieldActionContent: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultGridCellContent&#x27;)
+  defaultGridCellContent: TemplateRef&lt;any&gt;;
   @Input()
   gridCellContent: TemplateRef&lt;any&gt; &#x3D; undefined;
-  @Input()
-  gridCellTranslatedContent: TemplateRef&lt;any&gt; &#x3D; undefined;
-  @Input()
-  gridCellActionContent: TemplateRef&lt;any&gt; &#x3D; undefined;
-  @Input()
-  searchFieldTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
-  @Input()
-  entityListFooterTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultEntityListHeaderTemplate&#x27;)
+  defaultEntityListHeaderTemplate: TemplateRef&lt;any&gt;;
   @Input()
   entityListHeaderTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultEntityListFooterTemplate&#x27;)
+  defaultEntityListFooterTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  entityListFooterTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultSearchFieldTemplate&#x27;)
+  defaultSearchFieldTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  searchFieldTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultGridCellActionContent&#x27;)
+  defaultGridCellActionContent: TemplateRef&lt;any&gt;;
+  @Input()
+  gridCellActionContent: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultGridCellTranslatedContent&#x27;)
+  defaultGridCellTranslatedContent: TemplateRef&lt;any&gt;;
+  @Input()
+  gridCellTranslatedContent: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultGridFieldActionContent&#x27;)
+  defaultGridFieldActionContent: TemplateRef&lt;any&gt;;
+  @Input()
+  gridFieldActionContent: TemplateRef&lt;any&gt; &#x3D; undefined;
+
+  @ContentChild(&#x27;#defaultGridCellTemplate&#x27;)
+  defaultGridCellTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  gridCellTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
 
   @Input()
   viewLink: string &#x3D; undefined;
@@ -2757,7 +2800,12 @@ export class EntityListComponent&lt;TModel extends IModel&gt; implements OnChang
     }
     if (event.target &amp;&amp; event.target.complete) {
       if (this.paginationMeta.totalResults &gt; this.items.length) {
-        setTimeout(() &#x3D;&gt; event.target.complete(), 700);
+        setTimeout(
+          () &#x3D;&gt;
+            event.target.complete()
+          ,
+          700
+        );
         this.nextPage.emit(true);
       } else {
         event.target.complete();
@@ -2777,10 +2825,10 @@ export class EntityListComponent&lt;TModel extends IModel&gt; implements OnChang
     if (isDevMode() &amp;&amp; this.delete.observers.length &#x3D;&#x3D;&#x3D; 0) {
       console.warn(&#x27;No subscribers found for &quot;delete&quot;&#x27;, this.parent);
     }
-    this.delete.emit(item);
     if (callback) {
-      setTimeout(() &#x3D;&gt; callback());
+      setTimeout(() &#x3D;&gt; callback(), 700);
     }
+    this.delete.emit(item);
   }
   onUpdate(item: TModel, callback?: () &#x3D;&gt; void) {
     if (isDevMode() &amp;&amp; !this.notReadonlyAndEnableUpdate) {
@@ -2789,10 +2837,10 @@ export class EntityListComponent&lt;TModel extends IModel&gt; implements OnChang
     if (isDevMode() &amp;&amp; this.update.observers.length &#x3D;&#x3D;&#x3D; 0) {
       console.warn(&#x27;No subscribers found for &quot;update&quot;&#x27;, this.parent);
     }
-    this.update.emit(item);
     if (callback) {
-      setTimeout(() &#x3D;&gt; callback(), 1000);
+      setTimeout(() &#x3D;&gt; callback(), 700);
     }
+    this.update.emit(item);
   }
   onCreate() {
     if (isDevMode() &amp;&amp; !this.notReadonlyAndEnableCreate) {
@@ -2807,10 +2855,10 @@ export class EntityListComponent&lt;TModel extends IModel&gt; implements OnChang
     if (isDevMode() &amp;&amp; this.view.observers.length &#x3D;&#x3D;&#x3D; 0) {
       console.warn(&#x27;No subscribers found for &quot;view&quot;&#x27;, this.parent);
     }
-    this.view.emit(item);
     if (callback) {
-      setTimeout(() &#x3D;&gt; callback(), 1000);
+      setTimeout(() &#x3D;&gt; callback(), 700);
     }
+    this.view.emit(item);
   }
   onDblClick(item: TModel) {
     if (this.dblClick.observers.length &gt; 0) {

@@ -351,7 +351,7 @@ import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { PipesModule } from &#x27;@rucken/core&#x27;;
 import { HomePageComponent } from &#x27;./home-page.component&#x27;;
-import { HomePageRoutes } from &#x27;./home-page.routes&#x27;;
+import { HOME_PAGE_ROUTES } from &#x27;./home-page.routes&#x27;;
 
 @NgModule({
   imports: [
@@ -359,7 +359,7 @@ import { HomePageRoutes } from &#x27;./home-page.routes&#x27;;
     IonicModule,
     PipesModule,
     TranslateModule.forChild(),
-    RouterModule.forChild(HomePageRoutes)
+    RouterModule.forChild(HOME_PAGE_ROUTES)
   ],
   declarations: [HomePageComponent]
 })
