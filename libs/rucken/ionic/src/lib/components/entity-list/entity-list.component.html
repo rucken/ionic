@@ -31,7 +31,7 @@
     let-ctx>
     <ion-item-option
         color="primary"
-        (click)="ctx.slidingItem.close();onUpdate(ctx.item)"
+        (click)="onUpdate(ctx.item);ctx.slidingItem.close();"
         *ngIf="(notReadonlyAndEnableUpdate$ | async) && updateLink===undefined">
         <ion-icon
             slot="icon-only"
@@ -50,7 +50,7 @@
     </ion-item-option>
     <ion-item-option
         color="danger"
-        (click)="ctx.slidingItem.close();onDelete(ctx.item)"
+        (click)="onDelete(ctx.item);ctx.slidingItem.close();"
         *ngIf="(notReadonlyAndEnableDelete$ | async) && deleteLink===undefined">
         <ion-icon
             slot="icon-only"
@@ -74,7 +74,7 @@
     <ion-item-sliding #slidingItem>
         <ion-item
             detail
-            (click)="slidingItem.close();onView(ctx.item)"
+            (click)="onView(ctx.item);slidingItem.close();"
             class="activated"
             *ngIf="viewLink===undefined">
             <ng-container *ngTemplateOutlet="(itemLabelTemplate?itemLabelTemplate:defaultItemLabelTemplate), context: {$implicit: ctx}"></ng-container>

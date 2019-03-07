@@ -318,7 +318,12 @@ export class EntityListComponent<TModel extends IModel> implements OnChanges {
     }
     if (event.target && event.target.complete) {
       if (this.paginationMeta.totalResults > this.items.length) {
-        setTimeout(() => event.target.complete(), 700);
+        setTimeout(
+          () =>
+            event.target.complete()
+          ,
+          700
+        );
         this.nextPage.emit(true);
       } else {
         event.target.complete();
@@ -338,10 +343,10 @@ export class EntityListComponent<TModel extends IModel> implements OnChanges {
     if (isDevMode() && this.delete.observers.length === 0) {
       console.warn('No subscribers found for "delete"', this.parent);
     }
-    this.delete.emit(item);
     if (callback) {
-      setTimeout(() => callback());
+      setTimeout(() => callback(), 700);
     }
+    this.delete.emit(item);
   }
   onUpdate(item: TModel, callback?: () => void) {
     if (isDevMode() && !this.notReadonlyAndEnableUpdate) {
@@ -350,10 +355,10 @@ export class EntityListComponent<TModel extends IModel> implements OnChanges {
     if (isDevMode() && this.update.observers.length === 0) {
       console.warn('No subscribers found for "update"', this.parent);
     }
-    this.update.emit(item);
     if (callback) {
-      setTimeout(() => callback(), 1000);
+      setTimeout(() => callback(), 700);
     }
+    this.update.emit(item);
   }
   onCreate() {
     if (isDevMode() && !this.notReadonlyAndEnableCreate) {
@@ -368,10 +373,10 @@ export class EntityListComponent<TModel extends IModel> implements OnChanges {
     if (isDevMode() && this.view.observers.length === 0) {
       console.warn('No subscribers found for "view"', this.parent);
     }
-    this.view.emit(item);
     if (callback) {
-      setTimeout(() => callback(), 1000);
+      setTimeout(() => callback(), 700);
     }
+    this.view.emit(item);
   }
   onDblClick(item: TModel) {
     if (this.dblClick.observers.length > 0) {
