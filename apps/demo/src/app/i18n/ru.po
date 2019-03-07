@@ -25,7 +25,7 @@ msgid "Rucken: Ionic"
 msgstr "Rucken: Ионик"
 
 msgid "Admin UI for Ionic4 with Angular7+ mobile application based on Rucken template"
-msgstr "Мобильное приложение с админкой на Ionic4 и Angular7 + на основе шаблона Rucken"
+msgstr "Мобильное приложение с админкой на Ionic4 и Angular7+ на основе шаблона Rucken"
 
 msgid "Russian"
 msgstr "Русский"

@@ -7,11 +7,23 @@
     <ion-menu-toggle auto-hide="false">
         <ion-item
             [button]="true"
+            (click)="onAboutClick($event)"
+            *ngIf="showAbout">
+            <ion-icon
+                slot="start"
+                [name]="aboutIcon">
+            </ion-icon>
+            <ion-label>{{'About' | translate}}</ion-label>
+        </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="false">
+        <ion-item
+            [button]="true"
             (click)="onSignOutClick($event)"
             *ngIf="showSignOut">
             <ion-icon
                 slot="start"
-                name="log-out">
+                [name]="signOutIcon">
             </ion-icon>
             <ion-label>{{'Sign out' | translate}}</ion-label>
         </ion-item>
@@ -23,7 +35,7 @@
             *ngIf="showSignIn">
             <ion-icon
                 slot="start"
-                name="contact">
+                [name]="signInIcon">
             </ion-icon>
             <ion-label>{{'Sign in' | translate}}</ion-label>
         </ion-item>

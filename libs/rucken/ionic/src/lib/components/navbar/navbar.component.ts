@@ -18,9 +18,19 @@ export class NavbarComponent {
   menuItemTemplate: TemplateRef<any> = undefined;
 
   @Input()
+  signInIcon = 'contact';
+  @Input()
+  signOutIcon = 'log-out';
+  @Input()
+  aboutIcon = 'information-circle';
+
+  @Input()
   showSignIn: boolean = undefined;
   @Input()
   showSignOut: boolean = undefined;
+  @Input()
+  showAbout: boolean = undefined;
+
   @Input()
   title: string = undefined;
 
@@ -28,6 +38,8 @@ export class NavbarComponent {
   signIn = new EventEmitter();
   @Output()
   signOut = new EventEmitter();
+  @Output()
+  about = new EventEmitter();
 
   @BindObservable()
   @Input()
@@ -78,5 +90,11 @@ export class NavbarComponent {
       console.warn('No subscribers found for "signOut"', this);
     }
     this.signOut.emit(signOutData);
+  }
+  onAboutClick(aboutData?: any) {
+    if (isDevMode() && this.about.observers.length === 0) {
+      console.warn('No subscribers found for "about"', this);
+    }
+    this.about.emit(aboutData);
   }
 }
