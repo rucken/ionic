@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { GroupsListModule } from '@rucken/ionic';
 import { GroupsPageComponent } from './groups-page.component';
-import { GroupsPageRoutes } from './groups-page.routes';
+import { GROUPS_PAGE_ROUTES } from './groups-page.routes';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { GroupsPageRoutes } from './groups-page.routes';
     IonicModule,
     GroupsListModule,
     TranslateModule.forChild(),
-    RouterModule.forChild(GroupsPageRoutes)
+    RouterModule.forChild(GROUPS_PAGE_ROUTES)
   ],
   declarations: [GroupsPageComponent]
 })

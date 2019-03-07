@@ -2,7 +2,7 @@ import { translate, PermissionsGuard } from '@rucken/core';
 import { ProfilePageComponent } from './profile-page.component';
 import { MetaGuard } from '@ngx-meta/core';
 
-export const ProfilePageRoutes = [
+export const PROFILE_PAGE_ROUTES = [
     {
         path: '',
         component: ProfilePageComponent,

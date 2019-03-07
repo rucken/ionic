@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { UsersListModule } from '@rucken/ionic';
 import { UsersPageComponent } from './users-page.component';
-import { UsersPageRoutes } from './users-page.routes';
+import { USERS_PAGE_ROUTES } from './users-page.routes';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { UsersPageRoutes } from './users-page.routes';
     IonicModule,
     UsersListModule,
     TranslateModule.forChild(),
-    RouterModule.forChild(UsersPageRoutes)
+    RouterModule.forChild(USERS_PAGE_ROUTES)
   ],
   declarations: [UsersPageComponent]
 })
