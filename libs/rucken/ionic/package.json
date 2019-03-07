@@ -66,9 +66,9 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "~7.2.7",
-    "@angular/core": "~7.2.7",
-    "@ionic/angular": "4.0.2",
+    "@angular/common": "~7.2.8",
+    "@angular/core": "~7.2.8",
+    "@ionic/angular": "4.1.0",
     "@rucken/core": "^3.9.7"
   },
   "dependencies": {
