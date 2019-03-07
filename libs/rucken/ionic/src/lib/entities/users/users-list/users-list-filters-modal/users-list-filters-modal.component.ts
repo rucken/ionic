@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { BasePromptFormModalComponent, Group } from '@rucken/core';
+import { BasePromptFormModalComponent, Group, translate } from '@rucken/core';
 import { plainToClass } from 'class-transformer';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -36,7 +36,7 @@ export class UsersListFiltersModalComponent extends
               Group,
               {
                 id: '',
-                title: 'None'
+                title: translate('None')
               }
             )
           );
