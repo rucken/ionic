@@ -1,3 +1,21 @@
+# [0.3.0](https://github.com/rucken/ionic/compare/0.2.4...0.3.0) (2019-03-07)
+
+
+### Bug Fixes
+
+* Add items as second argument to pipe, for full translate ([#23](https://github.com/rucken/ionic/issues/23), [#25](https://github.com/rucken/ionic/issues/25)) ([5c3025e](https://github.com/rucken/ionic/commit/5c3025e))
+* Add support override with @Input ([#30](https://github.com/rucken/ionic/issues/30), [#31](https://github.com/rucken/ionic/issues/31)) ([c9ca04b](https://github.com/rucken/ionic/commit/c9ca04b))
+* Add work with readonly property notReadonlyAndEnableUpdate, as on grid for web ([#29](https://github.com/rucken/ionic/issues/29)) ([bd9fddb](https://github.com/rucken/ionic/commit/bd9fddb))
+* Change order of call methods on click in list row ([cd274bf](https://github.com/rucken/ionic/commit/cd274bf))
+* Update dependencies ([146f4b4](https://github.com/rucken/ionic/commit/146f4b4))
+
+
+### Features
+
+* Add modal with info about application  ([#26](https://github.com/rucken/ionic/issues/26)) ([306a4ad](https://github.com/rucken/ionic/commit/306a4ad))
+
+
+
 ## [0.2.4](https://github.com/rucken/ionic/compare/0.2.3...0.2.4) (2019-03-06)
 
 
