@@ -13,6 +13,7 @@ export const RuI18n = {
   Users: 'Пользователи',
   'Groups filters': 'Фильтры групп',
   'Profile updated': 'Профиль обновлен',
+  None: 'Нет',
   Groups: 'Группы',
   Username: 'Имя пользователя',
   Administrator: 'Администратор',
@@ -29,5 +30,6 @@ export const RuI18n = {
   'Do you really want to leave?': 'Вы действительно хотите выйти?',
   OK: 'Ок',
   'Error Log': 'Ошибка',
+  About: 'О приложении',
   'Sign in': 'Войти'
 };

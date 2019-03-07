@@ -54,6 +54,9 @@ msgstr "Фильтры групп"
 msgid "Profile updated"
 msgstr "Профиль обновлен"
 
+msgid "None"
+msgstr "Нет"
+
 msgid "Groups"
 msgstr "Группы"
 
@@ -101,6 +104,9 @@ msgstr "Ок"
 
 msgid "Error Log"
 msgstr "Ошибка"
+
+msgid "About"
+msgstr "О приложении"
 
 msgid "Sign in"
 msgstr "Войти"
