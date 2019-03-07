@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/rucken/ionic/compare/0.3.0...0.3.1) (2019-03-07)
+
+
+### Bug Fixes
+
+* Update translate ([72dde2a](https://github.com/rucken/ionic/commit/72dde2a))
+
+
+
 # [0.3.0](https://github.com/rucken/ionic/compare/0.2.4...0.3.0) (2019-03-07)
 
 
