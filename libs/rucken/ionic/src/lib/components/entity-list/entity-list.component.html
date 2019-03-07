@@ -24,7 +24,7 @@
 <ng-template
     #defaultGridCellTranslatedContent
     let-ctx>
-    {{(ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name])|customTranslate}}
+    {{(ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name])|customTranslate:ctx.field}}
 </ng-template>
 <ng-template
     #defaultGridCellActionContent
