@@ -32,7 +32,7 @@
     <ion-item-option
         color="primary"
         (click)="ctx.slidingItem.close();onUpdate(ctx.item)"
-        *ngIf="updateLink===undefined">
+        *ngIf="(notReadonlyAndEnableUpdate$ | async) && updateLink===undefined">
         <ion-icon
             slot="icon-only"
             name="create">
@@ -40,7 +40,7 @@
     </ion-item-option>
     <ion-item-option
         color="primary"
-        *ngIf="updateLink!==undefined"
+        *ngIf="(notReadonlyAndEnableUpdate$ | async) && updateLink!==undefined"
         (click)="ctx.slidingItem.close()"
         [routerLink]="[updateLink+'/'+ctx.item.id]">
         <ion-icon
@@ -51,7 +51,7 @@
     <ion-item-option
         color="danger"
         (click)="ctx.slidingItem.close();onDelete(ctx.item)"
-        *ngIf="deleteLink===undefined">
+        *ngIf="(notReadonlyAndEnableDelete$ | async) && deleteLink===undefined">
         <ion-icon
             slot="icon-only"
             name="trash">
@@ -59,7 +59,7 @@
     </ion-item-option>
     <ion-item-option
         color="danger"
-        *ngIf="deleteLink!==undefined"
+        *ngIf="(notReadonlyAndEnableDelete$ | async) && deleteLink!==undefined"
         (click)="ctx.slidingItem.close()"
         [routerLink]="[deleteLink+'/'+ctx.item.id]">
         <ion-icon
