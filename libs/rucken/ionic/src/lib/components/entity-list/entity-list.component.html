@@ -4,7 +4,7 @@
     animated></ion-searchbar>
 <ion-list>
     <ng-container *ngFor="let item of (filteredItems$ | async); trackBy: trackByFn;">
-        <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {item:item} }"></ng-container>
+        <ng-container *ngTemplateOutlet="(gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate), context: { $implicit: {item:item} }"></ng-container>
     </ng-container>
 </ion-list>
 <ion-infinite-scroll
@@ -24,15 +24,15 @@
 <ng-template
     #defaultGridCellTranslatedContent
     let-ctx>
-    {{(ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name])|customTranslate}}
+    {{(ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name])|customTranslate:ctx.field}}
 </ng-template>
 <ng-template
     #defaultGridCellActionContent
     let-ctx>
     <ion-item-option
         color="primary"
-        (click)="ctx.slidingItem.close();onUpdate(ctx.item)"
-        *ngIf="updateLink===undefined">
+        (click)="onUpdate(ctx.item);ctx.slidingItem.close();"
+        *ngIf="(notReadonlyAndEnableUpdate$ | async) && updateLink===undefined">
         <ion-icon
             slot="icon-only"
             name="create">
@@ -40,7 +40,7 @@
     </ion-item-option>
     <ion-item-option
         color="primary"
-        *ngIf="updateLink!==undefined"
+        *ngIf="(notReadonlyAndEnableUpdate$ | async) && updateLink!==undefined"
         (click)="ctx.slidingItem.close()"
         [routerLink]="[updateLink+'/'+ctx.item.id]">
         <ion-icon
@@ -50,8 +50,8 @@
     </ion-item-option>
     <ion-item-option
         color="danger"
-        (click)="ctx.slidingItem.close();onDelete(ctx.item)"
-        *ngIf="deleteLink===undefined">
+        (click)="onDelete(ctx.item);ctx.slidingItem.close();"
+        *ngIf="(notReadonlyAndEnableDelete$ | async) && deleteLink===undefined">
         <ion-icon
             slot="icon-only"
             name="trash">
@@ -59,7 +59,7 @@
     </ion-item-option>
     <ion-item-option
         color="danger"
-        *ngIf="deleteLink!==undefined"
+        *ngIf="(notReadonlyAndEnableDelete$ | async) && deleteLink!==undefined"
         (click)="ctx.slidingItem.close()"
         [routerLink]="[deleteLink+'/'+ctx.item.id]">
         <ion-icon
@@ -74,10 +74,10 @@
     <ion-item-sliding #slidingItem>
         <ion-item
             detail
-            (click)="slidingItem.close();onView(ctx.item)"
+            (click)="onView(ctx.item);slidingItem.close();"
             class="activated"
             *ngIf="viewLink===undefined">
-            <ng-container *ngTemplateOutlet="itemLabelTemplate, context: {$implicit: ctx}"></ng-container>
+            <ng-container *ngTemplateOutlet="(itemLabelTemplate?itemLabelTemplate:defaultItemLabelTemplate), context: {$implicit: ctx}"></ng-container>
         </ion-item>
         <ion-item
             detail
@@ -85,19 +85,19 @@
             *ngIf="viewLink!==undefined"
             (click)="slidingItem.close()"
             [routerLink]="[viewLink+'/'+ctx.item.id]">
-            <ng-container *ngTemplateOutlet="itemLabelTemplate, context: {$implicit: ctx}"></ng-container>
+            <ng-container *ngTemplateOutlet="(itemLabelTemplate?itemLabelTemplate:defaultItemLabelTemplate), context: {$implicit: ctx}"></ng-container>
         </ion-item>
         <ion-item-options
             side="start"
             class="sliding-enabled"
             *ngIf="(filtredColumns$ | async)?.indexOf('action')!==-1">
-            <ng-container *ngTemplateOutlet="defaultGridCellActionContent, context: { $implicit: {item:ctx.item,slidingItem:slidingItem} }"></ng-container>
+            <ng-container *ngTemplateOutlet="(gridCellActionContent?gridCellActionContent:defaultGridCellActionContent), context: { $implicit: {item:ctx.item,slidingItem:slidingItem} }"></ng-container>
         </ion-item-options>
     </ion-item-sliding>
 </ng-template>
 <ng-template
     let-ctx
-    #itemLabelTemplate>
+    #defaultItemLabelTemplate>
     <ion-label text-wrap>
         <ng-container *ngIf="(filtredColumns$ | async) as columns">
             <h2 *ngIf="ctx.item[columns[1]]">

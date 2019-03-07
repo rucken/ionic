@@ -2,7 +2,7 @@ import { MetaGuard } from '@ngx-meta/core';
 import { translate } from '@rucken/core';
 import { HomePageComponent } from './home-page.component';
 
-export const HomePageRoutes = [
+export const HOME_PAGE_ROUTES = [
     {
         path: '',
         component: HomePageComponent,

@@ -9,10 +9,7 @@
             position="floating">
             {{title | translate}}
         </ion-label>
-        <ng-container *ngTemplateOutlet="contentWrapper"></ng-container>
+        <ng-content></ng-content>
         <p *ngIf="(errors$ | async)[0]">{{(errors$ | async)[0] | translate}}</p>
     </ion-item>
 </div>
-<ng-template #contentWrapper>
-    <ng-content></ng-content>
-</ng-template>

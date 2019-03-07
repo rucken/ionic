@@ -17,6 +17,6 @@
         {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
     </ng-container>
     <ng-container *ngIf="ctx.field.name==='permissions' && ctx.item[ctx.field.name].length">
-        {{'Permissions'|customTranslate}}: {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
+        {{'Permissions'|customTranslate:ctx.field}}: {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
     </ng-container>
 </ng-template>

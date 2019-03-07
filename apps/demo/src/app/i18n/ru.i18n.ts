@@ -3,7 +3,7 @@ export const RuI18n = {
   Cancel: 'Отмена',
   Select: 'Выбрать',
   'Rucken: Ionic': 'Rucken: Ионик',
-  'Admin UI for Ionic4 with Angular7+ mobile application based on Rucken template': 'Мобильное приложение с админкой на Ionic4 и Angular7 + на основе шаблона Rucken',
+  'Admin UI for Ionic4 with Angular7+ mobile application based on Rucken template': 'Мобильное приложение с админкой на Ionic4 и Angular7+ на основе шаблона Rucken',
   Russian: 'Русский',
   English: 'Английский',
   'Demo users:': 'Демо пользователи:',

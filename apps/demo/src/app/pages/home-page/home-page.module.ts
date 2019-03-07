@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { PipesModule } from '@rucken/core';
 import { HomePageComponent } from './home-page.component';
-import { HomePageRoutes } from './home-page.routes';
+import { HOME_PAGE_ROUTES } from './home-page.routes';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { HomePageRoutes } from './home-page.routes';
     IonicModule,
     PipesModule,
     TranslateModule.forChild(),
-    RouterModule.forChild(HomePageRoutes)
+    RouterModule.forChild(HOME_PAGE_ROUTES)
   ],
   declarations: [HomePageComponent]
 })

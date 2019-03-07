@@ -94,5 +94,8 @@ msgstr ""
 msgid "Error Log"
 msgstr ""
 
+msgid "About"
+msgstr ""
+
 msgid "Sign in"
 msgstr ""

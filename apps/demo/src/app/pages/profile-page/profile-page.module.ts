@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProfilePanelModule } from '@rucken/ionic';
 import { ProfilePageComponent } from './profile-page.component';
-import { ProfilePageRoutes } from './profile-page.routes';
+import { PROFILE_PAGE_ROUTES } from './profile-page.routes';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { ProfilePageRoutes } from './profile-page.routes';
     IonicModule,
     ProfilePanelModule,
     TranslateModule.forChild(),
-    RouterModule.forChild(ProfilePageRoutes)
+    RouterModule.forChild(PROFILE_PAGE_ROUTES)
   ],
   declarations: [ProfilePageComponent]
 })

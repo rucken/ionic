@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { DirectivesModule } from '@rucken/core';
+import { DirectivesModule, PipesModule } from '@rucken/core';
 import { SelectInputComponent } from './select-input.component';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { SelectInputComponent } from './select-input.component';
     FormsModule,
     ReactiveFormsModule,
     DirectivesModule,
+    PipesModule,
     TranslateModule.forChild(),
   ],
   declarations: [SelectInputComponent],

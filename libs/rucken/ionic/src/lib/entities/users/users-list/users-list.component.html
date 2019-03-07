@@ -16,6 +16,6 @@
         {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
     </ng-container>
     <ng-container *ngIf="ctx.field.name==='groups' && ctx.item[ctx.field.name].length">
-        {{'Groups'|customTranslate}}: {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
+        {{'Groups'|customTranslate:ctx.field}}: {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
     </ng-container>
 </ng-template>

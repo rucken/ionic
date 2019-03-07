@@ -6,7 +6,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { AlertInput } from '@ionic/core';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthModalComponent, AuthModalService, AuthService, ILanguagesItem, LangService, RedirectUrlDto, TokenService, User, UserTokenDto } from '@rucken/core';
+import { AuthModalComponent, AuthModalService, AuthService, ILanguagesItem, LangService, ModalsService, RedirectUrlDto, TokenService, User, UserTokenDto } from '@rucken/core';
 import { GroupsService, NavbarComponent, PermissionsService } from '@rucken/ionic';
 import { BindIoInner } from 'ngx-bind-io';
 import { Observable, Subject } from 'rxjs';
@@ -44,6 +44,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private _tokenService: TokenService,
     private _groupsService: GroupsService,
     private _permissionsService: PermissionsService,
+    private _modalsService: ModalsService,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     this._authModalService.signInInfoMessage = config.authModal.signInInfoMessage;
@@ -150,5 +151,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   onSignInError(modal: AuthModalComponent, error: any) {
     this._authModalService.onSignInError(modal, error);
+  }
+  onAbout(data?: any): void {
+    this._modalsService.info({
+      title: config.app.title,
+      message: config.app.description
+    });
   }
 }
