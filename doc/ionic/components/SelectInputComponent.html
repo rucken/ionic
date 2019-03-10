@@ -569,6 +569,20 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <code>idField</code>
+                        </td>
+                        <td class="col-md-10">
+                            <p>
+                              <em>Default value: </em><code>id</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
                             <code>items</code>
                         </td>
                         <td class="col-md-10">
@@ -616,7 +630,7 @@
                         </td>
                         <td class="col-md-10">
                             <p>
-                              <em>Default value: </em><code>undefined</code>
+                              <em>Default value: </em><code>title</code>
                             </p>
                         </td>
                     </tr>
@@ -715,7 +729,9 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   @Input()
   multiple &#x3D; false;
   @Input()
-  titleField &#x3D; undefined;
+  idField &#x3D; &#x27;id&#x27;;
+  @Input()
+  titleField &#x3D; &#x27;title&#x27;;
   @Input()
   @BindObservable()
   items: SelectInput[] &#x3D; undefined;
@@ -739,7 +755,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
       if (ids !&#x3D;&#x3D; undefined &amp;&amp; !Array.isArray(ids)) {
         ids &#x3D; [ids];
       }
-      const selectedItems &#x3D; this.items.filter(item &#x3D;&gt; ids.filter(id &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; id).length &gt; 0);
+      const selectedItems &#x3D; this.items.filter(item &#x3D;&gt; ids.filter(id &#x3D;&gt; item[this.idField] &#x3D;&#x3D;&#x3D; id).length &gt; 0);
       if (this.multiple) {
         this._onChange(selectedItems);
       } else {
@@ -751,7 +767,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
     if (value &amp;&amp; !Array.isArray(value)) {
       value &#x3D; [value];
     }
-    this.selectedIds &#x3D; value ? (value as SelectInput[]).map(item &#x3D;&gt; item.id) : [];
+    this.selectedIds &#x3D; value ? (value as SelectInput[]).map(item &#x3D;&gt; item[this.idField]) : [];
   }
   registerOnChange(fn: any): void {
     this._onChange &#x3D; fn;
@@ -762,8 +778,8 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   setDisabledState?(isDisabled: boolean): void {
     this.disabled &#x3D; isDisabled;
   }
-  trackByFn(index: any, item: { id: any; }) {
-    return item.id;
+  trackByFn(index: any, item: any) {
+    return item[this.idField];
   }
   _onChange &#x3D; (value: any) &#x3D;&gt; { };
   _onTouched &#x3D; () &#x3D;&gt; { };
