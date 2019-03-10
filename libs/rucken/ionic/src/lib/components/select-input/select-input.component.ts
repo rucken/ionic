@@ -28,7 +28,9 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   @Input()
   multiple = false;
   @Input()
-  titleField = undefined;
+  idField = 'id';
+  @Input()
+  titleField = 'title';
   @Input()
   @BindObservable()
   items: SelectInput[] = undefined;
@@ -52,7 +54,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
       if (ids !== undefined && !Array.isArray(ids)) {
         ids = [ids];
       }
-      const selectedItems = this.items.filter(item => ids.filter(id => item.id === id).length > 0);
+      const selectedItems = this.items.filter(item => ids.filter(id => item[this.idField] === id).length > 0);
       if (this.multiple) {
         this._onChange(selectedItems);
       } else {
@@ -64,7 +66,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
     if (value && !Array.isArray(value)) {
       value = [value];
     }
-    this.selectedIds = value ? (value as SelectInput[]).map(item => item.id) : [];
+    this.selectedIds = value ? (value as SelectInput[]).map(item => item[this.idField]) : [];
   }
   registerOnChange(fn: any): void {
     this._onChange = fn;
@@ -75,8 +77,8 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  trackByFn(index: any, item: { id: any; }) {
-    return item.id;
+  trackByFn(index: any, item: any) {
+    return item[this.idField];
   }
   _onChange = (value: any) => { };
   _onTouched = () => { };
