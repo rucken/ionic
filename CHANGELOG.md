@@ -1,3 +1,12 @@
+## [0.3.4](https://github.com/rucken/ionic/compare/0.3.3...0.3.4) (2019-03-10)
+
+
+### Bug Fixes
+
+* **select-input:** Update detect item as string ([5491102](https://github.com/rucken/ionic/commit/5491102))
+
+
+
 ## [0.3.3](https://github.com/rucken/ionic/compare/0.3.2...0.3.3) (2019-03-10)
 
 
