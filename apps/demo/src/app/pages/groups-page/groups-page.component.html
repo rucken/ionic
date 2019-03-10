@@ -23,7 +23,8 @@
     <ion-fab
         vertical="bottom"
         horizontal="end"
-        slot="fixed">
+        slot="fixed"
+        *ngIf="groupList?.list?.notReadonlyAndEnableCreate$|async">
         <ion-fab-button (click)="groupList.onCreateClick()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
