@@ -616,7 +616,7 @@
                         </td>
                         <td class="col-md-10">
                             <p>
-                              <em>Default value: </em><code>title</code>
+                              <em>Default value: </em><code>undefined</code>
                             </p>
                         </td>
                     </tr>
@@ -715,7 +715,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   @Input()
   multiple &#x3D; false;
   @Input()
-  titleField &#x3D; &#x27;title&#x27;;
+  titleField &#x3D; undefined;
   @Input()
   @BindObservable()
   items: SelectInput[] &#x3D; undefined;

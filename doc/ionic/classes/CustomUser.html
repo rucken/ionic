@@ -530,7 +530,7 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>dateOfBirth:     <code>Date</code>
+                                    <code>dateOfBirth:     <code>string | Date</code>
             </bcode>
                                 </td>
                             </tr>
@@ -544,13 +544,13 @@
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import { User, transformDateToString } from &#x27;@rucken/core&#x27;;
+        <pre><code class="hljs javascript">import { transformDateToString, transformStringToDate, User } from &#x27;@rucken/core&#x27;;
 import { Transform } from &#x27;class-transformer&#x27;;
 
 export class CustomUser extends User {
     @Transform(transformDateToString, { toClassOnly: true })
-    @Transform(transformDateToString, { toPlainOnly: true })
-    dateOfBirth: Date &#x3D; undefined;
+    @Transform(transformStringToDate, { toPlainOnly: true })
+    dateOfBirth: Date | string &#x3D; undefined;
 }
 </code></pre>
     </div>
