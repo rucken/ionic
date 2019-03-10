@@ -13,6 +13,7 @@ export * from './lib/components/select-input/select-input.component';
 export * from './lib/components/select-input/select-input.module';
 export * from './lib/components/select-input/select-input.transformers';
 export * from './lib/components/select-input/select-input';
+export * from './lib/config/users.config';
 export * from './lib/entities/groups/group-modal/group-modal.component';
 export * from './lib/entities/groups/group-modal/group-modal.module';
 export * from './lib/entities/groups/groups-list/groups-list.component';

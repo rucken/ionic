@@ -10,7 +10,7 @@
         <ion-select-option
             *ngFor="let item of items; trackBy: trackByFn;"
             [value]="item.id">
-            {{titleField?item[titleField]:item | customTranslate:item}}
+            {{item.title | customTranslate:item}}
         </ion-select-option>
     </ion-select>
 </ng-container>
