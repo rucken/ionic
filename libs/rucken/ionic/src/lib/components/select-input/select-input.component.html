@@ -9,8 +9,8 @@
         [okText]="yesTitle | translate">
         <ion-select-option
             *ngFor="let item of items; trackBy: trackByFn;"
-            [value]="item.id">
-            {{(item.title || item) | customTranslate:item}}
+            [value]="item[idField]">
+            {{(item[titleField] || item) | customTranslate:item}}
         </ion-select-option>
     </ion-select>
 </ng-container>
