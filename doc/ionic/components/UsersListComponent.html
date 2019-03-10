@@ -955,15 +955,6 @@ export class UsersListComponent extends BaseEntityListComponent&lt;CustomUser&gt
     if (usersListFiltersModal.sortType) {
       filter[&#x27;sort&#x27;] &#x3D; (usersListFiltersModal.sortType.id &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? &#x27;&#x27; : &#x27;-&#x27;) + filter[&#x27;sort&#x27;];
     }
-    if (!this.modalUpdate.initialState) {
-      this.modalUpdate.initialState &#x3D; {};
-    }
-    if (!this.modalView.initialState) {
-      this.modalView.initialState &#x3D; {};
-    }
-    if (!this.modalCreate.initialState) {
-      this.modalCreate.initialState &#x3D; {};
-    }
     super.onChangeFilter(filter);
   }
 
