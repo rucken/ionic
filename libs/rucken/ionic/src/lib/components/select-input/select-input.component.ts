@@ -28,7 +28,7 @@ export class SelectInputComponent implements ControlValueAccessor, OnDestroy, On
   @Input()
   multiple = false;
   @Input()
-  titleField = 'title';
+  titleField = undefined;
   @Input()
   @BindObservable()
   items: SelectInput[] = undefined;

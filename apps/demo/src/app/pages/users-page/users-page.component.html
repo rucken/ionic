@@ -23,7 +23,8 @@
     <ion-fab
         vertical="bottom"
         horizontal="end"
-        slot="fixed">
+        slot="fixed"
+        *ngIf="userList?.list?.notReadonlyAndEnableCreate$|async">
         <ion-fab-button (click)="userList.onCreateClick()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>

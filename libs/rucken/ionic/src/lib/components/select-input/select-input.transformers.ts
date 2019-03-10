@@ -39,7 +39,7 @@ export function keyToSelectInput(
         const transformedItems = options.items.map(
             item => ({
                 id: item[options.idField],
-                title: item[options.titleField],
+                title: item[options.titleField] || item,
             })
         );
         const items = keys.map(
@@ -88,7 +88,7 @@ export function selectInputToKey(
         const transformedItems = options.items.map(
             item => ({
                 id: item[options.idField],
-                title: item[options.titleField]
+                title: item[options.titleField] || item
             })
         );
         const keys = objects.map(

@@ -9,8 +9,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { MetaLoader, MetaModule } from '@ngx-meta/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, DEFAULT_CONTENT_TYPES_CONFIG, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN, DEFAULT_PERMISSIONS_CONFIG, DEFAULT_USERS_CONFIG, DEFAULT_GROUPS_CONFIG } from '@rucken/core';
-import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from '@rucken/ionic';
+import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, DEFAULT_CONTENT_TYPES_CONFIG, DEFAULT_GROUPS_CONFIG, DEFAULT_PERMISSIONS_CONFIG, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN } from '@rucken/core';
+import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, IONIC_DEFAULT_USERS_CONFIG, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from '@rucken/ionic';
 import { NgxBindIOModule } from 'ngx-bind-io';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
@@ -86,7 +86,7 @@ import { metaFactory } from './utils/meta-factory';
     {
       provide: USERS_CONFIG_TOKEN,
       useValue: {
-        ...DEFAULT_USERS_CONFIG,
+        ...IONIC_DEFAULT_USERS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },

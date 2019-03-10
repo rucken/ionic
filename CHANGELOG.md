@@ -1,3 +1,14 @@
+## [0.3.2](https://github.com/rucken/ionic/compare/0.3.1...0.3.2) (2019-03-10)
+
+
+### Bug Fixes
+
+* Add config for models to transform ionic date format ([#33](https://github.com/rucken/ionic/issues/33)) ([afc5fd7](https://github.com/rucken/ionic/commit/afc5fd7))
+* Set default to undefined, if not set try out with toString() ([#34](https://github.com/rucken/ionic/issues/34)) ([1b6f7db](https://github.com/rucken/ionic/commit/1b6f7db))
+* Update initialState for users and groups modals ([288c731](https://github.com/rucken/ionic/commit/288c731))
+
+
+
 ## [0.3.1](https://github.com/rucken/ionic/compare/0.3.0...0.3.1) (2019-03-07)
 
 
