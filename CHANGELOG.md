@@ -1,3 +1,14 @@
+## [0.3.3](https://github.com/rucken/ionic/compare/0.3.2...0.3.3) (2019-03-10)
+
+
+### Bug Fixes
+
+* Remove set initialState in onChangeFilter ([ddfeeff](https://github.com/rucken/ionic/commit/ddfeeff))
+* Update dependencies ([f968488](https://github.com/rucken/ionic/commit/f968488))
+* **select-input:** Update for correct work with toString of object ([d72e27a](https://github.com/rucken/ionic/commit/d72e27a))
+
+
+
 ## [0.3.2](https://github.com/rucken/ionic/compare/0.3.1...0.3.2) (2019-03-10)
 
 
