@@ -18,9 +18,6 @@ export function keyToSelectInput(
         if (options.idField === undefined) {
             options.idField = 'id';
         }
-        if (options.titleField === undefined) {
-            options.titleField = 'title';
-        }
         const itemsIsEmpty = !options.items || options.items.length === 0;
         if (itemsIsEmpty) {
             options.items = [];
@@ -39,7 +36,7 @@ export function keyToSelectInput(
         const transformedItems = options.items.map(
             item => ({
                 id: item[options.idField],
-                title: item[options.titleField] || item,
+                title: options.titleField ? item[options.titleField] : (item || item['title'] || ''),
             })
         );
         const items = keys.map(
@@ -70,9 +67,6 @@ export function selectInputToKey(
         if (options.idField === undefined) {
             options.idField = 'id';
         }
-        if (options.titleField === undefined) {
-            options.titleField = 'title';
-        }
         const itemsIsEmpty = !options.items || options.items.length === 0;
         if (itemsIsEmpty) {
             options.items = [];
@@ -88,7 +82,7 @@ export function selectInputToKey(
         const transformedItems = options.items.map(
             item => ({
                 id: item[options.idField],
-                title: item[options.titleField] || item
+                title: options.titleField ? item[options.titleField] : (item || item['title'] || '')
             })
         );
         const keys = objects.map(
