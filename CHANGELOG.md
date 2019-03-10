@@ -1,3 +1,12 @@
+## [0.3.5](https://github.com/rucken/ionic/compare/0.3.4...0.3.5) (2019-03-10)
+
+
+### Bug Fixes
+
+* **select-input:** Add support custom idField and titleField ([3e2a7eb](https://github.com/rucken/ionic/commit/3e2a7eb))
+
+
+
 ## [0.3.4](https://github.com/rucken/ionic/compare/0.3.3...0.3.4) (2019-03-10)
 
 
