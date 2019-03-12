@@ -192,7 +192,7 @@
         }
       }
     },
-    "@rucken/ionic": {
+    "ionic": {
       "root": "libs/rucken/ionic",
       "sourceRoot": "libs/rucken/ionic/src",
       "projectType": "library",

@@ -75,7 +75,7 @@
     "config:prod": "rucken config -m prod",
     "prepare:dev": "rucken prepare -m dev",
     "prepare:prod": "rucken prepare -m prod",
-    "lib:build-ionic": "ng build @rucken/ionic",
+    "lib:build-ionic": "ng build ionic",
     "lib:build": "run-s prepare:prod lib:build-ionic",
     "app:prebuild": "ng build app --prod -c=production",
     "app:prebuild:dev": "ng build app --prod -c=dev",
