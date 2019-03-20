@@ -95,7 +95,7 @@
     "android:build": "ionic cordova build android --prod",
     "android:postbuild": "./node_modules/.bin/cp-cli ./platforms/android/app/build/outputs/apk/debug/app-debug.apk ./dist/demo/assets/apk/rucken-ionic.apk",
     "android": "run-s android:build android:postbuild",
-    "postinstall": "node ./scripts/patch.js",
+    "postinstall": "sh ./scripts/postinstall.sh",
     "github:prebuild": "ng build app --base-href /ionic/ --prod",
     "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo/index.html ./dist/demo/404.html",
     "github:build": "run-s lib:build config:prod github:prebuild github:postbuild doc",
