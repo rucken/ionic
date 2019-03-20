@@ -159,6 +159,48 @@
               "devServerTarget": "app:serve:production"
             }
           }
+        },
+        "android-prepare": {
+          "builder": "@nrwl/builders:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "chmod +x ./scripts/prepare-android.sh"
+              },
+              {
+                "command": "./scripts/prepare-android.sh ./apps/demo"
+              }
+            ],
+            "parallel": false
+          }
+        },
+        "android-build": {
+          "builder": "@nrwl/builders:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "chmod +x ./scripts/build-android.sh"
+              },
+              {
+                "command": "./scripts/build-android.sh . ./dist/demo/demo.apk"
+              }
+            ],
+            "parallel": false
+          }
+        },
+        "android-serve": {
+          "builder": "@nrwl/builders:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "chmod +x ./scripts/serve-android.sh"
+              },
+              {
+                "command": "./scripts/serve-android.sh ."
+              }
+            ],
+            "parallel": false
+          }
         }
       }
     },
