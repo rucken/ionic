@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BindIoInner } from 'ngx-bind-io';
+import { environment } from 'apps/demo/src/environments/environment';
 
 @BindIoInner()
 @Component({
@@ -11,6 +12,7 @@ import { BindIoInner } from 'ngx-bind-io';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupsPageComponent {
+  public apiUrl = environment.apiUrl;
   title$: Observable<string>;
   constructor(
     public activatedRoute: ActivatedRoute

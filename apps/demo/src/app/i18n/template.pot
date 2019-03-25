@@ -24,9 +24,6 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-msgid "English"
-msgstr ""
-
 msgid "Demo users:"
 msgstr ""
 
@@ -70,6 +67,9 @@ msgid "Users page"
 msgstr ""
 
 msgid "Search"
+msgstr ""
+
+msgid "English"
 msgstr ""
 
 msgid "user with admin group: admin@admin.com, password: 12345678"

@@ -54,6 +54,7 @@ export class GroupsListComponent extends BaseEntityListComponent<Group> implemen
   ngOnInit() {
     if (!this.mockedItems) {
       this.useRest({
+        apiUrl: this.apiUrl,
         infinity: true,
         ...this.groupsConfig,
         autoload: false

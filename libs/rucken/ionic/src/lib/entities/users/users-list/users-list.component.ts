@@ -55,6 +55,7 @@ export class UsersListComponent extends BaseEntityListComponent<CustomUser> impl
   ngOnInit() {
     if (!this.mockedItems) {
       this.useRest({
+        apiUrl: this.apiUrl,
         infinity: true,
         ...this.usersConfig,
         autoload: false
@@ -142,7 +143,7 @@ export class UsersListComponent extends BaseEntityListComponent<CustomUser> impl
   }
 
   async onUpdateClickAsync(item: CustomUser) {
-    const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
+    const useCustomModalComponent = this.modalUpdate.component || this.modalItem.component;
     let modalRef = !useCustomModalComponent ? await this.createUpdateModal(item) : undefined;
     if (!modalRef) {
       modalRef = await this.defaultCreateUpdateModal(item);

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouteReuseStrategy, RouterModule } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -9,26 +9,23 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { MetaLoader, MetaModule } from '@ngx-meta/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, DEFAULT_CONTENT_TYPES_CONFIG, DEFAULT_GROUPS_CONFIG, DEFAULT_PERMISSIONS_CONFIG, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN } from '@rucken/core';
-import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, IONIC_DEFAULT_USERS_CONFIG, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from '@rucken/ionic';
+import { AccountModule, AuthModalModule, AuthModule, DEFAULT_GROUPS_CONFIG, DEFAULT_PERMISSIONS_CONFIG, GROUPS_CONFIG_TOKEN, LangModule, PERMISSIONS_CONFIG_TOKEN, RuckenCoreModule, TransferHttpCacheModule } from '@rucken/core';
+import { GroupsListFiltersModalModule, RuckenIonicModule, UsersListFiltersModalModule } from '@rucken/ionic';
 import { NgxBindIOModule } from 'ngx-bind-io';
-import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { NgxRepositoryModule } from 'ngx-repository';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { config } from './config/config';
-import { initializeApp } from './utils/initialize-app';
+import { SharedModule } from './shared/shared.module';
 import { metaFactory } from './utils/meta-factory';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     CommonModule,
-    PipesModule,
     HttpClientModule,
-    NgxRepositoryModule,
+    SharedModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'demo' }),
@@ -61,32 +58,20 @@ import { metaFactory } from './utils/meta-factory';
         providers: config.oauth
       }
     }),
-    IonicAuthModalModule,
-    NavbarModule,
-    IonicModalsModule,
+    NgxBindIOModule.forRoot(),
     UsersListFiltersModalModule.forRoot(),
     GroupsListFiltersModalModule.forRoot(),
-    NgxBindIOModule.forRoot()
+    RuckenCoreModule,
+    RuckenIonicModule
   ],
   providers: [
-    {
-      provide: CONTENT_TYPES_CONFIG_TOKEN,
-      useValue: {
-        ...DEFAULT_CONTENT_TYPES_CONFIG,
-        apiUrl: environment.apiUrl
-      }
-    },
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: PERMISSIONS_CONFIG_TOKEN,
       useValue: {
         ...DEFAULT_PERMISSIONS_CONFIG,
-        apiUrl: environment.apiUrl
-      }
-    },
-    {
-      provide: USERS_CONFIG_TOKEN,
-      useValue: {
-        ...IONIC_DEFAULT_USERS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
@@ -96,26 +81,7 @@ import { metaFactory } from './utils/meta-factory';
         ...DEFAULT_GROUPS_CONFIG,
         apiUrl: environment.apiUrl
       }
-    },
-    { provide: STORAGE_CONFIG_TOKEN, useClass: BrowserStorage },
-    { provide: 'ORIGIN_URL', useValue: location.origin },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeApp,
-      multi: true,
-      deps: [
-        TokenService,
-        LangService,
-        UsersListFiltersModalService,
-        GroupsListFiltersModalService
-      ]
-    },
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CookieService,
-    ErrorsExtractor,
-    PermissionsGuard
+    }
   ],
   bootstrap: [AppComponent]
 })

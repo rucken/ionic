@@ -3,9 +3,7 @@ import { Permission, PERMISSIONS_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions, Repository } from 'ngx-repository';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PermissionsService {
   items$: Observable<Permission[]>;
   repository: Repository<Permission>;

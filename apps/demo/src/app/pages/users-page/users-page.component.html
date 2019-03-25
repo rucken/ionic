@@ -19,7 +19,9 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <users-list #userList></users-list>
+    <users-list
+        [apiUrl]="apiUrl"
+        #userList></users-list>
     <ion-fab
         vertical="bottom"
         horizontal="end"

@@ -1,4 +1,5 @@
 export * from './i18n/ru.i18n';
+export * from './lib/ionic.module';
 export * from './lib/components/entity-list/entity-list.component';
 export * from './lib/components/entity-list/entity-list.module';
 export * from './lib/components/entity-modal/entity-modal.component';
@@ -13,6 +14,7 @@ export * from './lib/components/select-input/select-input.component';
 export * from './lib/components/select-input/select-input.module';
 export * from './lib/components/select-input/select-input.transformers';
 export * from './lib/components/select-input/select-input';
+export * from './lib/config/providers';
 export * from './lib/config/users.config';
 export * from './lib/entities/groups/group-modal/group-modal.component';
 export * from './lib/entities/groups/group-modal/group-modal.module';
@@ -41,3 +43,4 @@ export * from './lib/modules/modals/modals.service';
 export * from './lib/modules/storage/sqlite.storage';
 export * from './lib/services/groups.service';
 export * from './lib/services/permissions.service';
+export * from './lib/services/providers';

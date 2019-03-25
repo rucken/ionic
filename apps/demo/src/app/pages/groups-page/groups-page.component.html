@@ -19,7 +19,9 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <groups-list #groupList></groups-list>
+    <groups-list
+        [apiUrl]="apiUrl"
+        #groupList></groups-list>
     <ion-fab
         vertical="bottom"
         horizontal="end"
