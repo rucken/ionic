@@ -1,3 +1,12 @@
+## [0.3.6](https://github.com/rucken/ionic/compare/0.3.5...0.3.6) (2019-03-25)
+
+
+### Bug Fixes
+
+* Update dependencies and sources for it ([ce3ace7](https://github.com/rucken/ionic/commit/ce3ace7))
+
+
+
 ## [0.3.5](https://github.com/rucken/ionic/compare/0.3.4...0.3.5) (2019-03-10)
 
 
