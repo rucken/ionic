@@ -62,6 +62,9 @@
                                 id="xs-modules-links"
                             >
                                 <li class="link">
+                                    <a href="../modules/AppBrowserModule.html" >AppBrowserModule</a>
+                                </li>
+                                <li class="link">
                                     <a href="../modules/AppModule.html"  class="active" >AppModule</a>
                                 </li>
                                 <li class="link">
@@ -72,6 +75,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/ProfilePageModule.html" >ProfilePageModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/SharedModule.html" >SharedModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/UsersPageModule.html" >UsersPageModule</a>
@@ -200,6 +206,9 @@
                                        id="modules-links"
                    >
                                        <li class="link">
+                                           <a href="../modules/AppBrowserModule.html" >AppBrowserModule</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../modules/AppModule.html"  class="active" >AppModule</a>
                                        </li>
                                        <li class="link">
@@ -210,6 +219,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/ProfilePageModule.html" >ProfilePageModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/SharedModule.html" >SharedModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/UsersPageModule.html" >UsersPageModule</a>
@@ -341,6 +353,14 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>Imports<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#imports-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
+                    <ul class="list-group">
+                            <li class="list-group-item">
+                                    <a href="../modules/SharedModule.html" >SharedModule</a>
+                            </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Bootstrap<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#bootstrap-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
@@ -354,7 +374,7 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre><code class="hljs javascript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
-import { APP_INITIALIZER, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { PreloadAllModules, RouteReuseStrategy, RouterModule } from &#x27;@angular/router&#x27;;
 import { SplashScreen } from &#x27;@ionic-native/splash-screen/ngx&#x27;;
@@ -363,26 +383,23 @@ import { IonicModule, IonicRouteStrategy } from &#x27;@ionic/angular&#x27;;
 import { IonicStorageModule } from &#x27;@ionic/storage&#x27;;
 import { MetaLoader, MetaModule } from &#x27;@ngx-meta/core&#x27;;
 import { TranslateModule, TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { AccountModule, AuthModalModule, AuthModule, BrowserStorage, CONTENT_TYPES_CONFIG_TOKEN, DEFAULT_CONTENT_TYPES_CONFIG, DEFAULT_GROUPS_CONFIG, DEFAULT_PERMISSIONS_CONFIG, ErrorsExtractor, GROUPS_CONFIG_TOKEN, LangModule, LangService, PermissionsGuard, PERMISSIONS_CONFIG_TOKEN, PipesModule, STORAGE_CONFIG_TOKEN, TokenService, TransferHttpCacheModule, USERS_CONFIG_TOKEN } from &#x27;@rucken/core&#x27;;
-import { GroupsListFiltersModalModule, GroupsListFiltersModalService, IonicAuthModalModule, IonicModalsModule, IONIC_DEFAULT_USERS_CONFIG, NavbarModule, UsersListFiltersModalModule, UsersListFiltersModalService } from &#x27;@rucken/ionic&#x27;;
+import { AccountModule, AuthModalModule, AuthModule, DEFAULT_GROUPS_CONFIG, DEFAULT_PERMISSIONS_CONFIG, GROUPS_CONFIG_TOKEN, LangModule, PERMISSIONS_CONFIG_TOKEN, RuckenCoreModule, TransferHttpCacheModule } from &#x27;@rucken/core&#x27;;
+import { GroupsListFiltersModalModule, RuckenIonicModule, UsersListFiltersModalModule } from &#x27;@rucken/ionic&#x27;;
 import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
-import { CookieService } from &#x27;ngx-cookie-service&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
-import { NgxRepositoryModule } from &#x27;ngx-repository&#x27;;
 import { environment } from &#x27;../environments/environment&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
 import { APP_ROUTES } from &#x27;./app.routes&#x27;;
 import { config } from &#x27;./config/config&#x27;;
-import { initializeApp } from &#x27;./utils/initialize-app&#x27;;
+import { SharedModule } from &#x27;./shared/shared.module&#x27;;
 import { metaFactory } from &#x27;./utils/meta-factory&#x27;;
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     CommonModule,
-    PipesModule,
     HttpClientModule,
-    NgxRepositoryModule,
+    SharedModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot(),
     BrowserModule.withServerTransition({ appId: &#x27;demo&#x27; }),
@@ -415,32 +432,20 @@ import { metaFactory } from &#x27;./utils/meta-factory&#x27;;
         providers: config.oauth
       }
     }),
-    IonicAuthModalModule,
-    NavbarModule,
-    IonicModalsModule,
+    NgxBindIOModule.forRoot(),
     UsersListFiltersModalModule.forRoot(),
     GroupsListFiltersModalModule.forRoot(),
-    NgxBindIOModule.forRoot()
+    RuckenCoreModule,
+    RuckenIonicModule
   ],
   providers: [
-    {
-      provide: CONTENT_TYPES_CONFIG_TOKEN,
-      useValue: {
-        ...DEFAULT_CONTENT_TYPES_CONFIG,
-        apiUrl: environment.apiUrl
-      }
-    },
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: PERMISSIONS_CONFIG_TOKEN,
       useValue: {
         ...DEFAULT_PERMISSIONS_CONFIG,
-        apiUrl: environment.apiUrl
-      }
-    },
-    {
-      provide: USERS_CONFIG_TOKEN,
-      useValue: {
-        ...IONIC_DEFAULT_USERS_CONFIG,
         apiUrl: environment.apiUrl
       }
     },
@@ -450,26 +455,7 @@ import { metaFactory } from &#x27;./utils/meta-factory&#x27;;
         ...DEFAULT_GROUPS_CONFIG,
         apiUrl: environment.apiUrl
       }
-    },
-    { provide: STORAGE_CONFIG_TOKEN, useClass: BrowserStorage },
-    { provide: &#x27;ORIGIN_URL&#x27;, useValue: location.origin },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeApp,
-      multi: true,
-      deps: [
-        TokenService,
-        LangService,
-        UsersListFiltersModalService,
-        GroupsListFiltersModalService
-      ]
-    },
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CookieService,
-    ErrorsExtractor,
-    PermissionsGuard
+    }
   ],
   bootstrap: [AppComponent]
 })

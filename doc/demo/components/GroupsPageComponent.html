@@ -62,6 +62,9 @@
                                 id="xs-modules-links"
                             >
                                 <li class="link">
+                                    <a href="../modules/AppBrowserModule.html" >AppBrowserModule</a>
+                                </li>
+                                <li class="link">
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
@@ -72,6 +75,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/ProfilePageModule.html" >ProfilePageModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/SharedModule.html" >SharedModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/UsersPageModule.html" >UsersPageModule</a>
@@ -200,6 +206,9 @@
                                        id="modules-links"
                    >
                                        <li class="link">
+                                           <a href="../modules/AppBrowserModule.html" >AppBrowserModule</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../modules/AppModule.html" >AppModule</a>
                                        </li>
                                        <li class="link">
@@ -210,6 +219,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/ProfilePageModule.html" >ProfilePageModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/SharedModule.html" >SharedModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/UsersPageModule.html" >UsersPageModule</a>
@@ -395,6 +407,21 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b><span class="modifier">Public</span> apiUrl</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>apiUrl:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> title$</b>
                         </td>
                     </tr>
@@ -414,6 +441,7 @@ import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
 import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
+import { environment } from &#x27;apps/demo/src/environments/environment&#x27;;
 
 @BindIoInner()
 @Component({
@@ -422,6 +450,7 @@ import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupsPageComponent {
+  public apiUrl &#x3D; environment.apiUrl;
   title$: Observable&lt;string&gt;;
   constructor(
     public activatedRoute: ActivatedRoute

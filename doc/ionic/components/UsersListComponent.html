@@ -95,6 +95,9 @@
                                     <a href="../modules/PromptFormModalModule.html" >PromptFormModalModule</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../modules/RuckenIonicModule.html" >RuckenIonicModule</a>
+                                </li>
+                                <li class="link">
                                     <a href="../modules/SelectInputModule.html" >SelectInputModule</a>
                                 </li>
                                 <li class="link">
@@ -328,6 +331,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/PromptFormModalModule.html" >PromptFormModalModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/RuckenIonicModule.html" >RuckenIonicModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/SelectInputModule.html" >SelectInputModule</a>
@@ -872,6 +878,7 @@ export class UsersListComponent extends BaseEntityListComponent&lt;CustomUser&gt
   ngOnInit() {
     if (!this.mockedItems) {
       this.useRest({
+        apiUrl: this.apiUrl,
         infinity: true,
         ...this.usersConfig,
         autoload: false
@@ -959,7 +966,7 @@ export class UsersListComponent extends BaseEntityListComponent&lt;CustomUser&gt
   }
 
   async onUpdateClickAsync(item: CustomUser) {
-    const useCustomModalComponent &#x3D; this.modalCreate.component || this.modalItem.component;
+    const useCustomModalComponent &#x3D; this.modalUpdate.component || this.modalItem.component;
     let modalRef &#x3D; !useCustomModalComponent ? await this.createUpdateModal(item) : undefined;
     if (!modalRef) {
       modalRef &#x3D; await this.defaultCreateUpdateModal(item);
