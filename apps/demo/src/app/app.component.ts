@@ -79,8 +79,10 @@ export class AppComponent implements OnInit, OnDestroy {
         });
       if (isPlatformBrowser(this._platformId)) {
         this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
-          if (result === true) {
-            this.onInfo();
+          if (isPlatformBrowser(this._platformId)) {
+            this._authModalService.onTokenError();
+          } else {
+            this._authModalService.onSignOutSuccess(undefined);
           }
         });
       }
@@ -89,9 +91,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit() {
-    if (isPlatformBrowser(this._platformId)) {
-      this.onInfo();
-    }
+    this._authModalService.onInfo();
     this.navbar.setRoutes(APP_ROUTES);
   }
   ngOnDestroy() {
