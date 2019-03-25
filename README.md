@@ -10,7 +10,7 @@ Admin UI for Ionic4 with Angular7+ mobile application based on [Rucken](https://
 
 ## Features
 
-- [Angular](https://angular.io/) - Angular is a development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
+- [Angular](https://angular.io/) - development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
 - [Ionicframework](https://ionicframework.com/) - open-source mobile app development framework that makes it easy to build top quality native and progressive web apps with web technologies
 - [TypeScript](https://github.com/Microsoft/TypeScript) - superset of JS which compiles to JS, providing compile-time type checking
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - a JavaScript json web tokens implementation by auth0
