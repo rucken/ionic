@@ -66,10 +66,10 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "~7.2.8",
-    "@angular/core": "~7.2.8",
-    "@ionic/angular": "4.1.1",
-    "@rucken/core": "^3.9.9"
+    "@angular/common": "~7.2.10",
+    "@angular/core": "~7.2.10",
+    "@ionic/angular": "4.1.2",
+    "@rucken/core": "^3.9.10"
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",

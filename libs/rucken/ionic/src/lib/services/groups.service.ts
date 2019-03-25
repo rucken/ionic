@@ -3,9 +3,7 @@ import { Group, GROUPS_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions, Repository } from 'ngx-repository';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GroupsService {
   items$: Observable<Group[]>;
   repository: Repository<Group>;
