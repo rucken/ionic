@@ -40,7 +40,7 @@ export class GroupsListComponent extends BaseEntityListComponent<Group> implemen
     }
   };
   @Input()
-  title = translate('Users');
+  title = translate('Groups');
   constructor(
     modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
@@ -128,12 +128,12 @@ export class GroupsListComponent extends BaseEntityListComponent<Group> implemen
     if (!filter) {
       filter = {};
     }
-    const usersListFiltersModal = this._groupsListFiltersModalService.getCurrent();
-    if (usersListFiltersModal.sortField) {
-      filter['sort'] = usersListFiltersModal.sortField.id;
+    const groupsListFiltersModal = this._groupsListFiltersModalService.getCurrent();
+    if (groupsListFiltersModal.sortField) {
+      filter['sort'] = groupsListFiltersModal.sortField.id;
     }
-    if (usersListFiltersModal.sortType) {
-      filter['sort'] = (usersListFiltersModal.sortType.id === 'asc' ? '' : '-') + filter['sort'];
+    if (groupsListFiltersModal.sortType) {
+      filter['sort'] = (groupsListFiltersModal.sortType.id === 'asc' ? '' : '-') + filter['sort'];
     }
     super.onChangeFilter(filter);
   }
