@@ -79,10 +79,12 @@ export class AppComponent implements OnInit, OnDestroy {
         });
       if (isPlatformBrowser(this._platformId)) {
         this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
-          if (isPlatformBrowser(this._platformId)) {
-            this._authModalService.onTokenError();
-          } else {
-            this._authModalService.onSignOutSuccess(undefined);
+          if (result === true) {
+            if (isPlatformBrowser(this._platformId)) {
+              this._authModalService.onTokenError();
+            } else {
+              this._authModalService.onSignOutSuccess(undefined);
+            }
           }
         });
       }

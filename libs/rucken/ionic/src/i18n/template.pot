@@ -37,7 +37,7 @@ msgstr ""
 msgid "Desc"
 msgstr ""
 
-msgid "Users"
+msgid "Groups"
 msgstr ""
 
 msgid "Groups filters"
@@ -47,9 +47,6 @@ msgid "Profile updated"
 msgstr ""
 
 msgid "None"
-msgstr ""
-
-msgid "Groups"
 msgstr ""
 
 msgid "Username"
@@ -80,6 +77,9 @@ msgid "Date joined"
 msgstr ""
 
 msgid "Date of birth"
+msgstr ""
+
+msgid "Users"
 msgstr ""
 
 msgid "Users filters"
