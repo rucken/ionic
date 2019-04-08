@@ -182,7 +182,7 @@
                 "command": "chmod +x ./scripts/build-android.sh"
               },
               {
-                "command": "./scripts/build-android.sh . ./dist/demo/demo.apk"
+                "command": "./scripts/build-android.sh . ./dist/demo/rucken-ionic.apk"
               }
             ],
             "parallel": false

@@ -52,11 +52,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.languages$ = this._langService.languages$;
     this.currentLang$ = this._langService.current$;
     this.currentUser$ = this._authService.current$;
-
-    this._platform.ready().then(() => {
-      this.currentLang$
-        .pipe(takeUntil(this._destroyed$))
-        .subscribe(lang => {
+    this.currentLang$
+      .pipe(takeUntil(this._destroyed$))
+      .subscribe(lang => {
+        if (lang) {
           this._metaService.setTag(
             'og:locale',
             lang.toLowerCase() + '-' + lang.toUpperCase()
@@ -64,34 +63,38 @@ export class AppComponent implements OnInit, OnDestroy {
           this.title = this._translateService.instant(
             this._metaService.loader.settings.applicationName
           );
-        });
-      this.currentUser$
-        .pipe(takeUntil(this._destroyed$))
-        .subscribe(user => {
-          if (user) {
-            if (user.permissionNames.includes('read_group')) {
-              this._groupsService.repository.reloadAll();
-            }
-            if (user.permissionNames.includes('read_permission')) {
-              this._permissionsService.repository.reloadAll();
-            }
+        }
+      });
+    this.currentUser$
+      .pipe(takeUntil(this._destroyed$))
+      .subscribe(user => {
+        if (user) {
+          if (user.permissionNames.includes('read_group')) {
+            this._groupsService.repository.reloadAll();
           }
-        });
-      if (isPlatformBrowser(this._platformId)) {
-        this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
-          if (result === true) {
-            this.onInfo();
+          if (user.permissionNames.includes('read_permission')) {
+            this._permissionsService.repository.reloadAll();
           }
-        });
-      }
+        }
+      });
+    if (isPlatformBrowser(this._platformId)) {
+      this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
+        if (result === true) {
+          if (isPlatformBrowser(this._platformId)) {
+            this._authModalService.onTokenError();
+          } else {
+            this._authModalService.onSignOutSuccess(undefined);
+          }
+        }
+      });
+    }
+    this._platform.ready().then(() => {
       this._statusBar.styleDefault();
       this._splashScreen.hide();
     });
   }
   ngOnInit() {
-    if (isPlatformBrowser(this._platformId)) {
-      this.onInfo();
-    }
+    this._authModalService.onInfo();
     this.navbar.setRoutes(APP_ROUTES);
   }
   ngOnDestroy() {
