@@ -801,11 +801,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.languages$ &#x3D; this._langService.languages$;
     this.currentLang$ &#x3D; this._langService.current$;
     this.currentUser$ &#x3D; this._authService.current$;
-
-    this._platform.ready().then(() &#x3D;&gt; {
-      this.currentLang$
-        .pipe(takeUntil(this._destroyed$))
-        .subscribe(lang &#x3D;&gt; {
+    this.currentLang$
+      .pipe(takeUntil(this._destroyed$))
+      .subscribe(lang &#x3D;&gt; {
+        if (lang) {
           this._metaService.setTag(
             &#x27;og:locale&#x27;,
             lang.toLowerCase() + &#x27;-&#x27; + lang.toUpperCase()
@@ -813,30 +812,32 @@ export class AppComponent implements OnInit, OnDestroy {
           this.title &#x3D; this._translateService.instant(
             this._metaService.loader.settings.applicationName
           );
-        });
-      this.currentUser$
-        .pipe(takeUntil(this._destroyed$))
-        .subscribe(user &#x3D;&gt; {
-          if (user) {
-            if (user.permissionNames.includes(&#x27;read_group&#x27;)) {
-              this._groupsService.repository.reloadAll();
-            }
-            if (user.permissionNames.includes(&#x27;read_permission&#x27;)) {
-              this._permissionsService.repository.reloadAll();
-            }
+        }
+      });
+    this.currentUser$
+      .pipe(takeUntil(this._destroyed$))
+      .subscribe(user &#x3D;&gt; {
+        if (user) {
+          if (user.permissionNames.includes(&#x27;read_group&#x27;)) {
+            this._groupsService.repository.reloadAll();
           }
-        });
-      if (isPlatformBrowser(this._platformId)) {
-        this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result &#x3D;&gt; {
-          if (result &#x3D;&#x3D;&#x3D; true) {
-            if (isPlatformBrowser(this._platformId)) {
-              this._authModalService.onTokenError();
-            } else {
-              this._authModalService.onSignOutSuccess(undefined);
-            }
+          if (user.permissionNames.includes(&#x27;read_permission&#x27;)) {
+            this._permissionsService.repository.reloadAll();
           }
-        });
-      }
+        }
+      });
+    if (isPlatformBrowser(this._platformId)) {
+      this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result &#x3D;&gt; {
+        if (result &#x3D;&#x3D;&#x3D; true) {
+          if (isPlatformBrowser(this._platformId)) {
+            this._authModalService.onTokenError();
+          } else {
+            this._authModalService.onSignOutSuccess(undefined);
+          }
+        }
+      });
+    }
+    this._platform.ready().then(() &#x3D;&gt; {
       this._statusBar.styleDefault();
       this._splashScreen.hide();
     });
