@@ -836,7 +836,7 @@ export class GroupsListComponent extends BaseEntityListComponent&lt;Group&gt; im
     }
   };
   @Input()
-  title &#x3D; translate(&#x27;Users&#x27;);
+  title &#x3D; translate(&#x27;Groups&#x27;);
   constructor(
     modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
@@ -924,12 +924,12 @@ export class GroupsListComponent extends BaseEntityListComponent&lt;Group&gt; im
     if (!filter) {
       filter &#x3D; {};
     }
-    const usersListFiltersModal &#x3D; this._groupsListFiltersModalService.getCurrent();
-    if (usersListFiltersModal.sortField) {
-      filter[&#x27;sort&#x27;] &#x3D; usersListFiltersModal.sortField.id;
+    const groupsListFiltersModal &#x3D; this._groupsListFiltersModalService.getCurrent();
+    if (groupsListFiltersModal.sortField) {
+      filter[&#x27;sort&#x27;] &#x3D; groupsListFiltersModal.sortField.id;
     }
-    if (usersListFiltersModal.sortType) {
-      filter[&#x27;sort&#x27;] &#x3D; (usersListFiltersModal.sortType.id &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? &#x27;&#x27; : &#x27;-&#x27;) + filter[&#x27;sort&#x27;];
+    if (groupsListFiltersModal.sortType) {
+      filter[&#x27;sort&#x27;] &#x3D; (groupsListFiltersModal.sortType.id &#x3D;&#x3D;&#x3D; &#x27;asc&#x27; ? &#x27;&#x27; : &#x27;-&#x27;) + filter[&#x27;sort&#x27;];
     }
     super.onChangeFilter(filter);
   }
