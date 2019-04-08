@@ -1,3 +1,13 @@
+## [0.3.7](https://github.com/rucken/ionic/compare/0.3.6...0.3.7) (2019-04-08)
+
+
+### Bug Fixes
+
+* Change all texts "user" to "group" ([efc65b8](https://github.com/rucken/ionic/commit/efc65b8))
+* Update dependencies ([409cb98](https://github.com/rucken/ionic/commit/409cb98))
+
+
+
 ## [0.3.6](https://github.com/rucken/ionic/compare/0.3.5...0.3.6) (2019-03-25)
 
 

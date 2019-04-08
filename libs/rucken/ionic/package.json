@@ -1,6 +1,6 @@
 {
   "name": "@rucken/ionic",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -69,7 +69,7 @@
     "@angular/common": "~7.2.12",
     "@angular/core": "~7.2.12",
     "@ionic/angular": "4.2.0",
-    "@rucken/core": "^3.9.11"
+    "@rucken/core": "^3.9.12"
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",
