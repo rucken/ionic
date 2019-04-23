@@ -7,6 +7,9 @@ import { ENTITIES_PROVIDERS } from './config/providers';
 import { IonicAuthModalModule } from './modules/auth-modal/auth-modal.module';
 import { IonicModalsModule } from './modules/modals/modals.module';
 import { SERVICES_PROVIDERS } from './services/providers';
+import { HTTP } from '@ionic-native/http/ngx';
+import { NgxRemoteConfigService } from 'ngx-remote-config';
+import { NgxRemoteConfigIonicService } from './utils/ngx-remote-config.service';
 
 
 @NgModule({
@@ -22,6 +25,11 @@ import { SERVICES_PROVIDERS } from './services/providers';
     IonicModalsModule
   ],
   providers: [
+    HTTP,
+    {
+      provide: NgxRemoteConfigService,
+      useClass: NgxRemoteConfigIonicService
+    },
     {
       provide: LANGUAGES_ITEM_CONFIG_TOKEN,
       useValue: {

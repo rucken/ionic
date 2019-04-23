@@ -19,12 +19,18 @@ import { APP_ROUTES } from './app.routes';
 import { config } from './config/config';
 import { SharedModule } from './shared/shared.module';
 import { metaFactory } from './utils/meta-factory';
+import { NgxRemoteConfigModule } from 'ngx-remote-config';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     CommonModule,
     HttpClientModule,
+    NgxRemoteConfigModule.forRoot({
+      withoutIterceptor: !environment.production,
+      url: !environment.production ? undefined : environment.remoteConfig.url,
+      default: !environment.production ? undefined : environment.remoteConfig.default
+    }),
     SharedModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot(),

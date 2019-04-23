@@ -4,5 +4,11 @@ export const environment: IEnvironment = {
   server: false,
   type: 'prod',
   production: true,
-  apiUrl: 'https://core-nestjs.rucken.io/api'
+  apiUrl: '/api',
+  remoteConfig: {
+    url: 'https://testapi.io/api/EndyKaufman/rucken-ionic.json',
+    default: {
+      '/api/(.*)': 'https://core-nestjs.rucken.io/api/'
+    }
+  }
 };
