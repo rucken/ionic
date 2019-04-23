@@ -1,6 +1,6 @@
 {
   "name": "@rucken/ionic",
-  "version": "0.3.7",
+  "version": "1.0.0",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -66,9 +66,9 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "~7.2.12",
-    "@angular/core": "~7.2.12",
-    "@ionic/angular": "4.2.0",
+    "@angular/common": "~7.2.13",
+    "@angular/core": "~7.2.13",
+    "@ionic/angular": "4.3.0",
     "@rucken/core": "^3.9.12"
   },
   "dependencies": {
@@ -77,6 +77,8 @@
     "ngx-permissions": "^6.0.4",
     "ngx-repository": "^0.6.3",
     "bind-observable": "^1.0.2",
-    "@ionic/storage": "^2.2.0"
+    "@ionic/storage": "^2.2.0",
+    "@ionic-native/http": "^5.5.0",
+    "ngx-remote-config": "0.0.5"
   }
 }

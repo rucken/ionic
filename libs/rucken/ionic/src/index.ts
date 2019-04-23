@@ -44,3 +44,4 @@ export * from './lib/modules/storage/sqlite.storage';
 export * from './lib/services/groups.service';
 export * from './lib/services/permissions.service';
 export * from './lib/services/providers';
+export * from './lib/utils/ngx-remote-config.service';

@@ -1,3 +1,18 @@
 language: node_js
 node_js:
-  - "11"
+- '11'
+before_install:
+- chmod +x "./scripts/prepare-android-env.sh"
+- "./scripts/prepare-android-env.sh"
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: bash ./scripts/publish-gh-pages.sh
+  on:
+    branch: master
+env:
+  matrix:
+  - IONIC_VERSION="4.10.2" ANDROID_SDK_VERSION="4333796" ANDROID_HOME="/opt/android-sdk"
+    ANDROID_BUILD_TOOLS_VERSION="19.1.0" CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL="https://downloads.gradle.org/distributions/gradle-5.4-all.zip"
+  global:
+    secure: AF0JWCFL9SleNQhoAIIZYJJwNvFyKOrB01a0tJFUcrjg5KueZ4NB7r5UObFEgSnG9ApEgF/oWTOi96XaceYMyG5esZyS0vPT8SvGoO4mrhXDVw5Ornpan0hOTHH9jI5tqUfNeynjcm6ySgfZRbZ6Uw1aQn13cwDnDfZ+O9yWAuzpqBA/qE8+QdgNbWwjneRmJFiWQrFPNWEuC7kB2YOQ0aoA067avbwi/dZ87zbDROiMf15QmjNKP1fiX5WaWnw6huKuEBLZVTt1SwxK/TeHCvgbKsaUxwniYi5Bl5V3y5gmSaSFxHCvyjlrEuq/pkcoS7VXQVhWEdMf3FRz9nDpfHzgnaYWDj7YoHULSx0HO/rDhw/B9wkim4qB/IhPq0Lh9oeVeEsBGpiD7z1YWz+QHBKHFpl9K9h1xLMhQa4CgEMbtEVOWPYcvrqdYx52qZi9IwiRduLBGcIo1mLn39uTh0kAWLd+lzzyIP1TfCSoyL4xgSmIT4rMznggf1+xugzAMjFZ8l5YfZx10g6C8BMBKewL8t+21SIlFQ6jxJ8ksBsY57TpeQ/Bvze0MpW2ezsq0zYMAYBeJ9R30V6w7XaJNn8Ql0EuhWTehuGGTcXddAqkdgYKNqmuT9EihgSaM8QpNpp3CnmE9KPuJCCorqGuXi75zqDBQ4MFSHX8jVW5xQo=

@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/rucken/ionic/compare/0.3.7...1.0.0) (2019-04-23)
+
+
+### Bug Fixes
+
+* Update dependencies ([fbde9ec](https://github.com/rucken/ionic/commit/fbde9ec))
+
+
+### Features
+
+* Add support work over remote config ([9d4c133](https://github.com/rucken/ionic/commit/9d4c133))
+
+
+
 ## [0.3.7](https://github.com/rucken/ionic/compare/0.3.6...0.3.7) (2019-04-08)
 
 
