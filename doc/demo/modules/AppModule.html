@@ -393,12 +393,18 @@ import { APP_ROUTES } from &#x27;./app.routes&#x27;;
 import { config } from &#x27;./config/config&#x27;;
 import { SharedModule } from &#x27;./shared/shared.module&#x27;;
 import { metaFactory } from &#x27;./utils/meta-factory&#x27;;
+import { NgxRemoteConfigModule } from &#x27;ngx-remote-config&#x27;;
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     CommonModule,
     HttpClientModule,
+    NgxRemoteConfigModule.forRoot({
+      withoutIterceptor: !environment.production,
+      url: !environment.production ? undefined : environment.remoteConfig.url,
+      default: !environment.production ? undefined : environment.remoteConfig.default
+    }),
     SharedModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot(),

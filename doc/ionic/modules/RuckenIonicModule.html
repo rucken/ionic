@@ -220,6 +220,9 @@
                                     <a href="../injectables/IonicModalsService.html" >IonicModalsService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../injectables/NgxRemoteConfigIonicService.html" >NgxRemoteConfigIonicService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/PermissionsService.html" >PermissionsService</a>
                                 </li>
                                 <li class="link">
@@ -458,6 +461,9 @@
                                            <a href="../injectables/IonicModalsService.html" >IonicModalsService</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../injectables/NgxRemoteConfigIonicService.html" >NgxRemoteConfigIonicService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/PermissionsService.html" >PermissionsService</a>
                                        </li>
                                        <li class="link">
@@ -573,6 +579,9 @@ import { ENTITIES_PROVIDERS } from &#x27;./config/providers&#x27;;
 import { IonicAuthModalModule } from &#x27;./modules/auth-modal/auth-modal.module&#x27;;
 import { IonicModalsModule } from &#x27;./modules/modals/modals.module&#x27;;
 import { SERVICES_PROVIDERS } from &#x27;./services/providers&#x27;;
+import { HTTP } from &#x27;@ionic-native/http/ngx&#x27;;
+import { NgxRemoteConfigService } from &#x27;ngx-remote-config&#x27;;
+import { NgxRemoteConfigIonicService } from &#x27;./utils/ngx-remote-config.service&#x27;;
 
 
 @NgModule({
@@ -588,6 +597,11 @@ import { SERVICES_PROVIDERS } from &#x27;./services/providers&#x27;;
     IonicModalsModule
   ],
   providers: [
+    HTTP,
+    {
+      provide: NgxRemoteConfigService,
+      useClass: NgxRemoteConfigIonicService
+    },
     {
       provide: LANGUAGES_ITEM_CONFIG_TOKEN,
       useValue: {
