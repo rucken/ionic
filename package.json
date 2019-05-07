@@ -156,7 +156,7 @@
     "@capacitor/cli": "1.0.0-beta.19",
     "@ionic/ng-toolkit": "^1.1.0",
     "@ionic/schematics-angular": "^1.0.7",
-    "@nrwl/builders": "^7.8.1",
+    "@nrwl/builders": "^7.8.5",
     "@rucken/cli": "^4.0.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.6",
