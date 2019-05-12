@@ -6,7 +6,7 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Admin UI for Ionic4 with Angular7+ mobile application based on [Rucken](https://rucken.io) template
+Admin UI for [Ionic4](https://ionicframework.com/) with [Angular7+](https://angular.io) mobile application based on [Rucken](https://rucken.io) template
 
 ## Screenshots
 <p>
