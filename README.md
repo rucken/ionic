@@ -8,6 +8,13 @@
 
 Admin UI for Ionic4 with Angular7+ mobile application based on [Rucken](https://github.com/rucken) template
 
+## Screenshots
+<p>
+  <img src="https://rucken.io/assets/rucken-core/ionic/rucken-ionic-home-page.png" width="250" title="Home page">
+  <img src="https://rucken.io/assets/rucken-core/ionic/rucken-ionic-profile-page.png" width="250" title="Profile page">
+  <img src="https://rucken.io/assets/rucken-core/ionic/rucken-ionic-sign-in.png" width="250" title="Sign-in page">
+</p>
+
 ## Features
 
 - [Angular](https://angular.io/) - development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
