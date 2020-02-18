@@ -158,7 +158,7 @@
     "@ionic/schematics-angular": "^1.0.7",
     "@nrwl/builders": "^7.8.5",
     "@rucken/cli": "^4.1.3",
-    "@types/jasmine": "~3.3.12",
+    "@types/jasmine": "~3.5.5",
     "@types/jasminewd2": "~2.0.6",
     "@types/node": "~12.0.0",
     "codelyzer": "~5.0.1",
