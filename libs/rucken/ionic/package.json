@@ -79,6 +79,6 @@
     "bind-observable": "^1.0.2",
     "@ionic/storage": "^2.2.0",
     "@ionic-native/http": "^5.5.1",
-    "ngx-remote-config": "0.0.5"
+    "ngx-remote-config": "1.1.0"
   }
 }
