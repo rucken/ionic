@@ -75,7 +75,7 @@
     "@ngx-translate/core": "^11.0.1",
     "ngx-dynamic-form-builder": "^1.0.0",
     "ngx-permissions": "^6.0.4",
-    "ngx-repository": "^0.6.3",
+    "ngx-repository": "^0.7.0",
     "bind-observable": "^1.0.2",
     "@ionic/storage": "^2.2.0",
     "@ionic-native/http": "^5.5.1",
