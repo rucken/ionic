@@ -111,7 +111,7 @@
     "@angular/platform-browser": "~7.2.15",
     "@angular/platform-browser-dynamic": "~7.2.15",
     "@angular/router": "~7.2.15",
-    "@capacitor/android": "^1.0.0-beta.19",
+    "@capacitor/android": "^2.1.2",
     "@capacitor/core": "1.0.0-beta.19",
     "@ionic-native/core": "5.5.1",
     "@ionic-native/http": "^5.5.1",
