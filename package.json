@@ -137,7 +137,7 @@
     "ngx-bind-io": "^0.6.6",
     "ngx-cookie-service": "^2.1.0",
     "ngx-dynamic-form-builder": "^1.0.0",
-    "ngx-remote-config": "0.0.5",
+    "ngx-remote-config": "1.0.0",
     "ngx-repository": "^0.6.3",
     "object-path": "^0.11.4",
     "rxjs": "6.5.2",
