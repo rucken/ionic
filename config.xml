@@ -2,7 +2,7 @@
 <widget id="io.rucken.android.ionic" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Rucken: Ionic</name>
     <description>Admin UI for Ionic4 with Angular7+ mobile application based on Rucken template</description>
-    <author email="admin@site15.ru" href="http://rucken.io/">EndyKaufman</author>
+    <author email="admin@site15.ru" href="http://rucken.ru/">EndyKaufman</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

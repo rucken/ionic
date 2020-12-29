@@ -8,7 +8,7 @@ export const environment: IEnvironment = {
   remoteConfig: {
     url: 'https://testapi.io/api/EndyKaufman/rucken-ionic.json',
     default: {
-      '/api/(.*)': 'https://core-nestjs.rucken.io/api/'
+      '/api/(.*)': 'https://core-nestjs.rucken.ru/api/'
     }
   }
 };

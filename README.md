@@ -6,13 +6,13 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Admin UI for [Ionic4](https://ionicframework.com/) with [Angular7+](https://angular.io) mobile application based on [Rucken](https://rucken.io) template
+Admin UI for [Ionic4](https://ionicframework.com/) with [Angular7+](https://angular.io) mobile application based on [Rucken](https://rucken.ru) template
 
 ## Screenshots
 <p>
-  <img src="https://rucken.io/assets/rucken-core/ionic/rucken-ionic-home-page.png" width="250" title="Home page">
-  <img src="https://rucken.io/assets/rucken-core/ionic/rucken-ionic-profile-page.png" width="250" title="Profile page">
-  <img src="https://rucken.io/assets/rucken-core/ionic/rucken-ionic-sign-in.png" width="250" title="Sign-in page">
+  <img src="https://rucken.ru/assets/rucken-core/ionic/rucken-ionic-home-page.png" width="250" title="Home page">
+  <img src="https://rucken.ru/assets/rucken-core/ionic/rucken-ionic-profile-page.png" width="250" title="Profile page">
+  <img src="https://rucken.ru/assets/rucken-core/ionic/rucken-ionic-sign-in.png" width="250" title="Sign-in page">
 </p>
 
 ## Features
