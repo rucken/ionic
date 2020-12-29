@@ -138,7 +138,7 @@
     "ngx-cookie-service": "^2.1.0",
     "ngx-dynamic-form-builder": "^1.0.0",
     "ngx-remote-config": "0.0.5",
-    "ngx-repository": "^0.6.3",
+    "ngx-repository": "^0.7.0",
     "object-path": "^0.11.4",
     "rxjs": "6.5.2",
     "zone.js": "^0.9.1"
